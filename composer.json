@@ -1,0 +1,26 @@
+{
+    "name": "rotexsoft/testatlasorm",
+    "type": "project",
+    "minimum-stability": "stable",
+    "require": {
+        "atlas/orm": "~3.0",
+        "robmorgan/phinx": "^0.13.1"
+    },
+    "require-dev": {
+        "atlas/cli": "~2.0"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --coverage-text",
+        "rector": "vendor/bin/rector process src --dry-run -vvv",
+        "psalm": "vendor/bin/psalm",
+        "qa": "composer test && composer rector && composer psalm",
+        "post-install-cmd": [
+            "@php -r \"file_exists('./phinx.php') || copy('./phinx-dist.php', './phinx.php');\"",
+            "@php -r \"echo 'please edit phinx.php'.PHP_EOL;\""
+        ],
+        "post-update-cmd": [
+            "@php -r \"file_exists('./phinx.php') || copy('./phinx-dist.php', './phinx.php');\"",
+            "@php -r \"echo 'please edit phinx.php'.PHP_EOL;\""
+        ]
+    }
+}
