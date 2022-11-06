@@ -43,7 +43,12 @@ final class AddCommentsTable extends AbstractMigration
                             'comment'=>'First Comment on First Post',
                             'post_id'=>1,
                             'commenter_id'=>1,
-                        ]
+                        ],
+                        [
+                            'comment'=>'First Comment on Second Post',
+                            'post_id'=>2,
+                            'commenter_id'=>2,
+                        ],
                     ])
                   ->save();
         }

@@ -9,6 +9,9 @@
     "require-dev": {
         "atlas/cli": "~2.0"
     },
+    "autoload": {
+        "classmap": ["atlas-orm-files/", "sample-code/"]
+    },
     "scripts": {
         "test": "vendor/bin/phpunit --coverage-text",
         "rector": "vendor/bin/rector process src --dry-run -vvv",

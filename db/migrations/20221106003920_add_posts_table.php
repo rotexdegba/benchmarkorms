@@ -43,7 +43,12 @@ final class AddPostsTable extends AbstractMigration
                             'body'=>'First Post',
                             'creators_userid'=>1,
                             'updaters_userid'=>1,
-                        ]
+                        ],
+                        [
+                            'body'=>'Second Post',
+                            'creators_userid'=>2,
+                            'updaters_userid'=>2,
+                        ],
                     ])
                   ->save();
         }

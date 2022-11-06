@@ -48,7 +48,11 @@ final class AddUsersTable extends AbstractMigration
                         [
                             'username'=>'aadegbam',
                             'password'=>'aadegbam',
-                        ]
+                        ],
+                        [
+                            'username'=>'jblow',
+                            'password'=>'jblow',
+                        ],
                     ])
                   ->save();
         }
