@@ -16,10 +16,12 @@
         "qa": "composer test && composer rector && composer psalm",
         "post-install-cmd": [
             "@php -r \"file_exists('./phinx.php') || copy('./phinx-dist.php', './phinx.php');\"",
+            "@php -r \"file_exists('./atlas.php') || copy('./atlas-dist.php', './atlas.php');\"",
             "@php -r \"echo 'please edit phinx.php'.PHP_EOL;\""
         ],
         "post-update-cmd": [
             "@php -r \"file_exists('./phinx.php') || copy('./phinx-dist.php', './phinx.php');\"",
+            "@php -r \"file_exists('./atlas.php') || copy('./atlas-dist.php', './atlas.php');\"",
             "@php -r \"echo 'please edit phinx.php'.PHP_EOL;\""
         ]
     }
