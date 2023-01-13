@@ -28,3 +28,4 @@ phpunit.xml
 
 phinx.php
 atlas.php
+test.php

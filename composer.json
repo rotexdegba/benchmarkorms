@@ -1,16 +1,18 @@
 {
     "name": "rotexsoft/testatlasorm",
     "type": "project",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "atlas/orm": "~3.0",
-        "robmorgan/phinx": "^0.13.1"
+        "robmorgan/phinx": "^0.13.1",
+        "rotexsoft/leanorm": "dev-master"
     },
     "require-dev": {
-        "atlas/cli": "~2.0"
+        "atlas/cli": "~2.0",
+        "rotexsoft/leanorm-cli": "dev-main"
     },
     "autoload": {
-        "classmap": ["atlas-orm-files/", "sample-code/"]
+        "classmap": ["atlas-orm-files/", "lean-orm-files/", "sample-code/"]
     },
     "scripts": {
         "test": "vendor/bin/phpunit --coverage-text",
