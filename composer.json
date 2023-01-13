@@ -12,7 +12,7 @@
         "rotexsoft/leanorm-cli": "dev-main"
     },
     "autoload": {
-        "classmap": ["atlas-orm-files/", "lean-orm-files/", "sample-code/"]
+        "classmap": ["atlas-orm-files/", "lean-orm-files/"]
     },
     "scripts": {
         "test": "vendor/bin/phpunit --coverage-text",
