@@ -5,7 +5,10 @@
     "require": {
         "atlas/orm": "~3.0",
         "robmorgan/phinx": "^0.13.1",
-        "rotexsoft/leanorm": "dev-master"
+        "rotexsoft/leanorm": "dev-master",
+        "symfony/polyfill-php80": "^1.27.0",
+        "symfony/polyfill-php81": "^1.27.0",
+        "symfony/polyfill-php82": "^1.27.0"
     },
     "require-dev": {
         "atlas/cli": "~2.0",
