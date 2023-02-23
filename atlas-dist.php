@@ -7,4 +7,5 @@ return [
     ],
     'namespace' => 'TestAtlasOrm\\Db',
     'directory' => './atlas-orm-files',
+    'store_table_col_metadata_array_in_file' => true,
 ];
