@@ -29,5 +29,7 @@ phpunit.xml
 phinx.php
 atlas.php
 test.php
+pdo.php
+leanorm-cli-config.php
 
 db/blog.sqlite

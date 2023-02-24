@@ -20,8 +20,7 @@
     },
     "autoload": {
         "classmap": [
-            "atlas-orm-files/", 
-            "lean-orm-files/"
+            "benchmark-code/"
         ]
     },
     "scripts": {
@@ -31,13 +30,17 @@
         "qa": "composer test && composer rector && composer psalm",
         "post-install-cmd": [
             "@php -r \"file_exists('./phinx.php') || copy('./phinx-dist.php', './phinx.php');\"",
+            "@php -r \"file_exists('./pdo.php') || copy('./pdo-dist.php', './pdo.php');\"",
             "@php -r \"file_exists('./atlas.php') || copy('./atlas-dist.php', './atlas.php');\"",
-            "@php -r \"echo 'please edit phinx.php'.PHP_EOL;\""
+            "@php -r \"file_exists('./leanorm-cli-config.php') || copy('./leanorm-cli-config-dist.php', './leanorm-cli-config.php');\"",
+            "@php -r \"echo 'please edit phinx.php'.PHP_EOL . 'please edit pdo.php'.PHP_EOL;\""
         ],
         "post-update-cmd": [
             "@php -r \"file_exists('./phinx.php') || copy('./phinx-dist.php', './phinx.php');\"",
+            "@php -r \"file_exists('./pdo.php') || copy('./pdo-dist.php', './pdo.php');\"",
             "@php -r \"file_exists('./atlas.php') || copy('./atlas-dist.php', './atlas.php');\"",
-            "@php -r \"echo 'please edit phinx.php'.PHP_EOL;\""
+            "@php -r \"file_exists('./leanorm-cli-config.php') || copy('./leanorm-cli-config-dist.php', './leanorm-cli-config.php');\"",
+            "@php -r \"echo 'please edit phinx.php'.PHP_EOL . 'please edit pdo.php'.PHP_EOL;\""
         ]
     },
     "config": {

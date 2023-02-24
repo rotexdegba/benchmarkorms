@@ -19,3 +19,15 @@ The tables are populated with the following amount of records when the migration
 - tags will have 10,000 records
 
 The migrations take about 1 to 2 minutes to run.
+
+# Installation
+
+- Clone this repository
+
+- CD into the directory you cloned it to
+
+- Install composer dependencies
+>composer install
+
+- Run migrations to setup the db (it will default to sqlite if you haven't modified **phinx.php**)
+>./vendor/bin/phinx --verbose migrate

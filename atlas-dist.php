@@ -1,11 +1,12 @@
-<?php
+<?php // config file for Atlas
+$pdo_opts = include __DIR__ . DIRECTORY_SEPARATOR . 'pdo.php';
+
 return [
-    'pdo' => [
-        'mysql:dbname=blog;host=localhost',
-        'username',
-        'password',
-    ],
-    'namespace' => 'TestAtlasOrm\\Db',
-    'directory' => './atlas-orm-files',
-    'store_table_col_metadata_array_in_file' => true,
+    'pdo' => $pdo_opts,
+    'namespace' => 'Benchmark\\AtlasOrm\\Blog',
+    'directory' => './benchmark-code/atlas-orm-files',
+    'transform' => new \Atlas\Cli\Transform([
+        'phinxlog' => null,
+        // use a value of null to skip the table entirely
+    ]),
 ];
