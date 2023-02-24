@@ -1,21 +1,27 @@
 {
-    "name": "rotexsoft/testatlasorm",
+    "name": "rotexsoft/benchmarkorms",
     "type": "project",
     "minimum-stability": "dev",
     "require": {
-        "atlas/orm": "~3.0",
+        "atlas/orm": "^3.1.1",
+        "doctrine/orm": "^2.14.1",
+        "illuminate/database": "^v8.83.27",
+        "gabordemooij/redbean": "^v5.7.3",
+        "rotexsoft/leanorm": "^2.2.2",
         "robmorgan/phinx": "^0.13.1",
-        "rotexsoft/leanorm": "dev-master",
         "symfony/polyfill-php80": "^1.27.0",
         "symfony/polyfill-php81": "^1.27.0",
         "symfony/polyfill-php82": "^1.27.0"
     },
     "require-dev": {
-        "atlas/cli": "~2.0",
+        "atlas/cli": "^2.2.2",
         "rotexsoft/leanorm-cli": "dev-main"
     },
     "autoload": {
-        "classmap": ["atlas-orm-files/", "lean-orm-files/"]
+        "classmap": [
+            "atlas-orm-files/", 
+            "lean-orm-files/"
+        ]
     },
     "scripts": {
         "test": "vendor/bin/phpunit --coverage-text",
@@ -32,5 +38,10 @@
             "@php -r \"file_exists('./atlas.php') || copy('./atlas-dist.php', './atlas.php');\"",
             "@php -r \"echo 'please edit phinx.php'.PHP_EOL;\""
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     }
 }
