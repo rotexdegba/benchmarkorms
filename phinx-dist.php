@@ -1,5 +1,6 @@
 <?php
-
+// Read here https://book.cakephp.org/phinx/0/en/configuration.html# for details on how to 
+// configure this file.
 return
 [
     'paths' => [
@@ -18,14 +19,19 @@ return
             'port' => '3306',
             'charset' => 'utf8',
         ],
+//        'development' => [
+//            'adapter' => 'mysql',
+//            'host' => 'localhost',
+//            'name' => 'blog',
+//            'user' => 'root',
+//            'pass' => '',
+//            'port' => '3306',
+//            'charset' => 'utf8',
+//        ],
         'development' => [
-            'adapter' => 'mysql',
-            'host' => 'localhost',
-            'name' => 'blog',
-            'user' => 'root',
-            'pass' => '',
-            'port' => '3306',
-            'charset' => 'utf8',
+            'adapter' => 'sqlite',
+            'name' => __DIR__ . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'blog',
+            'suffix' => 'sqlite',
         ],
         'testing' => [
             'adapter' => 'mysql',

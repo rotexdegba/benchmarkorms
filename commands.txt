@@ -1,0 +1,7 @@
+./vendor/bin/phpbench
+
+./vendor/bin/phinx --verbose migrate
+./vendor/bin/phinx --verbose rollback
+
+# rollback all changes
+./vendor/bin/phinx --verbose rollback -t 0
