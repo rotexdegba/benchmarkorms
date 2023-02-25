@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Benchmark\LeanOrm\Blog\Authors;
 
+use Benchmark\LeanOrm\Blog\Posts\{PostRecord, PostsCollection, PostsModel};
+
 /**
  * @method AuthorsCollection createNewCollection(\GDAO\Model\RecordInterface ...$list_of_records)
  * @method AuthorRecord createNewRecord(array $col_names_n_vals = [])
@@ -39,6 +41,17 @@ class AuthorsModel extends \LeanOrm\Model {
         parent::__construct($dsn, $username, $passwd, $pdo_driver_opts, $primary_col_name, $table_name);
         
         // Define relationships below here
+        $this->hasMany(
+            'posts',
+            'author_id',
+            'posts',
+            'author_id',
+            'post_id',
+            PostsModel::class,
+            PostRecord::class,
+            PostsCollection::class
+        );
+        
         
         //$this->belongsTo(...)
         //$this->hasMany(...);
