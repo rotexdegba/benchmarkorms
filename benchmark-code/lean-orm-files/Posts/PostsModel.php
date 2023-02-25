@@ -62,15 +62,8 @@ class PostsModel extends \LeanOrm\Model {
                 AuthorRecord::class, // Foreign Record Class, if blank, defaults to the Record class 
                                      // set in the foreign Model Class when related data is fetched
 
-                AuthorsCollection::class, // Foreign Collection Class, if blank, defaults to the Collection class 
-                                          // set in the foreign Model Class when related data is fetched
-
-                function(\Aura\SqlQuery\Common\Select $selectObj): \Aura\SqlQuery\Common\Select {
-                    
-                    $selectObj->orderBy(['author_id']);
-
-                    return $selectObj;
-                } // Optional callback to manipulate query object used to fetch related data
+                AuthorsCollection::class // Foreign Collection Class, if blank, defaults to the Collection class 
+                                         // set in the foreign Model Class when related data is fetched
             )
             ->hasOne(
                 'summary',    // The property or field name via which related data will be 
@@ -89,15 +82,8 @@ class PostsModel extends \LeanOrm\Model {
                 SummaryRecord::class,  // Foreign Record Class, if blank, defaults to the Record class 
                                        // set in the foreign Model Class when related data is fetched
 
-                SummariesCollection::class, // Foreign Collection Class, if blank, defaults to the Collection class 
-                                            // set in the foreign Model Class when related data is fetched
-
-                function(\Aura\SqlQuery\Common\Select $selectObj): \Aura\SqlQuery\Common\Select {
-                    
-                    $selectObj->orderBy(['summary_id']);
-
-                    return $selectObj;
-                } // Optional callback to manipulate query object used to fetch related data
+                SummariesCollection::class // Foreign Collection Class, if blank, defaults to the Collection class 
+                                           // set in the foreign Model Class when related data is fetched
             )
             ->hasMany(
                 'comments', // The property or field name via which related data will be 
@@ -116,15 +102,8 @@ class PostsModel extends \LeanOrm\Model {
                 CommentRecord::class, // Foreign Record Class, if blank, defaults to the Record class 
                                       // set in the foreign Model Class when related data is fetched
 
-                CommentsCollection::class, // Foreign Collection Class, if blank, defaults to the Collection class 
-                                           // set in the foreign Model Class when related data is fetched
-
-                function(\Aura\SqlQuery\Common\Select $selectObj): \Aura\SqlQuery\Common\Select {
-                    
-                    $selectObj->orderBy(['comment_id']);
-
-                    return $selectObj;
-                } // Optional callback to manipulate query object used to fetch related data
+                CommentsCollection::class // Foreign Collection Class, if blank, defaults to the Collection class 
+                                          // set in the foreign Model Class when related data is fetched
             )
             ->hasManyThrough(
                 'tags',         // The property or field name via which related data will be 
@@ -153,15 +132,8 @@ class PostsModel extends \LeanOrm\Model {
                 TagRecord::class, // Foreign Record Class, if blank, defaults to the Record class 
                                   // set in the foreign Model Class when related data is fetched
 
-                TagsCollection::class, // Foreign Collection Class, if blank, defaults to the Collection class 
-                                       // set in the foreign Model Class when related data is fetched
-
-                function(\Aura\SqlQuery\Common\Select $selectObj): \Aura\SqlQuery\Common\Select {
-
-                    $selectObj->orderBy(['tags.tag_id']);
-
-                    return $selectObj;
-                } // Optional callback to manipulate query object used to fetch related data
+                TagsCollection::class // Foreign Collection Class, if blank, defaults to the Collection class 
+                                      // set in the foreign Model Class when related data is fetched
             );
     }
 }

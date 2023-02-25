@@ -19,7 +19,7 @@ final class AddSummariesTable extends AbstractMigration
     public function change(): void
     {
         // create the table
-        $table = $this->table('summaries', ['id' => 'summary_id', ]);
+        $table = $this->table('summaries', ['id' => 'summary_id', 'signed' => true, ]);
         $table->addColumn('post_id', 'integer', ['null' => false])
               ->addColumn('view_count', 'integer', ['null' => false])
               ->addColumn('comment_count', 'integer', ['null' => false])

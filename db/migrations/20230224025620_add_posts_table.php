@@ -19,7 +19,7 @@ final class AddPostsTable extends AbstractMigration
     public function change(): void
     {
         // create the table
-        $table = $this->table('posts', ['id' => 'post_id', ]);
+        $table = $this->table('posts', ['id' => 'post_id', 'signed' => true, ]);
         $table->addColumn('author_id', 'integer', ['null' => false])
               ->addColumn('datetime', 'timestamp', [ 'null'=>true, 'default'=>'CURRENT_TIMESTAMP' ] )
               ->addColumn('title', 'string', [ 'limit'=>255, 'null'=>false ] )
@@ -53,7 +53,7 @@ final class AddPostsTable extends AbstractMigration
 
                     $data[] = [ 
                         'author_id' => random_int(1, 10_000),
-                        'title' => $faker->text(255) . "{$i}{$j}",
+                        'title' => $faker->text(200) . "{$i}{$j}",
                         'body' => $faker->text(255) . "{$i}{$j}",
                     ];
                 }

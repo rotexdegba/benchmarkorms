@@ -19,7 +19,7 @@ final class AddAuthorsTable extends AbstractMigration
     public function change(): void
     {
         // create the table
-        $table = $this->table('authors', ['id' => 'author_id', ]);
+        $table = $this->table('authors', ['id' => 'author_id', 'signed' => true, ]);
         $table->addColumn('name', 'string', [ 'limit'=>255, 'null'=>false ] )
                 
               ->addColumn('m_timestamp', 'timestamp', [ 'null'=>false, 'default'=>'CURRENT_TIMESTAMP' ] )

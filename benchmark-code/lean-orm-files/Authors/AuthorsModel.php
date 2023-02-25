@@ -52,7 +52,6 @@ class AuthorsModel extends \LeanOrm\Model {
             PostsCollection::class
         );
         
-        
         //$this->belongsTo(...)
         //$this->hasMany(...);
         //$this->hasManyThrough(...);

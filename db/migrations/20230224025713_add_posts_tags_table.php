@@ -19,7 +19,7 @@ final class AddPostsTagsTable extends AbstractMigration
     public function change(): void
     {
         // create the table
-        $table = $this->table('posts_tags', ['id' => 'posts_tags_id', ]);
+        $table = $this->table('posts_tags', ['id' => 'posts_tags_id', 'signed' => true, ]);
         $table->addColumn('post_id', 'integer', ['null' => false])
               ->addColumn('tag_id', 'integer', ['null' => false])
                 

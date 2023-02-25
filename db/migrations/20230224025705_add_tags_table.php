@@ -19,7 +19,7 @@ final class AddTagsTable extends AbstractMigration
     public function change(): void
     {
         // create the table
-        $table = $this->table('tags', ['id' => 'tag_id', ]);
+        $table = $this->table('tags', ['id' => 'tag_id', 'signed' => true, ]);
         $table->addColumn('name', 'string', [ 'limit'=>255, 'null'=>false ] )
             
               ->addColumn('m_timestamp', 'timestamp', [ 'null'=>false, 'default'=>'CURRENT_TIMESTAMP' ] )
