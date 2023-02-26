@@ -32,7 +32,7 @@ class PostComposerInstallOrUpdateHandler {
             
             $was_any_file_copied = true;
             
-            echo( "Trying to copy `{$from}` to `{$to}` ...." );
+            echo( "Trying to copy `{$from}` to `{$to}` ....".PHP_EOL );
 
             if( copy($from, $to) ) {
                 
@@ -44,10 +44,10 @@ class PostComposerInstallOrUpdateHandler {
                 echo( "Could not copy `{$from}` to `{$to}`!".PHP_EOL );
             }
             
+            echo PHP_EOL;
+            
             sleep(1);
         }
-        
-        echo PHP_EOL;
         
         if($was_any_file_copied) {
             
