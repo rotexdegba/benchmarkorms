@@ -47,7 +47,7 @@ class LeanOrmHasManyOrHasManyThroughRunner {
                 $i = 1;
 
                 do {
-                    $recordSet = $lean->fetchRecordsIntoArray(
+                    $recordSet = $lean->fetchRecordsIntoCollection(
                         $lean->getSelect()
                              ->limit($limit)
                              ->offset($offset)
@@ -58,6 +58,7 @@ class LeanOrmHasManyOrHasManyThroughRunner {
                     foreach ($recordSet as $record) {
 
                         $name = $record[$property_name];
+                        $count = $record->$relation_name->count();
                         //var_dump("{$name} {$i}");
                         //var_dump("{$name} {$i} with {$record->$relation_name->count()} {$relation_name}");
                         $i++;

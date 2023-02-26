@@ -14,7 +14,8 @@
         "phpbench/phpbench": "^1.2",
         "fakerphp/faker": "^1.21",
         "devster/ubench": "^2.1",
-        "rotexsoft/versatile-collections": "^5.2"
+        "rotexsoft/versatile-collections": "^5.2",
+        "illuminate/events": "^8.83"
     },
     "require-dev": {
         "atlas/cli": "^2.2.2",
@@ -31,18 +32,10 @@
         "psalm": "vendor/bin/psalm",
         "qa": "composer test && composer rector && composer psalm",
         "post-install-cmd": [
-            "@php -r \"file_exists('./phinx.php') || copy('./phinx-dist.php', './phinx.php');\"",
-            "@php -r \"file_exists('./pdo.php') || copy('./pdo-dist.php', './pdo.php');\"",
-            "@php -r \"file_exists('./atlas.php') || copy('./atlas-dist.php', './atlas.php');\"",
-            "@php -r \"file_exists('./leanorm-cli-config.php') || copy('./leanorm-cli-config-dist.php', './leanorm-cli-config.php');\"",
-            "@php -r \"echo 'please edit phinx.php'.PHP_EOL . 'please edit pdo.php'.PHP_EOL;\""
+            "\\Rotexsoft\\PhpOrmBenchmarks\\PostComposerInstallOrUpdateHandler::exec"
         ],
         "post-update-cmd": [
-            "@php -r \"file_exists('./phinx.php') || copy('./phinx-dist.php', './phinx.php');\"",
-            "@php -r \"file_exists('./pdo.php') || copy('./pdo-dist.php', './pdo.php');\"",
-            "@php -r \"file_exists('./atlas.php') || copy('./atlas-dist.php', './atlas.php');\"",
-            "@php -r \"file_exists('./leanorm-cli-config.php') || copy('./leanorm-cli-config-dist.php', './leanorm-cli-config.php');\"",
-            "@php -r \"echo 'please edit phinx.php'.PHP_EOL . 'please edit pdo.php'.PHP_EOL;\""
+            "\\Rotexsoft\\PhpOrmBenchmarks\\PostComposerInstallOrUpdateHandler::exec"
         ]
     },
     "config": {

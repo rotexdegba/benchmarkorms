@@ -31,5 +31,6 @@ atlas.php
 test.php
 pdo.php
 leanorm-cli-config.php
+eloquent-config.php
 
 db/blog.sqlite

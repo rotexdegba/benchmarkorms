@@ -1,4 +1,7 @@
-# ORMS to Benchmark
+# PHP ORM Benchmarks
+
+This repository is designed to benchmark the performance of various PHP ORM packages.
+
 - https://github.com/atlasphp/Atlas.Orm
 - https://www.doctrine-project.org/
 - https://github.com/illuminate/database
@@ -8,6 +11,24 @@
 Benchmarking is done using the schema below:
 
 ![Blog Schema](blog-db.png)
+
+- An author has many posts
+- A post belongs to an author
+
+- A post has many comments
+- A comment belongs to a post
+
+- A post has many posts_tags
+- A post_tag belongs to a post
+
+- A post has one summary
+- A summary belongs to a post
+
+- A post has many tags through posts_tags
+- A tag has many posts through posts_tags
+
+- A tag has many posts_tags
+- A post_tag belongs to a tag
 
 The tables are populated with the following amount of records when the migrations are successfully executed:
 

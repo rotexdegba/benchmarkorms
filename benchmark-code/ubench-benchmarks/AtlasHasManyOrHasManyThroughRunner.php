@@ -62,6 +62,7 @@ class AtlasHasManyOrHasManyThroughRunner {
                     foreach ($recordSet as $record) {
 
                         $val = $record->$property_name;
+                        $count = $record->$relation_name->count();
                         //var_dump("{$val} {$i}");
                         //var_dump("{$val} {$i} with {$record->$relation_name->count()} {$relation_name}");
                         $i++;
