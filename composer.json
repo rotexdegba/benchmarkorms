@@ -5,6 +5,7 @@
         "atlas/orm": "^3.1.1",
         "doctrine/orm": "^2.14.1",
         "illuminate/database": "^v8.83.27",
+        "illuminate/events": "^8.83",
         "gabordemooij/redbean": "^v5.7.3",
         "rotexsoft/leanorm": "^2.2.2",
         "robmorgan/phinx": "^0.13.1",
@@ -14,8 +15,7 @@
         "phpbench/phpbench": "^1.2",
         "fakerphp/faker": "^1.21",
         "devster/ubench": "^2.1",
-        "rotexsoft/versatile-collections": "^5.2",
-        "illuminate/events": "^8.83"
+        "rotexsoft/versatile-collections": "^5.2"
     },
     "require-dev": {
         "atlas/cli": "^2.2.2",
