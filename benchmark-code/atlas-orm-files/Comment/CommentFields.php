@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\Comment;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Comment;
 
 /**
  * @property mixed $comment_id INTEGER NOT NULL

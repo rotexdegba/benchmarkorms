@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Authors;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Authors;
 
 /**
  * @method AuthorsModel getModel()

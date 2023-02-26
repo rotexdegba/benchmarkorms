@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Comments;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Comments;
 
-use Benchmark\LeanOrm\Blog\Posts\PostsModel;
+use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Posts\PostsModel;
 
 /**
  * @method CommentsCollection createNewCollection(\GDAO\Model\RecordInterface ...$list_of_records)

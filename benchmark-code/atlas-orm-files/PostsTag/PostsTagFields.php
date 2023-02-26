@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\PostsTag;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\PostsTag;
 
 /**
  * @property mixed $posts_tags_id INTEGER NOT NULL

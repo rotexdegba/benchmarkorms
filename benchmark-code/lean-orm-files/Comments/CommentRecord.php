@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Comments;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Comments;
 
 /**
  * @property mixed $comment_id integer NOT NULL

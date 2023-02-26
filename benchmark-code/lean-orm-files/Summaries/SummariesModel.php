@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Summaries;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Summaries;
 
 /**
  * @method SummariesCollection createNewCollection(\GDAO\Model\RecordInterface ...$list_of_records)
@@ -51,7 +51,7 @@ class SummariesModel extends \LeanOrm\Model {
 
             'post_id', // Primary key column in foreign Model's db table (i.e. posts table)
 
-            \Benchmark\LeanOrm\Blog\Posts\PostsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+            \Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Posts\PostsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
         );
         
         //$this->belongsTo(...)

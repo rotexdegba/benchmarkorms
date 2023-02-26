@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\Comment;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Comment;
 
 use Atlas\Mapper\MapperRelationships;
-use Benchmark\AtlasOrm\Blog\Post\Post;
+use Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Post\Post;
 
 class CommentRelationships extends MapperRelationships
 {

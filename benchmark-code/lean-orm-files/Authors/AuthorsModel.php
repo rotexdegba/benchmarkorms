@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Authors;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Authors;
 
-use Benchmark\LeanOrm\Blog\Posts\PostsModel;
+use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Posts\PostsModel;
 
 /**
  * @method AuthorsCollection createNewCollection(\GDAO\Model\RecordInterface ...$list_of_records)

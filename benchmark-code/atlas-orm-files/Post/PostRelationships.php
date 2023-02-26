@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\Post;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Post;
 
 use Atlas\Mapper\MapperRelationships;
-use Benchmark\AtlasOrm\Blog\Author\Author;
-use Benchmark\AtlasOrm\Blog\Summary\Summary;
-use Benchmark\AtlasOrm\Blog\Comment\Comment;
-use Benchmark\AtlasOrm\Blog\PostsTag\PostsTag;
-use Benchmark\AtlasOrm\Blog\Tag\Tag;
+use Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Author\Author;
+use Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Summary\Summary;
+use Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Comment\Comment;
+use Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\PostsTag\PostsTag;
+use Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Tag\Tag;
 
 class PostRelationships extends MapperRelationships
 {

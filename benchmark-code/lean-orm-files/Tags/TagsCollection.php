@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Tags;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Tags;
 
 /**
  * @method TagsModel getModel()

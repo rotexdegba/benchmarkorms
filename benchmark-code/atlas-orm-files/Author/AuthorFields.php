@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\Author;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Author;
 
 /**
  * @property mixed $author_id INTEGER NOT NULL

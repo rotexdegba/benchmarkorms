@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\Tag;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Tag;
 
 /**
  * @property mixed $tag_id INTEGER NOT NULL

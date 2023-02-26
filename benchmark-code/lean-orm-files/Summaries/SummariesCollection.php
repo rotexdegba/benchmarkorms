@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Summaries;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Summaries;
 
 /**
  * @method SummariesModel getModel()

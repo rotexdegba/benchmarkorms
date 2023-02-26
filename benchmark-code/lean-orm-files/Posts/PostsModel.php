@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Posts;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Posts;
 
-use Benchmark\LeanOrm\Blog\Authors\{AuthorRecord, AuthorsModel, AuthorsCollection};
-use Benchmark\LeanOrm\Blog\Comments\{CommentRecord, CommentsModel, CommentsCollection};
-use Benchmark\LeanOrm\Blog\Summaries\{SummaryRecord, SummariesModel, SummariesCollection};
-use Benchmark\LeanOrm\Blog\Tags\{TagRecord, TagsModel, TagsCollection};
-use Benchmark\LeanOrm\Blog\PostsTags\PostsTagsModel;
+use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Authors\{AuthorRecord, AuthorsModel, AuthorsCollection};
+use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Comments\{CommentRecord, CommentsModel, CommentsCollection};
+use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Summaries\{SummaryRecord, SummariesModel, SummariesCollection};
+use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Tags\{TagRecord, TagsModel, TagsCollection};
+use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\PostsTags\PostsTagsModel;
 
 /**
  * @method PostsCollection createNewCollection(\GDAO\Model\RecordInterface ...$list_of_records)

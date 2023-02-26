@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Authors;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Authors;
 
 /**
  * @property mixed $author_id integer NOT NULL

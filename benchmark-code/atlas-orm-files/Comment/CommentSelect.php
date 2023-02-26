@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\Comment;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Comment;
 
 use Atlas\Mapper\MapperSelect;
 

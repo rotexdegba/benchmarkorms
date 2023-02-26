@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Summaries;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Summaries;
 
 /**
  * @property mixed $summary_id integer NOT NULL

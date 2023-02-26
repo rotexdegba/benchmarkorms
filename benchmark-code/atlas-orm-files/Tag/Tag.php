@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\Tag;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Tag;
 
 use Atlas\Mapper\Mapper;
 use Atlas\Table\Row;

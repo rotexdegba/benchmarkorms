@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\Author;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Author;
 
 use Atlas\Mapper\MapperRelationships;
-use Benchmark\AtlasOrm\Blog\Post\Post;
+use Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Post\Post;
 
 class AuthorRelationships extends MapperRelationships
 {

@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace Benchmark\AtlasOrm\Blog\Author;
+namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Author;
 
 use Atlas\Table\Row;
 

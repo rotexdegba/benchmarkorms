@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Benchmark\LeanOrm\Blog\Tags;
+namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Tags;
 
 /**
  * @method TagsCollection createNewCollection(\GDAO\Model\RecordInterface ...$list_of_records)
@@ -51,7 +51,7 @@ class TagsModel extends \LeanOrm\Model {
 
                 'posts_tags_id', // Primary key column in foreign Model's db table (i.e. posts_tags table)
 
-                \Benchmark\LeanOrm\Blog\PostsTags\PostsTagsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+                \Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\PostsTags\PostsTagsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
             )
             ->hasManyThrough(
                 'posts',         // The property or field name via which related data will be 
@@ -75,7 +75,7 @@ class TagsModel extends \LeanOrm\Model {
                 
                 'post_id',       // Primary key column in foreign Model's db table (i.e. posts table)
 
-                \Benchmark\LeanOrm\Blog\Posts\PostsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+                \Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Posts\PostsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
             );
         
         //$this->belongsTo(...)
