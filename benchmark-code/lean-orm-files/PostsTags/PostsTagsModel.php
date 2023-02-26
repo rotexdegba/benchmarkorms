@@ -40,6 +40,36 @@ class PostsTagsModel extends \LeanOrm\Model {
         
         // Define relationships below here
         
+        $this->belongsTo(
+            'post',      // The property or field name via which related data will be 
+                         // accessed on each post record or on each array of posts table data
+
+            'post_id', // Foreign key column in this Model's db table (i.e. posts_tags table)
+
+            'posts',   // Foreign db table from which related data will be fetched
+
+            'post_id', // Foreign key column in foreign Model's db table (i.e. posts table)
+
+            'post_id', // Primary key column in foreign Model's db table (i.e. posts table)
+
+            \Benchmark\LeanOrm\Blog\Posts\PostsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+        );
+        
+        $this->belongsTo(
+            'tag',      // The property or field name via which related data will be 
+                         // accessed on each post record or on each array of posts table data
+
+            'tag_id', // Foreign key column in this Model's db table (i.e. posts_tags table)
+
+            'tags',   // Foreign db table from which related data will be fetched
+
+            'tag_id', // Foreign key column in foreign Model's db table (i.e. tags table)
+
+            'tag_id', // Primary key column in foreign Model's db table (i.e. tags table)
+
+            \Benchmark\LeanOrm\Blog\Tags\TagsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+        );
+        
         //$this->belongsTo(...)
         //$this->hasMany(...);
         //$this->hasManyThrough(...);

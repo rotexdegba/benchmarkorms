@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Benchmark\LeanOrm\Blog\Comments;
 
+use Benchmark\LeanOrm\Blog\Posts\PostsModel;
+
 /**
  * @method CommentsCollection createNewCollection(\GDAO\Model\RecordInterface ...$list_of_records)
  * @method CommentRecord createNewRecord(array $col_names_n_vals = [])
@@ -40,7 +42,20 @@ class CommentsModel extends \LeanOrm\Model {
         
         // Define relationships below here
         
-        //$this->belongsTo(...)
+        $this->belongsTo(
+                'post',      // The property or field name via which related data will be 
+                             // accessed on each post record or on each array of posts table data
+
+                'post_id', // Foreign key column in this Model's db table (i.e. comments table)
+
+                'posts',   // Foreign db table from which related data will be fetched
+
+                'post_id', // Foreign key column in foreign Model's db table (i.e. posts table)
+
+                'post_id', // Primary key column in foreign Model's db table (i.e. posts table)
+
+                PostsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+            );
         //$this->hasMany(...);
         //$this->hasManyThrough(...);
         //$this->hasOne(...)

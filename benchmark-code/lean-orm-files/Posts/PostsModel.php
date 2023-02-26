@@ -7,6 +7,7 @@ use Benchmark\LeanOrm\Blog\Authors\{AuthorRecord, AuthorsModel, AuthorsCollectio
 use Benchmark\LeanOrm\Blog\Comments\{CommentRecord, CommentsModel, CommentsCollection};
 use Benchmark\LeanOrm\Blog\Summaries\{SummaryRecord, SummariesModel, SummariesCollection};
 use Benchmark\LeanOrm\Blog\Tags\{TagRecord, TagsModel, TagsCollection};
+use Benchmark\LeanOrm\Blog\PostsTags\PostsTagsModel;
 
 /**
  * @method PostsCollection createNewCollection(\GDAO\Model\RecordInterface ...$list_of_records)
@@ -57,13 +58,7 @@ class PostsModel extends \LeanOrm\Model {
 
                 'author_id', // Primary key column in foreign Model's db table (i.e. authors table)
 
-                AuthorsModel::class, // Foreign Model Class, defaults to \LeanOrm\Model
-
-                AuthorRecord::class, // Foreign Record Class, if blank, defaults to the Record class 
-                                     // set in the foreign Model Class when related data is fetched
-
-                AuthorsCollection::class // Foreign Collection Class, if blank, defaults to the Collection class 
-                                         // set in the foreign Model Class when related data is fetched
+                AuthorsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
             )
             ->hasOne(
                 'summary',    // The property or field name via which related data will be 
@@ -77,13 +72,7 @@ class PostsModel extends \LeanOrm\Model {
 
                 'summary_id', // Primary key column in foreign Model's db table (i.e. summaries table)
 
-                SummariesModel::class, // Foreign Model Class, defaults to \LeanOrm\Model
-
-                SummaryRecord::class,  // Foreign Record Class, if blank, defaults to the Record class 
-                                       // set in the foreign Model Class when related data is fetched
-
-                SummariesCollection::class // Foreign Collection Class, if blank, defaults to the Collection class 
-                                           // set in the foreign Model Class when related data is fetched
+                SummariesModel::class // Foreign Model Class, defaults to \LeanOrm\Model
             )
             ->hasMany(
                 'comments', // The property or field name via which related data will be 
@@ -97,13 +86,21 @@ class PostsModel extends \LeanOrm\Model {
 
                 'comment_id', // Primary key column in foreign Model's db table (i.e. comments table)
 
-                CommentsModel::class, // Foreign Model Class, defaults to \LeanOrm\Model
+                CommentsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+            )
+            ->hasMany(
+                'posts_tags',   // The property or field name via which related data will be 
+                                // accessed on each post record or on each array of posts table data
 
-                CommentRecord::class, // Foreign Record Class, if blank, defaults to the Record class 
-                                      // set in the foreign Model Class when related data is fetched
+                'post_id',  // Foreign key column in this Model's db table (i.e. posts table)
 
-                CommentsCollection::class // Foreign Collection Class, if blank, defaults to the Collection class 
-                                          // set in the foreign Model Class when related data is fetched
+                'posts_tags', // Foreign db table from which related data will be fetched
+
+                'post_id',  // Foreign key column in foreign Model's db table (i.e. posts_tags table)
+
+                'posts_tags_id', // Primary key column in foreign Model's db table (i.e. posts_tags table)
+
+                PostsTagsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
             )
             ->hasManyThrough(
                 'tags',         // The property or field name via which related data will be 
@@ -127,13 +124,7 @@ class PostsModel extends \LeanOrm\Model {
                 
                 'tag_id',       // Primary key column in foreign Model's db table (i.e. tags table)
 
-                TagsModel::class, // Foreign Model Class, defaults to \LeanOrm\Model
-
-                TagRecord::class, // Foreign Record Class, if blank, defaults to the Record class 
-                                  // set in the foreign Model Class when related data is fetched
-
-                TagsCollection::class // Foreign Collection Class, if blank, defaults to the Collection class 
-                                      // set in the foreign Model Class when related data is fetched
+                TagsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
             );
     }
 }

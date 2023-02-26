@@ -39,6 +39,20 @@ class SummariesModel extends \LeanOrm\Model {
         parent::__construct($dsn, $username, $passwd, $pdo_driver_opts, $primary_col_name, $table_name);
         
         // Define relationships below here
+        $this->belongsTo(
+            'post',      // The property or field name via which related data will be 
+                         // accessed on each post record or on each array of posts table data
+
+            'post_id', // Foreign key column in this Model's db table (i.e. comments table)
+
+            'posts',   // Foreign db table from which related data will be fetched
+
+            'post_id', // Foreign key column in foreign Model's db table (i.e. posts table)
+
+            'post_id', // Primary key column in foreign Model's db table (i.e. posts table)
+
+            \Benchmark\LeanOrm\Blog\Posts\PostsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+        );
         
         //$this->belongsTo(...)
         //$this->hasMany(...);

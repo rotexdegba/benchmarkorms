@@ -39,6 +39,44 @@ class TagsModel extends \LeanOrm\Model {
         parent::__construct($dsn, $username, $passwd, $pdo_driver_opts, $primary_col_name, $table_name);
         
         // Define relationships below here
+        $this->hasMany(
+                'posts_tags',   // The property or field name via which related data will be 
+                                // accessed on each post record or on each array of posts table data
+
+                'tag_id',  // Foreign key column in this Model's db table (i.e. tags table)
+
+                'posts_tags', // Foreign db table from which related data will be fetched
+
+                'tag_id',  // Foreign key column in foreign Model's db table (i.e. posts_tags table)
+
+                'posts_tags_id', // Primary key column in foreign Model's db table (i.e. posts_tags table)
+
+                \Benchmark\LeanOrm\Blog\PostsTags\PostsTagsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+            )
+            ->hasManyThrough(
+                'posts',         // The property or field name via which related data will be 
+                                // accessed on each post record or on each array of posts table data
+                
+                'tag_id',      // Foreign key column in this Model's db table (i.e. tags table)
+                
+                'posts_tags',   // Foreign JOIN db table from which contains the associations between records in this
+                                // model's db table (i.e. the tags table) and the records in the foreign db table
+                                // (i.e. the posts table)
+                
+                'tag_id',      // Join column in this Model's db table (i.e. tags table) linked to the 
+                                // foreign JOIN db table (i.e. posts_tags)
+                
+                'post_id',       // Join column in foreign Model's db table (i.e. posts table) linked to the 
+                                // foreign JOIN db table (i.e. posts_tags)
+                
+                'posts',         // Foreign db table from which related data will be fetched
+                
+                'post_id',       // Foreign key column in foreign Model's db table (i.e. posts table)
+                
+                'post_id',       // Primary key column in foreign Model's db table (i.e. posts table)
+
+                \Benchmark\LeanOrm\Blog\Posts\PostsModel::class // Foreign Model Class, defaults to \LeanOrm\Model
+            );
         
         //$this->belongsTo(...)
         //$this->hasMany(...);

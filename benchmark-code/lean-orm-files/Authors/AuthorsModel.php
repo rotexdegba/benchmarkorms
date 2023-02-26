@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Benchmark\LeanOrm\Blog\Authors;
 
-use Benchmark\LeanOrm\Blog\Posts\{PostRecord, PostsCollection, PostsModel};
+use Benchmark\LeanOrm\Blog\Posts\PostsModel;
 
 /**
  * @method AuthorsCollection createNewCollection(\GDAO\Model\RecordInterface ...$list_of_records)
@@ -47,9 +47,7 @@ class AuthorsModel extends \LeanOrm\Model {
             'posts',
             'author_id',
             'post_id',
-            PostsModel::class,
-            PostRecord::class,
-            PostsCollection::class
+            PostsModel::class
         );
         
         //$this->belongsTo(...)

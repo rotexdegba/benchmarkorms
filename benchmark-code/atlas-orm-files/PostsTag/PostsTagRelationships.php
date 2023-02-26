@@ -12,7 +12,7 @@ class PostsTagRelationships extends MapperRelationships
 {
     protected function define()
     {
-        // the threads side of the association mapping
+        // the posts side of the association mapping
         $this->manyToOne('posts', Post::CLASS, [ 'post_id' => 'post_id']);
 
         // the tags side of the association mapping

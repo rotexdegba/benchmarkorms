@@ -9,5 +9,6 @@ class SummaryRelationships extends MapperRelationships
 {
     protected function define()
     {
+        $this->manyToOne('post', \Benchmark\AtlasOrm\Blog\Post\Post::CLASS, [ 'post_id' => 'post_id']);
     }
 }
