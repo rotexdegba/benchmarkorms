@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Rotexsoft\PhpOrmBenchmarks\Ubench;
 
+use \Rotexsoft\PhpOrmBenchmarks\AtlasOrm\AtlasDataFetcher;
+
 /**
  * Description of AtlasBelongsToOrHasOneRunner
  *
@@ -17,10 +19,9 @@ class AtlasBelongsToOrHasOneRunner {
      * 
      * @param \Atlas\Orm\Atlas $atlas    Atlas instance
      * 
-     * @param string $atlas_mapper_class The Mapper Class whose underlying 
-     *                                   table's data will be fetched
+     * @param string $table_name         DB table name
      * 
-     * @param string $relation_name      Relation name (has many or has many through)
+     * @param array $relation_names      Relation names (belongs to or has one)
      * 
      * @param string $property_name      A property on the records to be fetched. 
      *                                   For example if we are fetching authors 
@@ -34,37 +35,44 @@ class AtlasBelongsToOrHasOneRunner {
     public function __invoke (
         \Ubench $ubench, 
         \Atlas\Orm\Atlas $atlas, 
-        string $atlas_mapper_class, 
-        string $relation_name, 
+        string $table_name, 
+        array $relation_names, 
         string $property_name, 
         int $offset = 0, 
         int $limit = 999
     ) {
+        $relation_names_str = implode(', ', $relation_names);
+        
+        echo "Atlas fetching data from `{$table_name}`"
+           . " with relateds `({$relation_names_str})` [BelongsTo or HasOne],"
+           . " in chunks of {$limit}. \n`{$property_name}` for each `{$table_name}` record will be accessed.";
+        
+        $i = 0;
+        
         $ubench->run(
             function(
                 \Atlas\Orm\Atlas $atlas, 
                 $offset, 
                 $limit, 
-                $mapper_class, 
-                $relation_name, 
+                $table_name, 
+                $relation_names, 
                 $property_name
-            ) {
-                $i = 1;
-
+            ) use (&$i){
+            
                 do {
-                    $recordSet = $atlas
-                        ->select($mapper_class)
-                        ->with([$relation_name])
-                        ->limit($limit)
-                        ->offset($offset)
-                        ->fetchRecordSet();
+                    $recordSet = AtlasDataFetcher::fetchAll($table_name, $relation_names, $atlas, $offset, $limit);
 
                     foreach ($recordSet as $record) {
 
                         $val = $record->$property_name;
-                        $has_one_or_belongs_to_data = $record->$relation_name;
-                        //var_dump("{$val} {$i}");
+                        
+                        foreach($relation_names as $relation_name) {
+                            
+                            $has_one_or_belongs_to_data = $record->$relation_name;
+                        }
+                        
                         $i++;
+                        //var_dump("{$val} {$i}");
                     }
 
                     $offset += $limit;
@@ -74,9 +82,15 @@ class AtlasBelongsToOrHasOneRunner {
             $atlas,
             $offset,
             $limit,
-            $atlas_mapper_class,
-            $relation_name,
+            $table_name,
+            $relation_names,
             $property_name
         );
+        
+        echo "\nTotal records fetched from `{$table_name}`: {$i} \n" 
+           . "\nTime taken: " . $ubench->getTime() 
+           . "\nMemory Usage: " . $ubench->getMemoryUsage() 
+           . "\nPeak Memory Usage: " . $ubench->getMemoryPeak() 
+           . PHP_EOL. PHP_EOL;
     }
 }
