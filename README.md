@@ -5,6 +5,8 @@ This repository is designed to benchmark the performance of various PHP ORM pack
 Below are the ORMs intended to be benchmarked:
 
 - https://github.com/atlasphp/Atlas.Orm a.ka. Atlas [ALREADY SETUP]
+- https://github.com/cakephp/orm a.ka. CakePHP ORM [NOT YET SETUP]
+- https://github.com/cycle/orm a.ka. Cycle ORM [NOT YET SETUP]
 - https://github.com/doctrine/orm/ a.ka. Doctrine ORM [NOT YET SETUP]
 - https://github.com/illuminate/database a.ka. Eloquent [ALREADY SETUP]
 - https://github.com/rotexsoft/leanorm a.ka. LeanORM [ALREADY SETUP]
