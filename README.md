@@ -18,11 +18,13 @@ actively being maintained will not be considered for benchmarking.
 above that are compatible with PHP 7.4. Moving forward, there will be branches 
 in this repo corresponding to default PHP versions in Ubuntu LTS releases, e.g. 
 a branch named **php-74** (which shipped with Ubuntu 20.04 LTS), another branch
-named **php-81** (which shipped with Ubuntu 22.04 LTS) etc. The master branch 
-will always contain code designed to run with the PHP version that ships with the
-latest ubntu LTS version at the moment. This will allow for being able to run 
-benchmarks for the latest version of each ORM compatible with the PHP version 
-the checked out branch corresponds with.
+named **php-81** (which shipped with Ubuntu 22.04 LTS) etc. 
+
+> Once the php branches are setup, the master branch will always contain code 
+designed to run with the PHP version that ships with the latest ubntu LTS version 
+at any particular moment. This will allow for being able to run benchmarks for the 
+latest version of each ORM compatible with the PHP version the checked out branch 
+corresponds with.
 
 
 # Installation
