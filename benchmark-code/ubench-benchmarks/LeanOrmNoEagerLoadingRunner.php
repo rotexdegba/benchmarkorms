@@ -2,11 +2,11 @@
 namespace Rotexsoft\PhpOrmBenchmarks\Ubench;
 
 /**
- * Description of LeanOrmHasManyOrHasManyThroughRunner
+ * Description of LeanOrmNoEagerLoadingRunner
  *
  * @author rotimi
  */
-class LeanOrmHasManyOrHasManyThroughRunner {
+class LeanOrmNoEagerLoadingRunner {
     
     public function __construct() { }
     
@@ -14,8 +14,6 @@ class LeanOrmHasManyOrHasManyThroughRunner {
      * @param \Ubench $ubench       Ubench instance
      * 
      * @param \LeanOrm\Model $lean  Model for fetching records
-     * 
-     * @param string $relation_name Relation name (has many or has many through)
      * 
      * @param string $property_name A property on the records to be fetched. 
      *                              For example if we are fetching authors 
@@ -29,7 +27,6 @@ class LeanOrmHasManyOrHasManyThroughRunner {
     public function __invoke(
         \Ubench $ubench,
         \LeanOrm\Model $lean,
-        string $relation_name,
         string $property_name,
         int $offset = 0,
         int $limit = 999
@@ -38,8 +35,7 @@ class LeanOrmHasManyOrHasManyThroughRunner {
             function(
                 \LeanOrm\Model $lean, 
                 $offset, 
-                $limit, 
-                $relation_name, 
+                $limit,
                 $property_name
             ) {
                 $i = 1;
@@ -50,15 +46,13 @@ class LeanOrmHasManyOrHasManyThroughRunner {
                              ->limit($limit)
                              ->offset($offset)
                         ,
-                        [$relation_name]
+                        []
                     );
 
                     foreach ($recordSet as $record) {
 
                         $val = $record[$property_name];
-                        $count = $record->$relation_name->count();
                         //var_dump("{$val} {$i}");
-                        //var_dump("{$val} {$i} with {$record->$relation_name->count()} {$relation_name}");
                         $i++;
                     }
 
@@ -69,7 +63,6 @@ class LeanOrmHasManyOrHasManyThroughRunner {
             $lean,
             $offset, 
             $limit,
-            $relation_name,
             $property_name
         );
     }

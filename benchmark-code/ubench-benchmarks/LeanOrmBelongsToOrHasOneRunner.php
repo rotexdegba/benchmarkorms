@@ -2,11 +2,11 @@
 namespace Rotexsoft\PhpOrmBenchmarks\Ubench;
 
 /**
- * Description of LeanOrmHasManyOrHasManyThroughRunner
+ * Description of LeanOrmBelongsToOrHasOneThroughRunner
  *
  * @author rotimi
  */
-class LeanOrmHasManyOrHasManyThroughRunner {
+class LeanOrmBelongsToOrHasOneRunner {
     
     public function __construct() { }
     
@@ -56,9 +56,8 @@ class LeanOrmHasManyOrHasManyThroughRunner {
                     foreach ($recordSet as $record) {
 
                         $val = $record[$property_name];
-                        $count = $record->$relation_name->count();
+                        $has_one_or_belongs_to_data = $record->$relation_name;
                         //var_dump("{$val} {$i}");
-                        //var_dump("{$val} {$i} with {$record->$relation_name->count()} {$relation_name}");
                         $i++;
                     }
 

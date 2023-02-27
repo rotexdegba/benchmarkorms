@@ -4,11 +4,11 @@ declare(strict_types=1);
 namespace Rotexsoft\PhpOrmBenchmarks\Ubench;
 
 /**
- * Description of EloquentHasManyOrHasManyThroughRunner
+ * Description of EloquentBelongsToOrHasOneRunner
  *
  * @author rotimi
  */
-class EloquentHasManyOrHasManyThroughRunner {
+class EloquentBelongsToOrHasOneRunner {
 
     public function __construct() { }
     
@@ -40,9 +40,8 @@ class EloquentHasManyOrHasManyThroughRunner {
                     foreach ($eloquent_model_class_name::with($relation_name)->lazy() as $record) {
 
                         $val = $record->$property_name;
-                        $count = $record->$relation_name->count();
+                        $has_one_or_belongs_to_data = $record->$relation_name;
                         //var_dump("{$val} {$i}");
-                        //var_dump("{$val} {$i} with {$record->$relation_name->count()} {$relation_name}");
                         $i++;
                     }
                     
@@ -56,9 +55,8 @@ class EloquentHasManyOrHasManyThroughRunner {
                         foreach ($recordSet as $record) {
 
                             $val = $record->$property_name;
-                            $count = $record->$relation_name->count();
+                            $has_one_or_belongs_to_data = $record->$relation_name;
                             //var_dump("{$val} {$i}");
-                            //var_dump("{$val} {$i} with {$record->$relation_name->count()} {$relation_name}");
                             $i++;
                         }
 
@@ -76,9 +74,8 @@ class EloquentHasManyOrHasManyThroughRunner {
                         foreach ($records as $record) {
 
                             $val = $record[$property_name];
-                            $count = $record->$relation_name->count();
+                            $has_one_or_belongs_to_data = $record->$relation_name;
                             //var_dump("{$val} {$i}");
-                            //var_dump("{$val} {$i} with {$record->$relation_name->count()} {$relation_name}");
                              $i++;
                         }
                     });

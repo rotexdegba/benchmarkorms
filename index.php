@@ -4,6 +4,13 @@ ini_set('memory_limit', -1); // no memory limit
 
 use Atlas\Orm\Atlas;
 
+var_dump('atlas/orm', \Composer\InstalledVersions::getVersion('atlas/orm'));
+var_dump('doctrine/orm', \Composer\InstalledVersions::getVersion('doctrine/orm'));
+var_dump('illuminate/database', \Composer\InstalledVersions::getVersion('illuminate/database'));
+var_dump('rotexsoft/leanorm', \Composer\InstalledVersions::getVersion('rotexsoft/leanorm'));
+var_dump('gabordemooij/redbean', \Composer\InstalledVersions::getVersion('gabordemooij/redbean'));
+
+
 $ubench = new Ubench();
 
 \Rotexsoft\PhpOrmBenchmarks\BootstrapEloquent::setup(); 
