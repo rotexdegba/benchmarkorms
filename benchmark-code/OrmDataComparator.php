@@ -108,7 +108,6 @@ class OrmDataComparator {
                    . " {$record_entity_name_singular} with id {$recordToVerify->$record_pkey}"
                    . " has differing {$relation_name} from LeanOrm"
                    . " record with the same id" .PHP_EOL;
-
                 return;
             }
 
