@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Rotexsoft\PhpOrmBenchmarks\Ubench;
 
+use \Rotexsoft\PhpOrmBenchmarks\Eloquent\{EloquentDataFetcher, EloquentFetchStrategies};
+
 /**
  * Description of EloquentBelongsToOrHasOneRunner
  *
@@ -12,81 +14,96 @@ class EloquentBelongsToOrHasOneRunner {
 
     public function __construct() { }
     
+    /**
+     * @param \Ubench $ubench               Ubench instance
+     * 
+     * @param string $table_name            DB table name
+     * 
+     * @param array $relation_names         Relation names (belongs to or has one)
+     * 
+     * @param string $table_column_name     A property on the records to be fetched.
+     *                                      For example if we are fetching authors
+     *                                      we can specify name for this argument
+     * 
+     * @param string $relation_column_name  A property on each related record.
+     * 
+     * @param int $offset                   Offset position
+     * 
+     * @param int $limit                    Number of records to fetch per iteration.
+     * 
+     * @param string $strategy              It must be one of chunk, get or lazy.
+     *                                      This is the method that Eloquent will use to 
+     *                                      fetch the desired data
+     */
     public function __invoke(
         \Ubench $ubench,
-        $eloquent_model_class_name,
-        string $relation_name,
-        string $property_name,
+        string $table_name,
+        array $relation_names,
+        string $table_column_name,
+        string $relation_column_name,
         int $offset = 0,
         int $limit = 999,
-        $strategy='chunk' // chunck, lazy, get
+        string $strategy = EloquentFetchStrategies::CHUNK // chunk, lazy, get
     ) {
+        $num_records = 0;
+        
+        \Rotexsoft\PhpOrmBenchmarks\Utils::showOrmVersion(MessageResources::PACKAGIST_NAME_ELOQUENT);
+        
+        \Rotexsoft\PhpOrmBenchmarks\Utils::printDbInfo(
+            \Rotexsoft\PhpOrmBenchmarks\BootstrapEloquent::getPdo($table_name)
+        );
+        
+        echo sprintf(
+            MessageResources::START_MSG, MessageResources::ORM_VENDOR_ELOQUENT, $table_name, implode(', ', $relation_names), 
+            MessageResources::BELONGS_TO_HAS_ONE, $limit, $strategy, $table_column_name, $table_name
+        );
+        
         $ubench->run(
             function(
-                $eloquent_model_class_name, 
                 $offset, 
                 $limit, 
-                $relation_name, 
-                $property_name,
+                $table_name, 
+                $relation_names, 
+                $table_column_name,
+                $relation_column_name,
                 $strategy
-            ) {
-                $i = 1;
-                
-                /** @var \Illuminate\Database\Eloquent\Model $eloquent_model_class_name */
-                if($strategy === 'lazy') {
-                    
-                    echo 'Eloquent using lazy strategy' . PHP_EOL;
-                    
-                    foreach ($eloquent_model_class_name::with($relation_name)->lazy() as $record) {
+            ) use (&$num_records){
+            
+                do {
+                    $recordSet = EloquentDataFetcher::fetchAll($table_name, $relation_names, $offset, $limit, $strategy);
 
-                        $val = $record->$property_name;
-                        $has_one_or_belongs_to_data = $record->$relation_name;
-                        //var_dump("{$val} {$i}");
-                        $i++;
+                    foreach ($recordSet as $record) {
+
+                        $val = $record->$table_column_name;
+                        
+                        foreach($relation_names as $relation_name) {
+                            
+                            $record->$relation_name->$relation_column_name;
+                        }
+                        
+                        $num_records++; //var_dump("{$num_records} {$val}");
                     }
-                    
-                } elseif($strategy === 'get') {
-                    
-                    echo 'Eloquent using get strategy' . PHP_EOL;
-                    
-                    do {
-                        $recordSet = $eloquent_model_class_name::with($relation_name)->offset($offset)->limit($limit)->get();
 
-                        foreach ($recordSet as $record) {
-
-                            $val = $record->$property_name;
-                            $has_one_or_belongs_to_data = $record->$relation_name;
-                            //var_dump("{$val} {$i}");
-                            $i++;
-                        }
-
-                        $offset += $limit;
-
-                    }while($recordSet->count() > 0);
+                    $offset += $limit;
                     
-                } else {
-                    
-                    echo 'Eloquent using chunk strategy' . PHP_EOL;
-                    
-                    //default to chunk
-                    $eloquent_model_class_name::with($relation_name)->chunk($limit, function ($records)use(&$i, $property_name, $relation_name) {
-
-                        foreach ($records as $record) {
-
-                            $val = $record[$property_name];
-                            $has_one_or_belongs_to_data = $record->$relation_name;
-                            //var_dump("{$val} {$i}");
-                             $i++;
-                        }
-                    });
-                }                
+                } while(
+                    count($recordSet) > 0 
+                    // chunk & lazy do not need do while, they fetch all the data in one call
+                    && !in_array($strategy, [EloquentFetchStrategies::CHUNK, EloquentFetchStrategies::LAZY]) 
+                ); 
             },
-            $eloquent_model_class_name,
-            $offset, 
+            $offset,
             $limit,
-            $relation_name,
-            $property_name,
+            $table_name,
+            $relation_names,
+            $table_column_name,
+            $relation_column_name,
             $strategy
+        );
+        
+        echo sprintf(
+            MessageResources::END_MSG, $table_name, $num_records, 
+            $ubench->getTime(), $ubench->getMemoryUsage(), $ubench->getMemoryPeak()
         );
     }
 }
