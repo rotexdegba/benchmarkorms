@@ -28,8 +28,7 @@ class AtlasHasManyOrHasManyThroughRunner {
      * 
      * @param int $offset                Offset position
      * 
-     * @param int $limit                 Number of records to fetch per iteration
-     *                                   We need this for sqlite.
+     * @param int $limit                 Number of records to fetch per iteration.
      */
     public function __invoke (
         \Ubench $ubench, 
@@ -70,7 +69,7 @@ class AtlasHasManyOrHasManyThroughRunner {
 
                     $offset += $limit;
                     
-                }while($recordSet->count() > 0);
+                }while(count($recordSet) > 0);
             },
             $atlas,
             $offset,
