@@ -114,3 +114,16 @@ execute each test so a close to accurate memory usage value is reported.
 If you lump all the tests together in a single php script, the memory usage 
 from earlier operations might clobber or inflated memory usage values for later 
 operations.
+
+
+SQLite defines a maximum of 999 parameters to be passed as arguments to a 
+statement, controlled by SQLITE_MAX_VARIABLE_NUMBER. Because of this, when
+eager loading related data for a fetch (which would lead to queries like
+where foreign_key IN (?,?, .... , ?, ?) being passed to PDO under the hood),
+the query must not have more than 999 ? placeholders, implying that we have 
+to limit the chunk of recordsets to retrieve in each iteration to <= 999. 
+Which also means we can't fetch all the records from a table with more than
+999 records at once, we have to specify a limit value to fetch the records
+in chunks.
+Mysql does not have this limitation & I am guessing postgres & sqlsvr do not
+have this limitation.
