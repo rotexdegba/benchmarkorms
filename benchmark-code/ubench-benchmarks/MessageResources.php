@@ -37,5 +37,9 @@ final class MessageResources {
     public const PACKAGIST_NAME_ELOQUENT = 'illuminate/database';
     public const PACKAGIST_NAME_LEAN = 'rotexsoft/leanorm';
     
+    public const RUNNING_SCENARIO = 'Running Scenario: ';
+    public const SCENARIO_ENDED = 'End of Scenario: ';
+
+
     private final function __construct() { }
 }
