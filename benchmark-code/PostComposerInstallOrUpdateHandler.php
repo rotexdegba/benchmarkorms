@@ -59,6 +59,13 @@ class PostComposerInstallOrUpdateHandler {
             }
         }
         
+        if(!\is_executable("{$root_folder}run-benchmarks.sh")) {
+
+            echo 'Making ' . "{$root_folder}run-benchmarks.sh" . ' executable' . PHP_EOL;
+            
+            \chmod("{$root_folder}run-benchmarks.sh", 0755);
+        }
+        
         echo PHP_EOL . 'All done!' . PHP_EOL;
     }
 }

@@ -43,6 +43,10 @@ corresponds with.
 
 > The migrations take about 1 to 2 minutes to run.
 
+Run the benchmarks
+
+> ./run-benchmarks.sh
+
 
 ## Test Methodology
 
@@ -95,6 +99,15 @@ and also eager-load all related data.
     - Fetch all records at once
     - Fetch records in chunks with offset & limit 
     - NOTE: Some ORMs like Eloquent & LeanORM may have multiple methods for loading this data. Each method will be used to load the data and labeled in the benchmark results.
+
+
+
+
+
+
+
+
+
 
 
 
