@@ -58,7 +58,7 @@ class EloquentNoEagerLoadingRunner {
 
                         $offset += $limit;
 
-                    }while($recordSet->count() > 0);
+                    }while(count($recordSet) > 0);
                     
                 } else {
                     
