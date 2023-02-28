@@ -24,7 +24,7 @@ class EloquentDataFetcher {
         array $relation_names,
         int $offset = 0,    // only applicable to the get strategy, lazy & chunk don't need it
         int $limit = 999,   //only applicable to the get & chunk strategies, lazy  doesn't need it
-        string $strategy='chunk' // chunk, get or lazy
+        string $strategy = EloquentFetchStrategies::CHUNK // chunk, get or lazy
     ) {
         \Rotexsoft\PhpOrmBenchmarks\BootstrapEloquent::setup();
         
@@ -33,17 +33,17 @@ class EloquentDataFetcher {
         
         $result = new \Illuminate\Database\Eloquent\Collection();
         
-        if($strategy === 'get') {
+        if($strategy === EloquentFetchStrategies::GET) {
             
             return $model_class::with($relation_names)->offset($offset)->limit($limit)->get();
             
-        } elseif($strategy === 'lazy') {
+        } elseif($strategy === EloquentFetchStrategies::LAZY) {
             
             return $model_class::with($relation_names)->lazy();
             
         } else {
             
-            // chunk
+            // Default: EloquentFetchStrategies::CHUNK 
             $model_class::with($relation_names)->chunk($limit, function ($records)use($result) {
 
                 foreach ($records as $record) {
