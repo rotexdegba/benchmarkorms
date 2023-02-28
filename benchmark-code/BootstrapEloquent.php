@@ -38,4 +38,14 @@ class BootstrapEloquent {
             static::$is_booted = true;
         }
     }
+    
+    public static function getPdo(string $table_name): \PDO {
+        
+        static::setup();
+        
+        /** @var \Illuminate\Database\Eloquent\Model $model_class_name */
+        $model_class_name = Eloquent\EloquentDataFetcher::TABLE_TO_MODEL_MAP[$table_name];
+        
+        return $model_class_name::resolveConnection()->getPdo();
+    }
 }
