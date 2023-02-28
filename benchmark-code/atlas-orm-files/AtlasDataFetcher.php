@@ -25,9 +25,9 @@ class AtlasDataFetcher {
         \Atlas\Orm\Atlas $atlas,
         int $offset = 0, 
         int $limit = 999,
-        string $strategy = 'fetchRecords' // fetchRecords or fetchRecordSet
+        string $strategy = AtlasFetchStrategies::FETCH_RECORDS // fetchRecords or fetchRecordSet
     ) {
-        if( $strategy === 'fetchRecords' ) {
+        if( $strategy === AtlasFetchStrategies::FETCH_RECORDS ) {
             
             return $atlas->select(static::TABLE_TO_MODEL_MAP[$table_name])
                          ->with($relation_names)
@@ -44,5 +44,13 @@ class AtlasDataFetcher {
                          ->offset($offset)
                          ->fetchRecordSet();
         }
+    }
+    
+    public static function getPdo(\Atlas\Orm\Atlas $atlas, string $table_name): \PDO {
+        
+        return $atlas->mapper(static::TABLE_TO_MODEL_MAP[$table_name])
+                     ->getTable()
+                     ->getReadConnection()
+                     ->getPdo();
     }
 }
