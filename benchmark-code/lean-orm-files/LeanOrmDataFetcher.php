@@ -24,19 +24,19 @@ class LeanOrmDataFetcher {
         array $relation_names, 
         int $offset = 0, 
         int $limit = 999,
-        string $strategy='fetchRecordsIntoCollection', // fetchRecordsIntoArray, fetchRecordsIntoCollection or fetchRowsIntoArray
+        string $strategy = LeanOrmFetchStrategies::FETCH_ROWS_INTO_ARRAY, // fetchRecordsIntoArray, fetchRecordsIntoCollection or fetchRowsIntoArray
         array $pdo_args =[]
     ) {
         $model = static::getModel($table_name, $pdo_args);
         
-        if($strategy === 'fetchRowsIntoArray') {
+        if($strategy === LeanOrmFetchStrategies::FETCH_ROWS_INTO_ARRAY) {
             
             return $model->fetchRowsIntoArray(
                 $model->getSelect()->offset($offset)->limit($limit), 
                 $relation_names
             );
             
-        } elseif($strategy === 'fetchRecordsIntoArray') {
+        } elseif($strategy === LeanOrmFetchStrategies::FETCH_RECORDS_INTO_ARRAY) {
             
             return $model->fetchRecordsIntoArray(
                 $model->getSelect()->offset($offset)->limit($limit), 
