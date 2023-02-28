@@ -13,37 +13,43 @@ class LeanOrmDataFetcher {
     public const TABLE_TO_MODEL_MAP = [
         'authors'       => Blog\Authors\AuthorsModel::class,
         'comments'      => Blog\Comments\CommentsModel::class,
-        
         'posts'         => Blog\Posts\PostsModel::class,
         'posts_tags'    => Blog\PostsTags\PostsTagsModel::class,
-        
         'summaries'     => Blog\Summaries\SummariesModel::class,
         'tags'          => Blog\Tags\TagsModel::class,
     ];
-
-    /**
-     * @param string $strategy fetchRecordsIntoArray, fetchRecordsIntoCollection, fetchRowsIntoArray
-     */
+    
     public static function fetchAll(
         string $table_name, 
         array $relation_names, 
-        string $strategy='fetchRecordsIntoCollection', 
+        int $offset = 0, 
+        int $limit = 999,
+        string $strategy='fetchRecordsIntoCollection', // fetchRecordsIntoArray, fetchRecordsIntoCollection or fetchRowsIntoArray
         array $pdo_args =[]
     ) {
         $model = static::getModel($table_name, $pdo_args);
         
         if($strategy === 'fetchRowsIntoArray') {
             
-            return $model->fetchRowsIntoArray(null, $relation_names);
+            return $model->fetchRowsIntoArray(
+                $model->getSelect()->offset($offset)->limit($limit), 
+                $relation_names
+            );
             
         } elseif($strategy === 'fetchRecordsIntoArray') {
             
-            return $model->fetchRecordsIntoArray(null, $relation_names);
+            return $model->fetchRecordsIntoArray(
+                $model->getSelect()->offset($offset)->limit($limit), 
+                $relation_names
+            );
             
         } else {
             
             // Default: fetchRecordsIntoCollection
-            return $model->fetchRecordsIntoCollection(null, $relation_names);
+            return $model->fetchRecordsIntoCollection(
+                $model->getSelect()->offset($offset)->limit($limit), 
+                $relation_names
+            );
         }
     }
     

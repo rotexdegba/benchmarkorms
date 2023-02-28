@@ -13,19 +13,18 @@ class EloquentDataFetcher {
     public const TABLE_TO_MODEL_MAP = [
         'authors'       => Blog\Author::class,
         'comments'      => Blog\Comment::class,
-        
         'posts'         => Blog\Post::class,
         'posts_tags'    => Blog\PostsTag::class,
-        
         'summaries'     => Blog\Summary::class,
         'tags'          => Blog\Tag::class,
     ];
-
-    /**
-     * @param string $strategy chunk, get, lazy
-     */
+    
     public static function fetchAll(
-        string $table_name, array $relation_names, string $strategy='chunk'
+        string $table_name, 
+        array $relation_names,
+        int $offset = 0,    // only applicable to the get strategy, lazy & chunk don't need it
+        int $limit = 999,   //only applicable to the get & chunk strategies, lazy  doesn't need it
+        string $strategy='chunk' // chunk, get or lazy
     ) {
         \Rotexsoft\PhpOrmBenchmarks\BootstrapEloquent::setup();
         
@@ -36,7 +35,7 @@ class EloquentDataFetcher {
         
         if($strategy === 'get') {
             
-            return $model_class::with($relation_names)->get();
+            return $model_class::with($relation_names)->offset($offset)->limit($limit)->get();
             
         } elseif($strategy === 'lazy') {
             
@@ -45,7 +44,7 @@ class EloquentDataFetcher {
         } else {
             
             // chunk
-            $model_class::with($relation_names)->chunk(10_000, function ($records)use($result) {
+            $model_class::with($relation_names)->chunk($limit, function ($records)use($result) {
 
                 foreach ($records as $record) {
 
