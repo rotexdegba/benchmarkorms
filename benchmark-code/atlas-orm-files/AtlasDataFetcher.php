@@ -24,12 +24,17 @@ class AtlasDataFetcher {
         array $relation_names, 
         \Atlas\Orm\Atlas $atlas,
         int $offset = 0, 
-        int $limit = 999,
+        ?int $limit = 999,
         string $strategy = AtlasFetchStrategies::FETCH_RECORDS // fetchRecords or fetchRecordSet
     ) {
         if( $strategy === AtlasFetchStrategies::FETCH_RECORDS ) {
             
-            return $atlas->select(static::TABLE_TO_MODEL_MAP[$table_name])
+            return is_null($limit) 
+                    ? $atlas->select(static::TABLE_TO_MODEL_MAP[$table_name])
+                         ->with($relation_names)
+                         ->fetchRecords()
+                    
+                    : $atlas->select(static::TABLE_TO_MODEL_MAP[$table_name])
                          ->with($relation_names)
                          ->limit($limit)
                          ->offset($offset)
@@ -38,7 +43,12 @@ class AtlasDataFetcher {
         } else {
         
             // Default: fetchRecordSet
-            return $atlas->select(static::TABLE_TO_MODEL_MAP[$table_name])
+            return is_null($limit) 
+                    ? $atlas->select(static::TABLE_TO_MODEL_MAP[$table_name])
+                         ->with($relation_names)
+                         ->fetchRecordSet()
+                    
+                    : $atlas->select(static::TABLE_TO_MODEL_MAP[$table_name])
                          ->with($relation_names)
                          ->limit($limit)
                          ->offset($offset)

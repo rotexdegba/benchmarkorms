@@ -19,11 +19,13 @@ class EloquentDataFetcher {
         'tags'          => Blog\Tag::class,
     ];
     
+    public const DEFAULT_LIMIT = 999;
+    
     public static function fetchAll(
         string $table_name, 
         array $relation_names,
-        int $offset = 0,    // only applicable to the get strategy, lazy & chunk don't need it
-        int $limit = 999,   //only applicable to the get & chunk strategies, lazy  doesn't need it
+        int $offset = 0,                       // only applicable to the get strategy, lazy & chunk don't need it
+        ?int $limit = self::DEFAULT_LIMIT,   //only applicable to the get & chunk strategies, lazy  doesn't need it
         string $strategy = EloquentFetchStrategies::CHUNK // chunk, get or lazy
     ) {
         \Rotexsoft\PhpOrmBenchmarks\BootstrapEloquent::setup();
@@ -35,7 +37,9 @@ class EloquentDataFetcher {
         
         if($strategy === EloquentFetchStrategies::GET) {
             
-            return $model_class::with($relation_names)->offset($offset)->limit($limit)->get();
+            return is_null($limit) 
+                    ? $model_class::with($relation_names)->get()
+                    : $model_class::with($relation_names)->offset($offset)->limit($limit)->get();
             
         } elseif($strategy === EloquentFetchStrategies::LAZY) {
             
@@ -44,7 +48,7 @@ class EloquentDataFetcher {
         } else {
             
             // Default: EloquentFetchStrategies::CHUNK 
-            $model_class::with($relation_names)->chunk($limit, function ($records)use($result) {
+            $model_class::with($relation_names)->chunk($limit ?? static::DEFAULT_LIMIT, function ($records)use($result) {
 
                 foreach ($records as $record) {
 

@@ -22,8 +22,8 @@ class LeanOrmDataFetcher {
     public static function fetchAll(
         string $table_name, 
         array $relation_names, 
-        int $offset = 0, 
-        int $limit = 999,
+        ?int $offset = 0, 
+        ?int $limit = 999,
         string $strategy = LeanOrmFetchStrategies::FETCH_ROWS_INTO_ARRAY, // fetchRecordsIntoArray, fetchRecordsIntoCollection or fetchRowsIntoArray
         array $pdo_args =[]
     ) {
@@ -31,25 +31,41 @@ class LeanOrmDataFetcher {
         
         if($strategy === LeanOrmFetchStrategies::FETCH_ROWS_INTO_ARRAY) {
             
-            return $model->fetchRowsIntoArray(
-                $model->getSelect()->offset($offset)->limit($limit), 
-                $relation_names
-            );
+            return is_null($limit) 
+                    ? $model->fetchRowsIntoArray(
+                        $model->getSelect(), 
+                        $relation_names
+                    )
+                    : $model->fetchRowsIntoArray(
+                        $model->getSelect()->offset($offset)->limit($limit), 
+                        $relation_names
+                    );
             
         } elseif($strategy === LeanOrmFetchStrategies::FETCH_RECORDS_INTO_ARRAY) {
             
-            return $model->fetchRecordsIntoArray(
-                $model->getSelect()->offset($offset)->limit($limit), 
-                $relation_names
-            );
+            return is_null($limit) 
+                    ? $model->fetchRecordsIntoArray(
+                        $model->getSelect(), 
+                        $relation_names
+                    )
+                    : $model->fetchRecordsIntoArray(
+                        $model->getSelect()->offset($offset)->limit($limit), 
+                        $relation_names
+                    );
             
         } else {
             
             // Default: fetchRecordsIntoCollection
-            return $model->fetchRecordsIntoCollection(
-                $model->getSelect()->offset($offset)->limit($limit), 
-                $relation_names
-            );
+            
+            return is_null($limit) 
+                    ? $model->fetchRecordsIntoCollection(
+                        $model->getSelect(), 
+                        $relation_names
+                    )
+                    : $model->fetchRecordsIntoCollection(
+                        $model->getSelect()->offset($offset)->limit($limit), 
+                        $relation_names
+                    );
         }
     }
     
