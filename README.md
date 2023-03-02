@@ -54,6 +54,14 @@ Benchmarking is done using the schema below:
 
 ![Blog Schema](blog-db.png)
 
+This project only considers 4 types of ORM database relationships
+1. **Has one:** a type of relationship where an entity A (e.g. a post), has at least zero or at most one of another entity B (e.g. a summary)
+2. **Belongs to:** a type of relationship where each record representing an entity A (e.g. a summary), belongs to another entity B (e.g. a post)
+    - Entity A in this type of relationship cannot exist without the Entity B it belongs to (e.g. you cannot have a summary without a post).
+3. **Has Many:** a type of relationship where an entity A (e.g. an author),  has at least zero or many of another entity B (e.g. a post). 
+    - Entity B in this type of relationship cannot exist without entity A. You cannot have posts without an author.
+4. **Has Many Through:** this type of relationship is also known as **Many to Many**. It is a type of relationship involving three database tables. An entity A (e.g. a post), has zero or many of another entity B (e.g. Tags) through another entity C (e.g. posts_tags). The database table containing data for the entity C is also sometimes referred to as a **pivot** table
+
 - An author has many posts
 - A post belongs to an author
 
@@ -87,46 +95,22 @@ for each ORM.
 
 The following scenarios will be run for each ORM:
 
-- Fetch all the records from each of the tables in the schema above 
+1. Fetch all the records from each of the tables in the schema above 
 (without eager-loading any related data). No related data will be 
 accessed in this scenario.
-    - Fetch all records at once
-    - Fetch records in chunks with offset & limit 
-    - NOTE: Some ORMs like Eloquent & LeanORM may have multiple methods for loading this data. Each method will be used to load the data and labeled in the benchmark results.
 
-- Fetch all the records from each of the tables in the schema above 
-and also eager-load all related data.
-    - Fetch all records at once
-    - Fetch records in chunks with offset & limit 
-    - NOTE: Some ORMs like Eloquent & LeanORM may have multiple methods for loading this data. Each method will be used to load the data and labeled in the benchmark results.
+    a. Fetch all records at once (without using limit to fetch chunks of record at a time)
 
+    b. Fetch records in chunks with limit values of 10, 50, 100, 250, 500 & 1000 
+    > NOTE: Some ORMs like Eloquent & LeanORM may have multiple methods for loading this data. Each method will be used to load the data and labeled in the benchmark results.
 
+2. Fetch all the records from each of the tables in the schema above 
+and also eager-load related data.
 
-
-
-
-
-
-
-
-
-
-Display 
-- OS Info
-- PHP version
-- version of each ORM installed
-- PDO connection info
-- Name of the test with all relevant parameter info for each test
-- Time each test took to run 
-- Memory usage for each test
-
-Use shell script to run the php commands to execute the various tests
-
-Each test should be in its own php file so that a fresh php process is created to 
-execute each test so a close to accurate memory usage value is reported. 
-If you lump all the tests together in a single php script, the memory usage 
-from earlier operations might clobber or inflated memory usage values for later 
-operations.
+    a. Fetch all records at once (without using limit to fetch chunks of record at a time)
+    
+    b. Fetch records in chunks with limit values of 10, 50, 100, 250, 500 & 1000 
+    > NOTE: Some ORMs like Eloquent & LeanORM may have multiple methods for loading this data. Each method will be used to load the data and labeled in the benchmark results.
 
 
 SQLite defines a maximum of 999 parameters to be passed as arguments to a 
@@ -137,6 +121,5 @@ the query must not have more than 999 ? placeholders, implying that we have
 to limit the chunk of recordsets to retrieve in each iteration to <= 999. 
 Which also means we can't fetch all the records from a table with more than
 999 records at once, we have to specify a limit value to fetch the records
-in chunks.
-Mysql does not have this limitation & I am guessing postgres & sqlsvr do not
+in chunks. Mysql does not have this limitation & I am guessing postgres & sqlsvr do not
 have this limitation.

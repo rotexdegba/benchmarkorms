@@ -17,7 +17,8 @@
         "devster/ubench": "^2.1",
         "rotexsoft/versatile-collections": "^5.2",
         "rotexsoft/leanorm-cli": "^1.0.8",
-        "league/climate": "^3.8"
+        "league/climate": "^3.8",
+        "linfo/linfo": "^4.0"
     },
     "require-dev": {
         "atlas/cli": "^2.2.2"

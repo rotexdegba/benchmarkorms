@@ -1,7 +1,6 @@
 <?php
 include __DIR__ .DIRECTORY_SEPARATOR. '../vendor/autoload.php';
-
-$pdo_opts = include __DIR__ . DIRECTORY_SEPARATOR . '../load-lean.php';
+include __DIR__ . DIRECTORY_SEPARATOR . '../load-lean.php';
 
 $benchmarkResultsModel = new \Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\BenchmarksResults\BenchmarksResultsModel(...$leanArgs);
 $test_results = $benchmarkResultsModel->fetchRowsIntoArray(
@@ -33,7 +32,6 @@ echo PHP_EOL . PHP_EOL;
 $climate->lightRed('NOTE: the chunk_size means that the records were fetched in batches of chunk_size, all the records always get fetched.');
 
 echo PHP_EOL . PHP_EOL;
-
 
 $climate->backgroundGreen('Goodbye!!!');
 

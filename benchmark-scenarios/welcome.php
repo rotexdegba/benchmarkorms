@@ -28,7 +28,13 @@ $climate->bold()->backgroundDarkGray()->border('==');
 
 echo PHP_EOL . PHP_EOL;
 
-$climate->bold('PHP Version: '. PHP_VERSION);
+$climate->bold('You are running PHP Version: '. PHP_VERSION);
+
+
+$linfo = new \Linfo\Linfo;
+$parser = $linfo->getParser();
+$distro = $parser->getDistro();
+$climate->bold('Your Operating System: '. $parser->getOS() . " - {$distro['name']} - {$distro['version']}" );
 
 echo PHP_EOL . PHP_EOL;
 
