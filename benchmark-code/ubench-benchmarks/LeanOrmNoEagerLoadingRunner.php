@@ -21,16 +21,19 @@ class LeanOrmNoEagerLoadingRunner {
      * 
      * @param int $offset           Offset position
      * 
-     * @param int $limit            Number of records to fetch per iteration
+     * @param null|int $limit       Number of records to fetch per iteration, null means no limit
+     * 
+     * @param string $shell_script_start_time Full date-time stamp when run-benchmarks.sh which invokes this object was executed
      */
     public function __invoke(
         \Ubench $ubench,
         string $table_name,
         string $table_column_name,
         int $offset = 0,
-        int $limit = 999,
+        ?int $limit = 999,
         string $strategy= LeanOrmFetchStrategies::FETCH_ROWS_INTO_ARRAY,
-        array $pdo_args =[]
+        array $pdo_args =[],
+        string $shell_script_start_time =''
     ) {
         $num_records = 0;
         
@@ -40,10 +43,15 @@ class LeanOrmNoEagerLoadingRunner {
             LeanOrmDataFetcher::getModel($table_name, $pdo_args)->getPDO()
         );
         
-        echo sprintf(
-            MessageResources::START_MSG_NO_EAGER, MessageResources::ORM_VENDOR_LEAN, 
-            $table_name, $limit, $strategy, $table_column_name, $table_name
-        );
+        echo ($limit === null) 
+            ? sprintf(
+                MessageResources::START_MSG_NO_EAGER_NO_LIMIT, MessageResources::ORM_VENDOR_LEAN, 
+                $table_name, $strategy, $table_column_name, $table_name
+            )
+            : sprintf(
+                MessageResources::START_MSG_NO_EAGER, MessageResources::ORM_VENDOR_LEAN, 
+                $table_name, number_format($limit), $strategy, $table_column_name, $table_name
+            );
         
         $ubench->run(
             function(
@@ -63,9 +71,9 @@ class LeanOrmNoEagerLoadingRunner {
                         $num_records++; //var_dump("{$num_records} {$val}");
                     }
 
-                    $offset += $limit;
+                    $offset += ($limit ?? 0);
                     
-                }while(count($recordSet) > 0);
+                }while(count($recordSet) > 0 && $limit !== null);
             },
             $offset, 
             $limit,
@@ -76,8 +84,19 @@ class LeanOrmNoEagerLoadingRunner {
         );
         
         echo sprintf(
-            MessageResources::END_MSG, $table_name, $num_records, 
+            MessageResources::END_MSG, $table_name, number_format($num_records), 
             $ubench->getTime(), $ubench->getMemoryUsage(), $ubench->getMemoryPeak()
         );
+        
+        $test_result = [
+            'orm_vendor' => MessageResources::ORM_VENDOR_LEAN,
+            'short_desc' => sprintf(MessageResources::SHORT_DESC_NO_EAGER, $table_name),
+            'strategy' => $strategy,
+            'chunk_size' => $limit,
+            'execution_duration' => $ubench->getTime(),
+            'memory_used' => $ubench->getMemoryUsage(),
+            'shell_script_start_time' => $shell_script_start_time,
+        ];
+        LeanOrmDataFetcher::storeBenchmarkResult($test_result, $pdo_args);
     }
 }

@@ -3,7 +3,7 @@ $pdo_opts = include __DIR__ . DIRECTORY_SEPARATOR . 'pdo.php';
 
 return [
     'pdo' => $pdo_opts,
-    'namespace' => 'Benchmark\\AtlasOrm\\Blog',
+    'namespace' => 'Rotexsoft\\PhpOrmBenchmarks\\AtlasOrm\\Blog',
     'directory' => './benchmark-code/atlas-orm-files',
     'transform' => new \Atlas\Cli\Transform([
         'phinxlog' => null,

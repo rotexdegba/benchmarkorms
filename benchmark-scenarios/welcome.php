@@ -28,6 +28,10 @@ $climate->bold()->backgroundDarkGray()->border('==');
 
 echo PHP_EOL . PHP_EOL;
 
+$climate->bold('PHP Version: '. PHP_VERSION);
+
+echo PHP_EOL . PHP_EOL;
+
 $climate->bold('Below are the tables in the database:');
 echo PHP_EOL;
 
@@ -54,5 +58,6 @@ echo PHP_EOL . PHP_EOL;
 
 $climate->backgroundGreen('Proceeding to run benchmark scripts. Some of the scripts take a while to execute.');
 $climate->backgroundGreen('You can leave this script running and go take a coffee or something.');
+$climate->bold()->backgroundDarkGray()->border('==');
 
 echo PHP_EOL . PHP_EOL;

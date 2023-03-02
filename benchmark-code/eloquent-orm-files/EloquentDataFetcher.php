@@ -11,12 +11,13 @@ namespace Rotexsoft\PhpOrmBenchmarks\Eloquent;
 class EloquentDataFetcher {
     
     public const TABLE_TO_MODEL_MAP = [
-        'authors'       => Blog\Author::class,
-        'comments'      => Blog\Comment::class,
-        'posts'         => Blog\Post::class,
-        'posts_tags'    => Blog\PostsTag::class,
-        'summaries'     => Blog\Summary::class,
-        'tags'          => Blog\Tag::class,
+        'authors'           => Blog\Author::class,
+        'benchmark_results' => Blog\BenchmarkResult::class,
+        'comments'          => Blog\Comment::class,
+        'posts'             => Blog\Post::class,
+        'posts_tags'        => Blog\PostsTag::class,
+        'summaries'         => Blog\Summary::class,
+        'tags'              => Blog\Tag::class,
     ];
     
     public const DEFAULT_LIMIT = 999;
@@ -58,5 +59,26 @@ class EloquentDataFetcher {
             
             return $result;
         }
+    }
+    
+    public static function insert(
+        string $table_name, 
+        array $data
+    ) {
+        
+        $model_class = static::TABLE_TO_MODEL_MAP[$table_name];
+        
+        /** @var \Illuminate\Database\Eloquent\Model $model */
+        $model = new $model_class;
+        $model->forceFill($data);
+        $model->save();
+    }
+    
+    public static function storeBenchmarkResult(array $data) {
+        
+        $data['m_timestamp'] = date('Y-m-d H:i:s');
+        $data['date_created'] = date('Y-m-d H:i:s');
+        
+        static::insert('benchmark_results', $data);
     }
 }

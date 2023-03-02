@@ -11,12 +11,13 @@ namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm;
 class AtlasDataFetcher {
 
     public const TABLE_TO_MODEL_MAP = [
-        'authors'       => Blog\Author\Author::class,
-        'comments'      => Blog\Comment\Comment::class,
-        'posts'         => Blog\Post\Post::class,
-        'posts_tags'    => Blog\PostsTag\PostsTag::class,
-        'summaries'     => Blog\Summary\Summary::class,
-        'tags'          => Blog\Tag\Tag::class,
+        'authors'           => Blog\Author\Author::class,
+        'benchmark_results' => Blog\BenchmarkResult\BenchmarkResult::class,
+        'comments'          => Blog\Comment\Comment::class,
+        'posts'             => Blog\Post\Post::class,
+        'posts_tags'        => Blog\PostsTag\PostsTag::class,
+        'summaries'         => Blog\Summary\Summary::class,
+        'tags'              => Blog\Tag\Tag::class,
     ];
     
     public static function fetchAll(
@@ -54,6 +55,23 @@ class AtlasDataFetcher {
                          ->offset($offset)
                          ->fetchRecordSet();
         }
+    }
+    
+    public static function insert(
+        string $table_name, 
+        array $data, 
+        \Atlas\Orm\Atlas $atlas
+    ) {
+        $record = $atlas->newRecord(static::TABLE_TO_MODEL_MAP[$table_name], $data);
+        $atlas->insert($record);
+    }
+    
+    public static function storeBenchmarkResult(array $data, \Atlas\Orm\Atlas $atlas) {
+        
+        $data['m_timestamp'] = date('Y-m-d H:i:s');
+        $data['date_created'] = date('Y-m-d H:i:s');
+        
+        static::insert('benchmark_results', $data, $atlas);
     }
     
     public static function getPdo(\Atlas\Orm\Atlas $atlas, string $table_name): \PDO {

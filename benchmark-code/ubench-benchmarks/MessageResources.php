@@ -15,6 +15,12 @@ final class MessageResources {
                             . " in chunks of %d using the `%s` strategy."
                             . " \n`%s` for each `%s` record will be accessed.\n";
     
+    public const START_MSG_NO_LIMIT 
+                           = "%s fetching data from `%s`"
+                            . " with relateds `(%s)` [%s],"
+                            . " using the `%s` strategy."
+                            . " \n`%s` for each `%s` record will be accessed.\n";
+    
     public const START_MSG_NO_EAGER 
                            = "%s fetching data from `%s`"
                             . " without eager-fetching any related data,"
@@ -45,7 +51,10 @@ final class MessageResources {
     
     public const RUNNING_SCENARIO = 'Running Benchmark Scenario: ';
     public const SCENARIO_ENDED = 'End of Benchmark Scenario: ';
-
-
+    
+    public const SHORT_DESC_NO_EAGER = 'Fetching all (`%s`) with no related data';
+    public const SHORT_DESC_BT_HO = 'Fetching all (`%s`) with (`%s`) Belongs to and / or Has one data';
+    public const SHORT_DESC_HM_HMT = 'Fetching all (`%s`) with (`%s`) Has Many and / or Has Many Through data';
+    
     private final function __construct() { }
 }

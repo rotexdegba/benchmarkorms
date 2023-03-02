@@ -4,7 +4,7 @@ $pdo_opts = include __DIR__ . DIRECTORY_SEPARATOR . 'pdo.php';
 return [
     'pdo' => $pdo_opts,                                                              
     
-    'namespace' => 'Benchmark\\LeanOrm\\Blog',                          // Root Namespace classes will belong to. E.g. 'App\\DataSource'. Null means no namespace.
+    'namespace' => 'Rotexsoft\\PhpOrmBenchmarks\\LeanOrm\\Blog',        // Root Namespace classes will belong to. E.g. 'App\\DataSource'. Null means no namespace.
     'directory' => './benchmark-code/lean-orm-files',                   // Absolute or relative path to where classes are to be written
     'custom_templates_directory' => null,                               // Absolute or relative path to a direcory containing template files named 
                                                                         // TypesModel.php.tpl, TypesCollection.php.tpl & TypeRecord.php.tpl

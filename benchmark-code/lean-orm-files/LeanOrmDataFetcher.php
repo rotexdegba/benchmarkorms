@@ -11,12 +11,13 @@ namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm;
 class LeanOrmDataFetcher {
 
     public const TABLE_TO_MODEL_MAP = [
-        'authors'       => Blog\Authors\AuthorsModel::class,
-        'comments'      => Blog\Comments\CommentsModel::class,
-        'posts'         => Blog\Posts\PostsModel::class,
-        'posts_tags'    => Blog\PostsTags\PostsTagsModel::class,
-        'summaries'     => Blog\Summaries\SummariesModel::class,
-        'tags'          => Blog\Tags\TagsModel::class,
+        'authors'           => Blog\Authors\AuthorsModel::class,
+        'benchmark_results' => Blog\BenchmarksResults\BenchmarksResultsModel::class,
+        'comments'          => Blog\Comments\CommentsModel::class,
+        'posts'             => Blog\Posts\PostsModel::class,
+        'posts_tags'        => Blog\PostsTags\PostsTagsModel::class,
+        'summaries'         => Blog\Summaries\SummariesModel::class,
+        'tags'              => Blog\Tags\TagsModel::class,
     ];
     
     public static function fetchAll(
@@ -67,6 +68,25 @@ class LeanOrmDataFetcher {
                         $relation_names
                     );
         }
+    }
+    
+    public static function insert(
+        string $table_name, 
+        array $data,
+        array $pdo_args =[]
+    ) {
+        $model = static::getModel($table_name, $pdo_args);
+        $model->createNewRecord($data)->save();
+    }
+    
+    public static function storeBenchmarkResult(
+        array $data,
+        array $pdo_args =[]
+    ) {
+        $data['m_timestamp'] = date('Y-m-d H:i:s');
+        $data['date_created'] = date('Y-m-d H:i:s');
+        
+        static::insert('benchmark_results', $data, $pdo_args);
     }
     
     public static function getModel(string $table_name, array $pdo_args): \LeanOrm\Model {
