@@ -52,9 +52,9 @@ final class MessageResources {
     public const RUNNING_SCENARIO = 'Running Benchmark Scenario: ';
     public const SCENARIO_ENDED = 'End of Benchmark Scenario: ';
     
-    public const SHORT_DESC_NO_EAGER = 'Fetching all (`%s`) with no related data';
-    public const SHORT_DESC_BT_HO = 'Fetching all (`%s`) with (`%s`) Belongs to and / or Has one data';
-    public const SHORT_DESC_HM_HMT = 'Fetching all (`%s`) with (`%s`) Has Many and / or Has Many Through data';
+    public const SHORT_DESC_NO_EAGER = 'Fetching all (`%s`, %d records fetched) with no related data';
+    public const SHORT_DESC_BT_HO = 'Fetching all (`%s`, %d records fetched) with (`%s`) Belongs to and / or Has one data';
+    public const SHORT_DESC_HM_HMT = 'Fetching all (`%s`, %d records fetched) with (`%s`) Has Many and / or Has Many Through data';
     
     private final function __construct() { }
 }

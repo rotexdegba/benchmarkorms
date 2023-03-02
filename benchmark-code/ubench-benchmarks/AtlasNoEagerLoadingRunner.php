@@ -99,7 +99,7 @@ class AtlasNoEagerLoadingRunner {
         
         $test_result = [
             'orm_vendor' => MessageResources::ORM_VENDOR_ATLAS,
-            'short_desc' => sprintf(MessageResources::SHORT_DESC_NO_EAGER, $table_name),
+            'short_desc' => sprintf(MessageResources::SHORT_DESC_NO_EAGER, $table_name, $num_records),
             'strategy' => $strategy,
             'chunk_size' => $limit,
             'execution_duration' => $ubench->getTime(),

@@ -107,7 +107,7 @@ class LeanOrmHasManyOrHasManyThroughRunner {
         
         $test_result = [
             'orm_vendor' => MessageResources::ORM_VENDOR_LEAN,
-            'short_desc' => sprintf(MessageResources::SHORT_DESC_HM_HMT, $table_name, implode(', ', $relation_names)),
+            'short_desc' => sprintf(MessageResources::SHORT_DESC_HM_HMT, $table_name, $num_records, implode(', ', $relation_names)),
             'strategy' => $strategy,
             'chunk_size' => $limit,
             'execution_duration' => $ubench->getTime(),

@@ -10,6 +10,14 @@ $test_results = $benchmarkResultsModel->fetchRowsIntoArray(
                           ->where(' shell_script_start_time = ? ', $_SERVER['argv'][1])
 );
 
+foreach($test_results as $key=>$val) {
+    
+    if($val['chunk_size'] === null) {
+        
+        $test_results[$key]['chunk_size'] = 'No limit clause';
+    }
+}
+
 $climate = new League\CLImate\CLImate;
 $climate->bold()->backgroundDarkGray()->border('==');
 $climate->backgroundGreen('All benchmark scripts have been executed.');
@@ -19,6 +27,10 @@ $climate->bold()->backgroundDarkGray()->border('==');
 echo PHP_EOL . PHP_EOL;
 
 $climate->yellowTable($test_results);
+
+echo PHP_EOL . PHP_EOL;
+
+$climate->lightRed('NOTE: the chunk_size means that the records were fetched in batches of chunk_size, all the records always get fetched.');
 
 echo PHP_EOL . PHP_EOL;
 
