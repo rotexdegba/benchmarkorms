@@ -21,6 +21,12 @@ final class MessageResources {
                             . " in chunks of %d using the `%s` strategy."
                             . " \n`%s` for each `%s` record will be accessed.\n";
     
+    public const START_MSG_NO_EAGER_NO_LIMIT
+                           = "%s fetching data from `%s`"
+                            . " without eager-fetching any related data,"
+                            . " using the `%s` strategy."
+                            . " \n`%s` for each `%s` record will be accessed.\n";
+    
     public const END_MSG = "\nTotal records fetched from `%s`: %d \n" 
                             . "\nTime taken: %s"
                             . "\nMemory Usage: %s"
