@@ -1,7 +1,20 @@
 <?php
+include __DIR__ .DIRECTORY_SEPARATOR. '../load-eloquent.php';
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+$scenario = ucfirst(str_replace( ['-','.php'], [' ', ''], basename(__FILE__) ));
 
+echo \Rotexsoft\PhpOrmBenchmarks\Ubench\MessageResources::RUNNING_SCENARIO 
+    . $scenario . PHP_EOL . PHP_EOL;
+
+$runner = new \Rotexsoft\PhpOrmBenchmarks\Ubench\EloquentNoEagerLoadingRunner();
+
+$runner(
+    new Ubench(), 'authors', 'name', 0, 10,
+    \Rotexsoft\PhpOrmBenchmarks\Eloquent\EloquentFetchStrategies::CHUNK,
+    $_SERVER['argv'][1]
+);
+
+echo \Rotexsoft\PhpOrmBenchmarks\Ubench\MessageResources::SCENARIO_ENDED
+    . $scenario . PHP_EOL 
+    . str_repeat('=========================================================', 2)
+    . PHP_EOL . PHP_EOL;

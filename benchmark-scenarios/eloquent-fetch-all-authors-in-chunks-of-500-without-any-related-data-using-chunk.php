@@ -6,11 +6,12 @@ $scenario = ucfirst(str_replace( ['-','.php'], [' ', ''], basename(__FILE__) ));
 echo \Rotexsoft\PhpOrmBenchmarks\Ubench\MessageResources::RUNNING_SCENARIO 
     . $scenario . PHP_EOL . PHP_EOL;
 
-$runner = new \Rotexsoft\PhpOrmBenchmarks\Ubench\EloquentHasManyOrHasManyThroughRunner();
+$runner = new \Rotexsoft\PhpOrmBenchmarks\Ubench\EloquentNoEagerLoadingRunner();
 
 $runner(
-    new Ubench(), 'posts', ['tags'], 'title', 'name', 0, 100, 
-    \Rotexsoft\PhpOrmBenchmarks\Eloquent\EloquentFetchStrategies::GET
+    new Ubench(), 'authors', 'name', 0, 500,
+    \Rotexsoft\PhpOrmBenchmarks\Eloquent\EloquentFetchStrategies::CHUNK,
+    $_SERVER['argv'][1]
 );
 
 echo \Rotexsoft\PhpOrmBenchmarks\Ubench\MessageResources::SCENARIO_ENDED

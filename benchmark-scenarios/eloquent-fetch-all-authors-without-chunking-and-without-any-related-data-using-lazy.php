@@ -9,7 +9,7 @@ echo \Rotexsoft\PhpOrmBenchmarks\Ubench\MessageResources::RUNNING_SCENARIO
 $runner = new \Rotexsoft\PhpOrmBenchmarks\Ubench\EloquentNoEagerLoadingRunner();
 
 $runner(
-    new Ubench(), 'authors', 'name', 0, 10,
+    new Ubench(), 'authors', 'name', 0, null,
     \Rotexsoft\PhpOrmBenchmarks\Eloquent\EloquentFetchStrategies::LAZY,
     $_SERVER['argv'][1]
 );
