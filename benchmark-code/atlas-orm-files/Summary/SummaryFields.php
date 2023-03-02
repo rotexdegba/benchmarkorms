@@ -13,6 +13,7 @@ namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Summary;
  * @property mixed $comment_count INTEGER NOT NULL
  * @property mixed $m_timestamp TIMESTAMP_TEXT NOT NULL
  * @property mixed $date_created TIMESTAMP_TEXT NOT NULL
+ * @property null|false|\Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Post\PostRecord $post
  */
 trait SummaryFields
 {

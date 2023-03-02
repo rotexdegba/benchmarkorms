@@ -11,6 +11,8 @@ namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Tag;
  * @property mixed $name VARCHAR(255) NOT NULL
  * @property mixed $m_timestamp TIMESTAMP_TEXT NOT NULL
  * @property mixed $date_created TIMESTAMP_TEXT NOT NULL
+ * @property null|\Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\PostsTag\PostsTagRecordSet $posts_tags
+ * @property null|\Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Post\PostRecordSet $posts
  */
 trait TagFields
 {

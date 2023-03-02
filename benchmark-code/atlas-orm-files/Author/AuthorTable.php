@@ -17,16 +17,16 @@ use Atlas\Table\Table;
  */
 class AuthorTable extends Table
 {
-    const DRIVER = 'mysql';
+    const DRIVER = 'sqlite';
 
     const NAME = 'authors';
 
     const COLUMNS = [
         'author_id' => [
             'name' => 'author_id',
-            'type' => 'int',
-            'size' => 10,
-            'scale' => 0,
+            'type' => 'INTEGER',
+            'size' => null,
+            'scale' => null,
             'notnull' => true,
             'default' => null,
             'autoinc' => true,
@@ -35,7 +35,7 @@ class AuthorTable extends Table
         ],
         'name' => [
             'name' => 'name',
-            'type' => 'varchar',
+            'type' => 'VARCHAR',
             'size' => 255,
             'scale' => null,
             'notnull' => true,
@@ -46,22 +46,22 @@ class AuthorTable extends Table
         ],
         'm_timestamp' => [
             'name' => 'm_timestamp',
-            'type' => 'timestamp',
+            'type' => 'TIMESTAMP_TEXT',
             'size' => null,
             'scale' => null,
             'notnull' => true,
-            'default' => null,
+            'default' => 'CURRENT_TIMESTAMP',
             'autoinc' => false,
             'primary' => false,
             'options' => null,
         ],
         'date_created' => [
             'name' => 'date_created',
-            'type' => 'timestamp',
+            'type' => 'TIMESTAMP_TEXT',
             'size' => null,
             'scale' => null,
             'notnull' => true,
-            'default' => null,
+            'default' => 'CURRENT_TIMESTAMP',
             'autoinc' => false,
             'primary' => false,
             'options' => null,
@@ -78,8 +78,8 @@ class AuthorTable extends Table
     const COLUMN_DEFAULTS = [
         'author_id' => null,
         'name' => null,
-        'm_timestamp' => null,
-        'date_created' => null,
+        'm_timestamp' => 'CURRENT_TIMESTAMP',
+        'date_created' => 'CURRENT_TIMESTAMP',
     ];
 
     const PRIMARY_KEY = [
