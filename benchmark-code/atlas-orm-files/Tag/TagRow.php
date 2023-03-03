@@ -9,17 +9,17 @@ namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Tag;
 use Atlas\Table\Row;
 
 /**
- * @property mixed $tag_id INTEGER NOT NULL
- * @property mixed $name VARCHAR(255) NOT NULL
- * @property mixed $m_timestamp TIMESTAMP_TEXT NOT NULL
- * @property mixed $date_created TIMESTAMP_TEXT NOT NULL
+ * @property mixed $tag_id int(10,0) NOT NULL
+ * @property mixed $name varchar(255) NOT NULL
+ * @property mixed $m_timestamp timestamp NOT NULL
+ * @property mixed $date_created timestamp NOT NULL
  */
 class TagRow extends Row
 {
     protected $cols = [
         'tag_id' => null,
         'name' => null,
-        'm_timestamp' => 'CURRENT_TIMESTAMP',
-        'date_created' => 'CURRENT_TIMESTAMP',
+        'm_timestamp' => null,
+        'date_created' => null,
     ];
 }

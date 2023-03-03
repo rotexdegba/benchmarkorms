@@ -17,16 +17,16 @@ use Atlas\Table\Table;
  */
 class PostsTagTable extends Table
 {
-    const DRIVER = 'sqlite';
+    const DRIVER = 'mysql';
 
     const NAME = 'posts_tags';
 
     const COLUMNS = [
         'posts_tags_id' => [
             'name' => 'posts_tags_id',
-            'type' => 'INTEGER',
-            'size' => null,
-            'scale' => null,
+            'type' => 'int',
+            'size' => 10,
+            'scale' => 0,
             'notnull' => true,
             'default' => null,
             'autoinc' => true,
@@ -35,9 +35,9 @@ class PostsTagTable extends Table
         ],
         'post_id' => [
             'name' => 'post_id',
-            'type' => 'INTEGER',
-            'size' => null,
-            'scale' => null,
+            'type' => 'int',
+            'size' => 10,
+            'scale' => 0,
             'notnull' => true,
             'default' => null,
             'autoinc' => false,
@@ -46,9 +46,9 @@ class PostsTagTable extends Table
         ],
         'tag_id' => [
             'name' => 'tag_id',
-            'type' => 'INTEGER',
-            'size' => null,
-            'scale' => null,
+            'type' => 'int',
+            'size' => 10,
+            'scale' => 0,
             'notnull' => true,
             'default' => null,
             'autoinc' => false,
@@ -57,22 +57,22 @@ class PostsTagTable extends Table
         ],
         'm_timestamp' => [
             'name' => 'm_timestamp',
-            'type' => 'TIMESTAMP_TEXT',
+            'type' => 'timestamp',
             'size' => null,
             'scale' => null,
             'notnull' => true,
-            'default' => 'CURRENT_TIMESTAMP',
+            'default' => null,
             'autoinc' => false,
             'primary' => false,
             'options' => null,
         ],
         'date_created' => [
             'name' => 'date_created',
-            'type' => 'TIMESTAMP_TEXT',
+            'type' => 'timestamp',
             'size' => null,
             'scale' => null,
             'notnull' => true,
-            'default' => 'CURRENT_TIMESTAMP',
+            'default' => null,
             'autoinc' => false,
             'primary' => false,
             'options' => null,
@@ -91,8 +91,8 @@ class PostsTagTable extends Table
         'posts_tags_id' => null,
         'post_id' => null,
         'tag_id' => null,
-        'm_timestamp' => 'CURRENT_TIMESTAMP',
-        'date_created' => 'CURRENT_TIMESTAMP',
+        'm_timestamp' => null,
+        'date_created' => null,
     ];
 
     const PRIMARY_KEY = [

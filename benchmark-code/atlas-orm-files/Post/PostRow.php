@@ -9,23 +9,23 @@ namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Post;
 use Atlas\Table\Row;
 
 /**
- * @property mixed $post_id INTEGER NOT NULL
- * @property mixed $author_id INTEGER NOT NULL
- * @property mixed $datetime TIMESTAMP_TEXT
- * @property mixed $title VARCHAR(255) NOT NULL
- * @property mixed $body TEXT
- * @property mixed $m_timestamp TIMESTAMP_TEXT NOT NULL
- * @property mixed $date_created TIMESTAMP_TEXT NOT NULL
+ * @property mixed $post_id int(10,0) NOT NULL
+ * @property mixed $author_id int(10,0) NOT NULL
+ * @property mixed $datetime timestamp
+ * @property mixed $title varchar(255) NOT NULL
+ * @property mixed $body text(65535)
+ * @property mixed $m_timestamp timestamp NOT NULL
+ * @property mixed $date_created timestamp NOT NULL
  */
 class PostRow extends Row
 {
     protected $cols = [
         'post_id' => null,
         'author_id' => null,
-        'datetime' => 'CURRENT_TIMESTAMP',
+        'datetime' => null,
         'title' => null,
         'body' => null,
-        'm_timestamp' => 'CURRENT_TIMESTAMP',
-        'date_created' => 'CURRENT_TIMESTAMP',
+        'm_timestamp' => null,
+        'date_created' => null,
     ];
 }

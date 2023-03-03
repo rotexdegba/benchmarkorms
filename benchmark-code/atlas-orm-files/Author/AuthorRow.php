@@ -9,17 +9,17 @@ namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Author;
 use Atlas\Table\Row;
 
 /**
- * @property mixed $author_id INTEGER NOT NULL
- * @property mixed $name VARCHAR(255) NOT NULL
- * @property mixed $m_timestamp TIMESTAMP_TEXT NOT NULL
- * @property mixed $date_created TIMESTAMP_TEXT NOT NULL
+ * @property mixed $author_id int(10,0) NOT NULL
+ * @property mixed $name varchar(255) NOT NULL
+ * @property mixed $m_timestamp timestamp NOT NULL
+ * @property mixed $date_created timestamp NOT NULL
  */
 class AuthorRow extends Row
 {
     protected $cols = [
         'author_id' => null,
         'name' => null,
-        'm_timestamp' => 'CURRENT_TIMESTAMP',
-        'date_created' => 'CURRENT_TIMESTAMP',
+        'm_timestamp' => null,
+        'date_created' => null,
     ];
 }

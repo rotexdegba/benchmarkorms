@@ -17,16 +17,16 @@ use Atlas\Table\Table;
  */
 class PostTable extends Table
 {
-    const DRIVER = 'sqlite';
+    const DRIVER = 'mysql';
 
     const NAME = 'posts';
 
     const COLUMNS = [
         'post_id' => [
             'name' => 'post_id',
-            'type' => 'INTEGER',
-            'size' => null,
-            'scale' => null,
+            'type' => 'int',
+            'size' => 10,
+            'scale' => 0,
             'notnull' => true,
             'default' => null,
             'autoinc' => true,
@@ -35,9 +35,9 @@ class PostTable extends Table
         ],
         'author_id' => [
             'name' => 'author_id',
-            'type' => 'INTEGER',
-            'size' => null,
-            'scale' => null,
+            'type' => 'int',
+            'size' => 10,
+            'scale' => 0,
             'notnull' => true,
             'default' => null,
             'autoinc' => false,
@@ -46,18 +46,18 @@ class PostTable extends Table
         ],
         'datetime' => [
             'name' => 'datetime',
-            'type' => 'TIMESTAMP_TEXT',
+            'type' => 'timestamp',
             'size' => null,
             'scale' => null,
             'notnull' => false,
-            'default' => 'CURRENT_TIMESTAMP',
+            'default' => null,
             'autoinc' => false,
             'primary' => false,
             'options' => null,
         ],
         'title' => [
             'name' => 'title',
-            'type' => 'VARCHAR',
+            'type' => 'varchar',
             'size' => 255,
             'scale' => null,
             'notnull' => true,
@@ -68,8 +68,8 @@ class PostTable extends Table
         ],
         'body' => [
             'name' => 'body',
-            'type' => 'TEXT',
-            'size' => null,
+            'type' => 'text',
+            'size' => 65535,
             'scale' => null,
             'notnull' => false,
             'default' => null,
@@ -79,22 +79,22 @@ class PostTable extends Table
         ],
         'm_timestamp' => [
             'name' => 'm_timestamp',
-            'type' => 'TIMESTAMP_TEXT',
+            'type' => 'timestamp',
             'size' => null,
             'scale' => null,
             'notnull' => true,
-            'default' => 'CURRENT_TIMESTAMP',
+            'default' => null,
             'autoinc' => false,
             'primary' => false,
             'options' => null,
         ],
         'date_created' => [
             'name' => 'date_created',
-            'type' => 'TIMESTAMP_TEXT',
+            'type' => 'timestamp',
             'size' => null,
             'scale' => null,
             'notnull' => true,
-            'default' => 'CURRENT_TIMESTAMP',
+            'default' => null,
             'autoinc' => false,
             'primary' => false,
             'options' => null,
@@ -114,11 +114,11 @@ class PostTable extends Table
     const COLUMN_DEFAULTS = [
         'post_id' => null,
         'author_id' => null,
-        'datetime' => 'CURRENT_TIMESTAMP',
+        'datetime' => null,
         'title' => null,
         'body' => null,
-        'm_timestamp' => 'CURRENT_TIMESTAMP',
-        'date_created' => 'CURRENT_TIMESTAMP',
+        'm_timestamp' => null,
+        'date_created' => null,
     ];
 
     const PRIMARY_KEY = [

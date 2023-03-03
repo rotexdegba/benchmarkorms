@@ -7,10 +7,10 @@ declare(strict_types=1);
 namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Author;
 
 /**
- * @property mixed $author_id INTEGER NOT NULL
- * @property mixed $name VARCHAR(255) NOT NULL
- * @property mixed $m_timestamp TIMESTAMP_TEXT NOT NULL
- * @property mixed $date_created TIMESTAMP_TEXT NOT NULL
+ * @property mixed $author_id int(10,0) NOT NULL
+ * @property mixed $name varchar(255) NOT NULL
+ * @property mixed $m_timestamp timestamp NOT NULL
+ * @property mixed $date_created timestamp NOT NULL
  * @property null|\Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Post\PostRecordSet $posts
  */
 trait AuthorFields

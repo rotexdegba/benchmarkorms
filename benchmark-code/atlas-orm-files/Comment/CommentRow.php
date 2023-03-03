@@ -9,27 +9,27 @@ namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\Comment;
 use Atlas\Table\Row;
 
 /**
- * @property mixed $comment_id INTEGER NOT NULL
- * @property mixed $post_id INTEGER NOT NULL
- * @property mixed $datetime TIMESTAMP_TEXT
- * @property mixed $name VARCHAR(255) NOT NULL
- * @property mixed $email VARCHAR(255) NOT NULL
- * @property mixed $website VARCHAR(255) NOT NULL
- * @property mixed $body TEXT
- * @property mixed $m_timestamp TIMESTAMP_TEXT NOT NULL
- * @property mixed $date_created TIMESTAMP_TEXT NOT NULL
+ * @property mixed $comment_id int(10,0) NOT NULL
+ * @property mixed $post_id int(10,0) NOT NULL
+ * @property mixed $datetime timestamp
+ * @property mixed $name varchar(255) NOT NULL
+ * @property mixed $email varchar(255) NOT NULL
+ * @property mixed $website varchar(255) NOT NULL
+ * @property mixed $body text(65535)
+ * @property mixed $m_timestamp timestamp NOT NULL
+ * @property mixed $date_created timestamp NOT NULL
  */
 class CommentRow extends Row
 {
     protected $cols = [
         'comment_id' => null,
         'post_id' => null,
-        'datetime' => 'CURRENT_TIMESTAMP',
+        'datetime' => null,
         'name' => null,
         'email' => null,
         'website' => null,
         'body' => null,
-        'm_timestamp' => 'CURRENT_TIMESTAMP',
-        'date_created' => 'CURRENT_TIMESTAMP',
+        'm_timestamp' => null,
+        'date_created' => null,
     ];
 }

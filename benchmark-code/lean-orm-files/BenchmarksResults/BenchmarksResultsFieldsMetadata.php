@@ -77,6 +77,28 @@ return array (
     'autoinc' => false,
     'primary' => false,
   ),
+  'execution_duration_in_seconds' => 
+  array (
+    'name' => 'execution_duration_in_seconds',
+    'type' => 'float unsigned',
+    'size' => NULL,
+    'scale' => NULL,
+    'notnull' => true,
+    'default' => '0',
+    'autoinc' => false,
+    'primary' => false,
+  ),
+  'memory_used_in_bytes' => 
+  array (
+    'name' => 'memory_used_in_bytes',
+    'type' => 'int unsigned',
+    'size' => NULL,
+    'scale' => NULL,
+    'notnull' => true,
+    'default' => '0',
+    'autoinc' => false,
+    'primary' => false,
+  ),
   'shell_script_start_time' => 
   array (
     'name' => 'shell_script_start_time',

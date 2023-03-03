@@ -14,6 +14,8 @@ namespace Rotexsoft\PhpOrmBenchmarks\AtlasOrm\Blog\BenchmarkResult;
  * @property mixed $chunk_size int(10,0) unsigned
  * @property mixed $execution_duration text(65535) NOT NULL
  * @property mixed $memory_used text(65535) NOT NULL
+ * @property mixed $execution_duration_in_seconds float(12) unsigned NOT NULL
+ * @property mixed $memory_used_in_bytes int(10,0) unsigned NOT NULL
  * @property mixed $shell_script_start_time text(65535) NOT NULL
  * @property mixed $m_timestamp timestamp NOT NULL
  * @property mixed $date_created timestamp NOT NULL

@@ -17,16 +17,16 @@ use Atlas\Table\Table;
  */
 class SummaryTable extends Table
 {
-    const DRIVER = 'sqlite';
+    const DRIVER = 'mysql';
 
     const NAME = 'summaries';
 
     const COLUMNS = [
         'summary_id' => [
             'name' => 'summary_id',
-            'type' => 'INTEGER',
-            'size' => null,
-            'scale' => null,
+            'type' => 'int',
+            'size' => 10,
+            'scale' => 0,
             'notnull' => true,
             'default' => null,
             'autoinc' => true,
@@ -35,9 +35,9 @@ class SummaryTable extends Table
         ],
         'post_id' => [
             'name' => 'post_id',
-            'type' => 'INTEGER',
-            'size' => null,
-            'scale' => null,
+            'type' => 'int',
+            'size' => 10,
+            'scale' => 0,
             'notnull' => true,
             'default' => null,
             'autoinc' => false,
@@ -46,9 +46,9 @@ class SummaryTable extends Table
         ],
         'view_count' => [
             'name' => 'view_count',
-            'type' => 'INTEGER',
-            'size' => null,
-            'scale' => null,
+            'type' => 'int',
+            'size' => 10,
+            'scale' => 0,
             'notnull' => true,
             'default' => null,
             'autoinc' => false,
@@ -57,9 +57,9 @@ class SummaryTable extends Table
         ],
         'comment_count' => [
             'name' => 'comment_count',
-            'type' => 'INTEGER',
-            'size' => null,
-            'scale' => null,
+            'type' => 'int',
+            'size' => 10,
+            'scale' => 0,
             'notnull' => true,
             'default' => null,
             'autoinc' => false,
@@ -68,22 +68,22 @@ class SummaryTable extends Table
         ],
         'm_timestamp' => [
             'name' => 'm_timestamp',
-            'type' => 'TIMESTAMP_TEXT',
+            'type' => 'timestamp',
             'size' => null,
             'scale' => null,
             'notnull' => true,
-            'default' => 'CURRENT_TIMESTAMP',
+            'default' => null,
             'autoinc' => false,
             'primary' => false,
             'options' => null,
         ],
         'date_created' => [
             'name' => 'date_created',
-            'type' => 'TIMESTAMP_TEXT',
+            'type' => 'timestamp',
             'size' => null,
             'scale' => null,
             'notnull' => true,
-            'default' => 'CURRENT_TIMESTAMP',
+            'default' => null,
             'autoinc' => false,
             'primary' => false,
             'options' => null,
@@ -104,8 +104,8 @@ class SummaryTable extends Table
         'post_id' => null,
         'view_count' => null,
         'comment_count' => null,
-        'm_timestamp' => 'CURRENT_TIMESTAMP',
-        'date_created' => 'CURRENT_TIMESTAMP',
+        'm_timestamp' => null,
+        'date_created' => null,
     ];
 
     const PRIMARY_KEY = [
