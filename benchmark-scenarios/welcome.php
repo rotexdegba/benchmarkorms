@@ -3,7 +3,6 @@ include __DIR__ .DIRECTORY_SEPARATOR. '../vendor/autoload.php';
 
 $pdo_opts = include __DIR__ . DIRECTORY_SEPARATOR . '../pdo.php';
 $pdo_obj = new \PDO(...$pdo_opts);
-
 $dbFetchValue = function(\PDO $pdo, string $query) {
         
     $statement = $pdo->prepare($query);
@@ -26,23 +25,27 @@ $climate->bold()->backgroundDarkGray()->border('==');
 $climate->backgroundDarkGray()->out('|| Welcome to the PHP ORM Benchmarking Tool');
 $climate->bold()->backgroundDarkGray()->border('==');
 
+//////////////////////////////////////////////////////////////////////////
+// PHP VERSION INFO
+//////////////////////////////////////////////////////////////////////////
 echo PHP_EOL . PHP_EOL;
 
 $climate->bold('You are running PHP Version: '. PHP_VERSION);
 
-
-
-$operating_system = ''; // $distro['name'] will report this for windows
+//////////////////////////////////////////////////////////////////////////
+// OS INFO
+//////////////////////////////////////////////////////////////////////////
+$operating_system = ''; // $distro['name'] will report this for non-Linux
 $distro = [
     'name' => php_uname('s'),
     'version' => php_uname('r') . ' - ' . php_uname('v') . ' - ' . php_uname('m'),
 ];
 
-if(strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
+if(PHP_OS === 'Linux') {
     
-    $linfo = new \Linfo\Linfo;
+    // use linfo to get detailed linux os info
+    $linfo = new \Linfo\Linfo();
     $parser = $linfo->getParser();
-
     $operating_system = $parser->getOS() . ' -';
     $distro = $parser->getDistro();
 }
@@ -50,6 +53,9 @@ $climate->bold('Your Operating System: '. $operating_system . " {$distro['name']
 
 echo PHP_EOL . PHP_EOL;
 
+//////////////////////////////////////////////////////////////////////////
+// DATABASE TABLES INFO
+//////////////////////////////////////////////////////////////////////////
 $climate->bold('Below are the tables in the database:');
 echo PHP_EOL;
 
@@ -73,6 +79,8 @@ $climate->out('A tag has many posts_tags.');
 $climate->out('A tag has many posts through posts_tags.');
 
 echo PHP_EOL . PHP_EOL;
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 
 $climate->backgroundGreen('Proceeding to run benchmark scripts. Some of the scripts take a while to execute.');
 $climate->backgroundGreen('You can leave this script running and go take a coffee or something.');
