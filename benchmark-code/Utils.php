@@ -40,7 +40,7 @@ class Utils {
                                         [
                                             'orm_vendor', 'short_desc', 'strategy', 
                                             'chunk_size', 'execution_duration', 'memory_used', 
-                                            'execution_duration_in_seconds', 'memory_used_in_bytes',
+                                            //'execution_duration_in_seconds', 'memory_used_in_bytes',
                                         ]
                                     )
                                   ->where(' shell_script_start_time = ? ', $shell_script_start_time)
@@ -82,8 +82,8 @@ class Utils {
         $table->addColumn('chunk_size', new Column('chunk_size', Column::ALIGN_LEFT));
         $table->addColumn('execution_duration', new Column('execution_duration', Column::ALIGN_LEFT));
         $table->addColumn('memory_used', new Column('memory_used', Column::ALIGN_LEFT));
-        $table->addColumn('execution_duration_in_seconds', new Column('execution_duration_in_seconds', Column::ALIGN_LEFT));
-        $table->addColumn('memory_used_in_bytes', new Column('memory_used_in_bytes', Column::ALIGN_LEFT));
+        //$table->addColumn('execution_duration_in_seconds', new Column('execution_duration_in_seconds', Column::ALIGN_LEFT));
+        //$table->addColumn('memory_used_in_bytes', new Column('memory_used_in_bytes', Column::ALIGN_LEFT));
         
         foreach ($table->generate($test_results) as $row) {
             
