@@ -10,7 +10,7 @@ echo \Rotexsoft\PhpOrmBenchmarks\Ubench\MessageResources::RUNNING_SCENARIO
 $runner = new \Rotexsoft\PhpOrmBenchmarks\Ubench\LeanOrmNoEagerLoadingRunner();
 
 $runner(
-    new Ubench(), 'authors', 'name', 0, 10,
+    new Ubench(), 'authors', 'name', 0, 250,
     \Rotexsoft\PhpOrmBenchmarks\LeanOrm\LeanOrmFetchStrategies::FETCH_ROWS_INTO_ARRAY,
     $leanArgs, $_SERVER['argv'][1]
 );
