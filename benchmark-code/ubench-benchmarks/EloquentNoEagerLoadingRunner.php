@@ -100,7 +100,8 @@ class EloquentNoEagerLoadingRunner {
         );
         
         $test_result = [
-            'orm_vendor' => MessageResources::ORM_VENDOR_ELOQUENT,
+            'orm_vendor' => MessageResources::ORM_VENDOR_ELOQUENT 
+                            . ' - ' . \Composer\InstalledVersions::getVersion(MessageResources::PACKAGIST_NAME_ELOQUENT),
             'short_desc' => sprintf(MessageResources::SHORT_DESC_NO_EAGER, $table_name, $num_records),
             'strategy' => $strategy,
             'chunk_size' => $limit,

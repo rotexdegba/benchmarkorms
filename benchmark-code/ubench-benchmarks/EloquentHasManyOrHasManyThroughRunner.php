@@ -116,7 +116,8 @@ class EloquentHasManyOrHasManyThroughRunner {
         );
         
         $test_result = [
-            'orm_vendor' => MessageResources::ORM_VENDOR_ELOQUENT,
+            'orm_vendor' => MessageResources::ORM_VENDOR_ELOQUENT 
+                            . ' - ' . \Composer\InstalledVersions::getVersion(MessageResources::PACKAGIST_NAME_ELOQUENT),
             'short_desc' => sprintf(MessageResources::SHORT_DESC_HM_HMT, $table_name, $num_records, implode(', ', $relation_names)),
             'strategy' => $strategy,
             'chunk_size' => $limit,
