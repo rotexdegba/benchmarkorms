@@ -1,5 +1,7 @@
 #!/bin/bash
-
+########################################################################################
+# This script is invoked inside run-benchmarks.sh, you should not be running it directly
+########################################################################################
 php ./benchmark-scenarios/atlas-fetch-all-authors-in-chunks-of-10-without-any-related-data-using-fetchRecords.php "$1"
 sleep 2
 php ./benchmark-scenarios/atlas-fetch-all-authors-in-chunks-of-10-without-any-related-data-using-fetchRecordSet.php "$1"
