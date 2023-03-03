@@ -113,6 +113,8 @@ class LeanOrmHasManyOrHasManyThroughRunner {
             'chunk_size' => $limit,
             'execution_duration' => $ubench->getTime(),
             'memory_used' => $ubench->getMemoryUsage(),
+            'execution_duration_in_seconds' => $ubench->getTime(true),
+            'memory_used_in_bytes' => $ubench->getMemoryUsage(true),
             'shell_script_start_time' => $shell_script_start_time,
         ];
         LeanOrmDataFetcher::storeBenchmarkResult($test_result, $pdo_args);

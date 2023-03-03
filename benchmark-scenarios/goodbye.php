@@ -29,9 +29,18 @@ $climate->yellowTable($test_results);
 
 echo PHP_EOL . PHP_EOL;
 
-$climate->lightRed('NOTE: the chunk_size means that the records were fetched in batches of chunk_size, all the records always get fetched.');
+$climate->cyan(
+    '<bold>NOTE:</bold> the chunk_size means that the records were fetched in batches of chunk_size, all the records always get fetched. '
+    . 'For example if a table contains 5,000 records and the chunk_size is 1,000, this tool will cause each ORM in this scenario to fetch '
+    . 'the 1st batch of 1000 records, 2nd batch, up until the 5th / last batch of 1000 records from that database table. '
+    . 'Some ORM fetch strategies like Eloquent\'s lazy strategy do not do chunks and only always fetches all the data in one call.'
+);
 
 echo PHP_EOL . PHP_EOL;
+
+// TODO:
+// Render test results to a latest-test-results.html file containing datatables plugin
+// Also render the results in Markdown and put it in a folder and link to it in README.md https://github.com/the-kbA-team/markdown-table
 
 $climate->backgroundGreen('Goodbye!!!');
 

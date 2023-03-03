@@ -27,6 +27,10 @@ final class AddBenchmarkResultsTableToDb extends AbstractMigration
               ->addColumn('chunk_size', 'integer', [ 'signed' => false, 'null'=>true, 'default'=>null ])
               ->addColumn('execution_duration', 'text', [ 'null'=>false ])
               ->addColumn('memory_used', 'text', [ 'null'=>false ])
+                
+              ->addColumn('execution_duration_in_seconds', 'float', [ 'signed' => false, 'null'=>false, 'default'=>0 ])
+              ->addColumn('memory_used_in_bytes', 'integer', [ 'signed' => false, 'null'=>false, 'default'=>0 ])
+                
               ->addColumn('shell_script_start_time', 'text', [ 'null'=>false ])
               
               ->addColumn('m_timestamp', 'timestamp', [ 'null'=>false, 'default'=>'CURRENT_TIMESTAMP' ] )
