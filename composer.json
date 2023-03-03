@@ -18,7 +18,8 @@
         "rotexsoft/versatile-collections": "^5.2",
         "rotexsoft/leanorm-cli": "^1.0.8",
         "league/climate": "^3.8",
-        "linfo/linfo": "^4.0"
+        "linfo/linfo": "^4.0",
+        "kba-team/markdown-table": "^1.1"
     },
     "require-dev": {
         "atlas/cli": "^2.2.2"
