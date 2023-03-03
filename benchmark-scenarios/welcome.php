@@ -31,9 +31,8 @@ echo PHP_EOL . PHP_EOL;
 $climate->bold('You are running PHP Version: '. PHP_VERSION);
 
 
-$linfo = new \Linfo\Linfo;
-$parser = $linfo->getParser();
 
+$operating_system = ''; // $distro['name'] will report this for windows
 $distro = [
     'name' => php_uname('s'),
     'version' => php_uname('r') . ' - ' . php_uname('v') . ' - ' . php_uname('m'),
@@ -41,9 +40,13 @@ $distro = [
 
 if(strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
     
+    $linfo = new \Linfo\Linfo;
+    $parser = $linfo->getParser();
+
+    $operating_system = $parser->getOS() . ' -';
     $distro = $parser->getDistro();
 }
-$climate->bold('Your Operating System: '. $parser->getOS() . " - {$distro['name']} - {$distro['version']}" );
+$climate->bold('Your Operating System: '. $operating_system . " {$distro['name']} - {$distro['version']}" );
 
 echo PHP_EOL . PHP_EOL;
 
