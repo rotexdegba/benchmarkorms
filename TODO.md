@@ -22,3 +22,5 @@ Each test should be in its own php file so that a fresh php process is created t
 execute each test so a close to accurate memory usage value is reported. 
 If you lump all the tests together in a single php script, the memory usage 
 from earlier operations might clobber or inflate memory usage values for later operations.
+
+Document PDO configuration instructions for each ORM vendor.

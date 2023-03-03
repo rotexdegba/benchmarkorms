@@ -123,3 +123,18 @@ Which also means we can't fetch all the records from a table with more than
 999 records at once, we have to specify a limit value to fetch the records
 in chunks. Mysql does not have this limitation & I am guessing postgres & sqlsvr do not
 have this limitation.
+
+
+## Disclaimer
+
+I am the author of [LeanORM](https://github.com/rotexsoft/leanorm). This project 
+was birthed out of a personal desire to compare the performance of LeanORM to 
+other popular ORMs in performing the common data fetching scenarios described above. 
+
+I have been able to identify some bottle-necks in LeanORM and was able to update 
+it to improve its performance. I hope other ORM maintainers would find this project 
+useful and also be able to update their packages to be more performant in areas they 
+lag behind other ORM packages. For users of the various ORM packages, this tool should 
+hopefully be able to help you evaluate the strength and weaknesses of your chosen ORM 
+packages and would allow you to write your application in a way that leverages the 
+strengths of your chosen ORM. Cheers!
