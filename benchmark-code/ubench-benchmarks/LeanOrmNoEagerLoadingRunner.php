@@ -89,7 +89,8 @@ class LeanOrmNoEagerLoadingRunner {
         );
         
         $test_result = [
-            'orm_vendor' => MessageResources::ORM_VENDOR_LEAN,
+            'orm_vendor' => MessageResources::ORM_VENDOR_LEAN 
+                            . ' - ' . \Composer\InstalledVersions::getVersion(MessageResources::PACKAGIST_NAME_LEAN),
             'short_desc' => sprintf(MessageResources::SHORT_DESC_NO_EAGER, $table_name, $num_records),
             'strategy' => $strategy,
             'chunk_size' => $limit,

@@ -103,7 +103,8 @@ class LeanOrmBelongsToOrHasOneRunner {
         );
         
         $test_result = [
-            'orm_vendor' => MessageResources::ORM_VENDOR_LEAN,
+            'orm_vendor' => MessageResources::ORM_VENDOR_LEAN 
+                            . ' - ' . \Composer\InstalledVersions::getVersion(MessageResources::PACKAGIST_NAME_LEAN),
             'short_desc' => sprintf(MessageResources::SHORT_DESC_BT_HO, $table_name, $num_records, implode(', ', $relation_names)),
             'strategy' => $strategy,
             'chunk_size' => $limit,
