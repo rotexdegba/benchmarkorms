@@ -63,7 +63,7 @@ class EloquentBelongsToOrHasOneRunner {
             )
             : sprintf(
                 MessageResources::START_MSG, MessageResources::ORM_VENDOR_ELOQUENT, $table_name, implode(', ', $relation_names), 
-                MessageResources::BELONGS_TO_HAS_ONE, number_format($limit), $strategy, $table_column_name, $table_name
+                MessageResources::BELONGS_TO_HAS_ONE, ($limit), $strategy, $table_column_name, $table_name
             );
         
         $ubench->run(
@@ -110,7 +110,7 @@ class EloquentBelongsToOrHasOneRunner {
         );
         
         echo sprintf(
-            MessageResources::END_MSG, $table_name, number_format($num_records), 
+            MessageResources::END_MSG, $table_name, ($num_records), 
             $ubench->getTime(), $ubench->getMemoryUsage(), $ubench->getMemoryPeak()
         );
         

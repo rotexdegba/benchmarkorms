@@ -50,7 +50,7 @@ class LeanOrmNoEagerLoadingRunner {
             )
             : sprintf(
                 MessageResources::START_MSG_NO_EAGER, MessageResources::ORM_VENDOR_LEAN, 
-                $table_name, number_format($limit), $strategy, $table_column_name, $table_name
+                $table_name, ($limit), $strategy, $table_column_name, $table_name
             );
         
         $ubench->run(
@@ -84,7 +84,7 @@ class LeanOrmNoEagerLoadingRunner {
         );
         
         echo sprintf(
-            MessageResources::END_MSG, $table_name, number_format($num_records), 
+            MessageResources::END_MSG, $table_name, ($num_records), 
             $ubench->getTime(), $ubench->getMemoryUsage(), $ubench->getMemoryPeak()
         );
         
