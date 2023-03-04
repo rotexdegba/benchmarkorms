@@ -19,7 +19,8 @@
         "rotexsoft/leanorm-cli": "^1.0.8",
         "league/climate": "^3.8",
         "linfo/linfo": "^4.0",
-        "kba-team/markdown-table": "^1.1"
+        "kba-team/markdown-table": "^1.1",
+        "nesbot/carbon": "^2.66"
     },
     "require-dev": {
         "atlas/cli": "^2.2.2"

@@ -29,6 +29,18 @@ $climate->yellowTable($test_results);
 
 echo PHP_EOL . PHP_EOL;
 
+$total_execution_time = $benchmarkResultsModel->fetchValue(
+    $benchmarkResultsModel->getSelect()
+                          ->cols(['sum(execution_duration_in_seconds)'])
+                          ->where(' shell_script_start_time = ? ', $_SERVER['argv'][1])
+                          //->where(' shell_script_start_time = ? ', 'Fri Mar  3 16:03:20 MST 2023')
+);
+
+$total_execution_time = is_numeric($total_execution_time) ? ((float)$total_execution_time) : 0;
+$climate->backgroundMagenta('<bold>Total Execution Time:</bold> '.\Carbon\CarbonInterval::seconds($total_execution_time)->cascade()->forHumans());
+
+echo PHP_EOL . PHP_EOL;
+
 $climate->cyan(
     '<bold>NOTE:</bold> the chunk_size means that the records were fetched in batches of chunk_size, all the records always get fetched. '
     . 'For example if a table contains 5,000 records and the chunk_size is 1,000, this tool will cause each ORM in this scenario to fetch '
