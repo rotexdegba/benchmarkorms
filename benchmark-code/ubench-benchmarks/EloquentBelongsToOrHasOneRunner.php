@@ -19,13 +19,12 @@ class EloquentBelongsToOrHasOneRunner {
      * 
      * @param string $table_name            DB table name
      * 
-     * @param array $relation_names         Relation names (belongs to or has one)
+     * @param array $relation_names         Relation names (belongs to or has one) either
+     *                                      [relation_name => relation_column_name .....]
      * 
      * @param string $table_column_name     A property on the records to be fetched.
      *                                      For example if we are fetching authors
      *                                      we can specify name for this argument
-     * 
-     * @param string $relation_column_name  A property on each related record.
      * 
      * @param int $offset                   Offset position
      * 
@@ -42,7 +41,6 @@ class EloquentBelongsToOrHasOneRunner {
         string $table_name,
         array $relation_names,
         string $table_column_name,
-        string $relation_column_name,
         int $offset = 0,
         ?int $limit = 999,
         string $strategy = EloquentFetchStrategies::CHUNK, // chunk, lazy, get
@@ -73,7 +71,6 @@ class EloquentBelongsToOrHasOneRunner {
                 $table_name, 
                 $relation_names, 
                 $table_column_name,
-                $relation_column_name,
                 $strategy
             ) use (&$num_records){
             
@@ -83,14 +80,14 @@ class EloquentBelongsToOrHasOneRunner {
                     foreach ($recordSet as $record) {
 
                         $val = $record->$table_column_name;
+                        $num_records++; //var_dump("{$table_name} {$table_column_name} {$num_records} {$val}");
                         
-                        foreach($relation_names as $relation_name) {
+                        foreach($relation_names as $relation_name=>$relation_column_name) {
                             
                             $record->$relation_name->$relation_column_name;
+                            //var_dump("\t{$relation_name} {$relation_column_name} {$record->$relation_name->$relation_column_name}");
                         }
-                        $num_records++; //var_dump("{$num_records} {$val}");
                     }
-
                     $offset += ($limit ?? 0);
                     
                 } while(
@@ -105,7 +102,6 @@ class EloquentBelongsToOrHasOneRunner {
             $table_name,
             $relation_names,
             $table_column_name,
-            $relation_column_name,
             $strategy
         );
         

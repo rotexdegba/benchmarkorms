@@ -15,7 +15,8 @@ class LeanOrmHasManyOrHasManyThroughRunner {
     /**
      * @param \Ubench $ubench           Ubench instance
      * 
-     * @param string $relation_names    Relation name (has many or has many through)
+     * @param string $relation_names    Relation name (has many or has many through) either
+     *                                      [relation_name => relation_column_name .....]
      * 
      * @param string $table_column_name A property on the records to be fetched. 
      *                                  For example if we are fetching authors 
@@ -32,7 +33,6 @@ class LeanOrmHasManyOrHasManyThroughRunner {
         string $table_name, 
         array $relation_names,
         string $table_column_name,
-        string $relation_column_name,
         int $offset = 0,
         ?int $limit = 999,
         string $strategy= LeanOrmFetchStrategies::FETCH_ROWS_INTO_ARRAY,
@@ -64,7 +64,6 @@ class LeanOrmHasManyOrHasManyThroughRunner {
                 $table_name,
                 $relation_names, 
                 $table_column_name,
-                $relation_column_name,
                 $strategy,
                 $pdo_args
             ) use (&$num_records) {
@@ -74,16 +73,16 @@ class LeanOrmHasManyOrHasManyThroughRunner {
                     foreach ($recordSet as $record) {
 
                         $val = $record[$table_column_name];
+                        $num_records++; //var_dump("{$table_name} {$table_column_name} {$num_records} {$val}");
                         
-                        foreach($relation_names as $relation_name) {
+                        foreach($relation_names as $relation_name=>$relation_column_name) {
                             
                             foreach ($record[$relation_name] as $related_record) {
                                 
                                 $related_record[$relation_column_name];
+                                //var_dump("{$relation_name} {$relation_column_name} {$related_record[$relation_column_name]}");
                             }
                         }
-                        
-                        $num_records++; //var_dump("{$num_records} {$val}");
                     }
 
                     $offset += ($limit ?? 0);
@@ -95,7 +94,6 @@ class LeanOrmHasManyOrHasManyThroughRunner {
             $table_name,
             $relation_names,
             $table_column_name,
-            $relation_column_name,
             $strategy,
             $pdo_args
         );

@@ -15,7 +15,8 @@ class LeanOrmBelongsToOrHasOneRunner {
     /**
      * @param \Ubench $ubench           Ubench instance
      * 
-     * @param string $relation_names    Relation name (has many or has many through)
+     * @param string $relation_names    Relation name (has many or has many through) either
+     *                                      [relation_name => relation_column_name .....]
      * 
      * @param string $table_column_name A property on the records to be fetched. 
      *                                  For example if we are fetching authors 
@@ -32,7 +33,6 @@ class LeanOrmBelongsToOrHasOneRunner {
         string $table_name, 
         array $relation_names,
         string $table_column_name,
-        string $relation_column_name,
         int $offset = 0,
         ?int $limit = 999,
         string $strategy= LeanOrmFetchStrategies::FETCH_ROWS_INTO_ARRAY,
@@ -64,7 +64,6 @@ class LeanOrmBelongsToOrHasOneRunner {
                 $table_name,
                 $relation_names, 
                 $table_column_name,
-                $relation_column_name,
                 $strategy,
                 $pdo_args
             ) use (&$num_records) {
@@ -74,15 +73,14 @@ class LeanOrmBelongsToOrHasOneRunner {
                     foreach ($recordSet as $record) {
 
                         $val = $record[$table_column_name];
+                        $num_records++; //var_dump("{$table_name} {$table_column_name} {$num_records} {$val}");
                         
-                        foreach($relation_names as $relation_name) {
+                        foreach($relation_names as $relation_name=>$relation_column_name) {
                             
                             $record[$relation_name][$relation_column_name];
+                            //var_dump("\t{$relation_name} {$relation_column_name} {$record[$relation_name][$relation_column_name]}");
                         }
-                        
-                        $num_records++; //var_dump("{$num_records} {$val}");
                     }
-
                     $offset += ($limit ?? 0);
                     
                 }while(count($recordSet) > 0 && $limit !== null);
@@ -92,7 +90,6 @@ class LeanOrmBelongsToOrHasOneRunner {
             $table_name,
             $relation_names,
             $table_column_name,
-            $relation_column_name,
             $strategy,
             $pdo_args
         );
