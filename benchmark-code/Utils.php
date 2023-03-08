@@ -30,7 +30,7 @@ class Utils {
     
     public static function dumpLatestResultsToMarkdown(string $shell_script_start_time): void {
         
-        include_once __DIR__ . DIRECTORY_SEPARATOR . '../load-lean.php';
+        include __DIR__ . DIRECTORY_SEPARATOR . '../load-lean.php'; // $leanArgs is declared in load-lean.php
         
         $benchmarkResultsModel = new \Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\BenchmarksResults\BenchmarksResultsModel(...$leanArgs);
         
@@ -97,5 +97,70 @@ class Utils {
         );
         
         echo "Results have been saved to ./benchmark-results/LATEST_RESULTS_NO_EAGER.md" . PHP_EOL;
+    }
+    
+    public static function dumpLatestResultsToHtml(string $shell_script_start_time): void {
+        
+        include __DIR__ . DIRECTORY_SEPARATOR . '../load-lean.php'; // $leanArgs is declared in load-lean.php
+        
+        $benchmarkResultsModel = new \Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\BenchmarksResults\BenchmarksResultsModel(...$leanArgs);
+        
+        $view_data = [];
+        $view_data['test_results'] = $benchmarkResultsModel->fetchRowsIntoArray(
+            $benchmarkResultsModel->getSelect()
+                                  ->cols(
+                                        [
+                                            'orm_vendor', 'short_desc', 'strategy', 
+                                            'chunk_size', 'execution_duration', 'memory_used', 
+                                            'execution_duration_in_seconds', 'memory_used_in_bytes',
+                                        ]
+                                    )
+                                  ->where(' shell_script_start_time = ? ', $shell_script_start_time)
+        );
+
+        foreach($view_data['test_results'] as $key=>$val) {
+
+            if($val['chunk_size'] === null) { $view_data['test_results'][$key]['chunk_size'] = 'No limit clause'; }
+        }
+        
+        $operating_system = ''; // $distro['name'] will report this for non-Linux
+        $distro = [
+            'name' => php_uname('s'),
+            'version' => php_uname('r') . ' - ' . php_uname('v') . ' - ' . php_uname('m'),
+        ];
+        
+        if(PHP_OS === 'Linux') {
+
+            // use linfo to get detailed linux os info
+            $linfo = new \Linfo\Linfo();
+            $parser = $linfo->getParser();
+            $operating_system = $parser->getOS() . ' -';
+            $distro = $parser->getDistro();
+        }
+        
+        $view_data['operating_system'] = $operating_system;
+        $view_data['distro'] = $distro;
+        
+        $view_data['db_version'] = 
+            $benchmarkResultsModel->getPDO()->getAttribute(\PDO::ATTR_DRIVER_NAME) 
+            . ' - ' 
+            . $benchmarkResultsModel->getPDO()->getAttribute(\PDO::ATTR_SERVER_VERSION);
+        
+        $view_data['date_generated'] = date('Y-m-d h:i:s');
+        
+        $renderer = new \Rotexsoft\FileRenderer\Renderer(
+            'results-no-eager-template.php',
+            $view_data,
+            [
+                __DIR__ . DIRECTORY_SEPARATOR . '../benchmark-results'
+            ]
+        );
+        
+        file_put_contents(
+            __DIR__ . DIRECTORY_SEPARATOR . '../benchmark-results/LATEST_RESULTS_NO_EAGER.html', 
+            $renderer->renderToString()
+        );
+        
+        echo "Results have been saved to ./benchmark-results/LATEST_RESULTS_NO_EAGER.html" . PHP_EOL;
     }
 }

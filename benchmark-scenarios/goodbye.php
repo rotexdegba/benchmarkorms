@@ -50,6 +50,11 @@ $climate->cyan(
 
 echo PHP_EOL . PHP_EOL;
 
+\Rotexsoft\PhpOrmBenchmarks\Utils::dumpLatestResultsToMarkdown($_SERVER['argv'][1]);
+\Rotexsoft\PhpOrmBenchmarks\Utils::dumpLatestResultsToHtml($_SERVER['argv'][1]);
+
+echo PHP_EOL . PHP_EOL;
+
 // TODO:
 // Render test results to a latest-test-results.html file containing datatables plugin
 // Also render the results in Markdown and put it in a folder and link to it in README.md https://github.com/the-kbA-team/markdown-table

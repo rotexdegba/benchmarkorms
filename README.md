@@ -127,7 +127,8 @@ have this limitation.
 ## Test Results
 You can run the benchmark script yourself on your own machine in your own environment. They take time though. The tests to fetch data from all the tables with various limit values and no limit value takes about 4 hours to run. Below are links to benchmarks that have already been run:
 
-* [Benchmarks (no eager-loaded related data)](./benchmark-results/LATEST_RESULTS_NO_EAGER.md)
+* [Benchmarks (no eager-loaded related data) Html](./benchmark-results/LATEST_RESULTS_NO_EAGER.html)
+* [Benchmarks (no eager-loaded related data) Markdown](./benchmark-results/LATEST_RESULTS_NO_EAGER.md)
 
 
 ## Disclaimer
