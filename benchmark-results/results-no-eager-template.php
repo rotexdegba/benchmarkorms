@@ -6,11 +6,11 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>PHP ORM Benchmarks</title>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
-        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <!--<link rel="icon" href="./favicon.ico" type="image/x-icon">-->
     </head>
     <body>
         <main>
-            <h1>Latest Benchmark Results for Fetching Data from tables without Related Data</h1>  
+            <h1><?= $header; ?></h1>
         </main>
         <div style="padding-left: 1em; padding-right: 1em;">
             <h2><strong>Benchmarks were run on PHP Version:</strong> <?= PHP_VERSION; ?></h2>
@@ -38,14 +38,18 @@
                         <td><?= $test_result['strategy']; ?></td>
                         <td><?= $test_result['chunk_size']; ?></td>
                         <td data-order="<?= $test_result['execution_duration_in_seconds']; ?>">
+                            
                             <?= 
                                 ($test_result['execution_duration_in_seconds'] >= 60)
                                 ? \Carbon\CarbonInterval::seconds($test_result['execution_duration_in_seconds'])->cascade()->forHumans() // carbon format for >= 60 seconds
                                 : $test_result['execution_duration']; // ubench format for microseconds
                             ?>
+                            
                         </td>
                         <td data-order="<?= $test_result['memory_used_in_bytes']; ?>">
+                            
                             <?= $test_result['memory_used']; ?>
+                            
                         </td>
                     </tr>
 
@@ -64,4 +68,3 @@
         </script>
     </body>
 </html>
-

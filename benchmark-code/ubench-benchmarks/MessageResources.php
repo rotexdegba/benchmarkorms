@@ -56,5 +56,7 @@ final class MessageResources {
     public const SHORT_DESC_BT_HO = 'Fetching all (`%s`, %d records fetched) with (`%s`) Belongs to and / or Has one data';
     public const SHORT_DESC_HM_HMT = 'Fetching all (`%s`, %d records fetched) with (`%s`) Has Many and / or Has Many Through data';
     
+    public const BENCHMARK_RESULT_NO_EAGER_DATA_HEADER = 'Latest Benchmark Results for Fetching Data from tables without Related Data';
+    
     private final function __construct() { }
 }

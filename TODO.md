@@ -2,6 +2,8 @@
 * use climate to format output as much as possible
 * write unit tests to test the data fetchers and benchmark runner objects
 * document properly
+* the shell scripts should accept an argument which is an absolute path to where results should be written
+* Make result dumping functions work for all scenarios not just the no eager scenario, rename methods and all associated files to reflect this
 
 
 This repo is initially designed to work with versions of the ORM packages
