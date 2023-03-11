@@ -36,7 +36,11 @@ class AtlasBelongsToOrHasOneRunner {
      *                                      This is the method that Atlas will use to fetch
      *                                      the desired data
      * 
-     * @param string $shell_script_start_time Full date-time stamp when run-benchmarks.sh which invokes this object was executed
+     * @param string $shell_script_start_time   Full date-time stamp when run-benchmarks.sh which invokes this object was executed
+     * 
+     * @param bool $fetch_only_first_set        True means only fetch the first $limit records starting after the $offset position, 
+     *                                          False means fetch all records in chunks of $limit. 
+     *                                          This only applies to fetch strategies that use $offset & $limit.
      */
     public function __invoke (
         \Ubench $ubench, 
@@ -47,7 +51,8 @@ class AtlasBelongsToOrHasOneRunner {
         int $offset = 0, 
         ?int $limit = 999,
         string $strategy = AtlasFetchStrategies::FETCH_RECORDS,
-        string $shell_script_start_time =''
+        string $shell_script_start_time ='',
+        bool $fetch_only_first_set = false
     ) {
         $num_records = 0;
         
@@ -59,26 +64,29 @@ class AtlasBelongsToOrHasOneRunner {
         
         echo ($limit === null)
             ? sprintf(
-                MessageResources::START_MSG_NO_LIMIT, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', $relation_names), 
+                MessageResources::START_MSG_NO_LIMIT, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
                 MessageResources::BELONGS_TO_HAS_ONE, $strategy, $table_column_name, $table_name
             )
             : sprintf(
-                MessageResources::START_MSG, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', $relation_names), 
+                MessageResources::START_MSG, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
                 MessageResources::BELONGS_TO_HAS_ONE, ($limit), $strategy, $table_column_name, $table_name
             );
         
         $ubench->run(
-            function(
-                \Atlas\Orm\Atlas $atlas, 
-                $offset, 
-                $limit, 
-                $table_name, 
-                $relation_names, 
+            function()
+            use (
+                &$num_records, 
+                $atlas,
+                $offset,
+                $limit,
+                $table_name,
+                $relation_names,
                 $table_column_name,
-                $strategy
-            ) use (&$num_records){
+                $strategy,
+                $fetch_only_first_set
+            ) {
                 do {
-                    $recordSet = AtlasDataFetcher::fetchAll($table_name, $relation_names, $atlas, $offset, $limit, $strategy);
+                    $recordSet = AtlasDataFetcher::fetchAll($table_name, array_keys($relation_names), $atlas, $offset, $limit, $strategy);
 
                     foreach ($recordSet as $record) {
 
@@ -93,16 +101,9 @@ class AtlasBelongsToOrHasOneRunner {
                     }
                     $offset += ($limit ?? 0);
                     
-                }while(count($recordSet) > 0 && $limit !== null);
-            },
-            $atlas,
-            $offset,
-            $limit,
-            $table_name,
-            $relation_names,
-            $table_column_name,
-            $strategy
-        );
+                }while(count($recordSet) > 0 && $limit !== null && !$fetch_only_first_set);
+            }
+        ); // $ubench->run(...)
         
         echo sprintf(
             MessageResources::END_MSG, $table_name, ($num_records), 
@@ -112,7 +113,7 @@ class AtlasBelongsToOrHasOneRunner {
         $test_result = [
             'orm_vendor' => MessageResources::ORM_VENDOR_ATLAS 
                             . ' - ' . \Composer\InstalledVersions::getVersion(MessageResources::PACKAGIST_NAME_ATLAS),
-            'short_desc' => sprintf(MessageResources::SHORT_DESC_BT_HO, $table_name, $num_records, implode(', ', $relation_names)),
+            'short_desc' => sprintf(MessageResources::SHORT_DESC_BT_HO, $table_name, $num_records, implode(', ', array_keys($relation_names) )),
             'strategy' => $strategy,
             'chunk_size' => $limit,
             'execution_duration' => $ubench->getTime(),

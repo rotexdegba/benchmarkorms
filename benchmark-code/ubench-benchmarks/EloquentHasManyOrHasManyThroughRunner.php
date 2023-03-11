@@ -35,6 +35,10 @@ class EloquentHasManyOrHasManyThroughRunner {
      *                                      fetch the desired data
      * 
      * @param string $shell_script_start_time Full date-time stamp when run-benchmarks.sh which invokes this object was executed
+     * 
+     * @param bool $fetch_only_first_set        True means only fetch the first $limit records starting after the $offset position, 
+     *                                          False means fetch all records in chunks of $limit. 
+     *                                          This only applies to fetch strategies that use $offset & $limit.
      */
     public function __invoke(
         \Ubench $ubench,
@@ -44,7 +48,8 @@ class EloquentHasManyOrHasManyThroughRunner {
         int $offset = 0,
         ?int $limit = 999,
         string $strategy = EloquentFetchStrategies::CHUNK, // chunk, lazy, get
-        string $shell_script_start_time =''
+        string $shell_script_start_time ='',
+        bool $fetch_only_first_set = false
     ) {
         $num_records = 0;
         
@@ -56,25 +61,28 @@ class EloquentHasManyOrHasManyThroughRunner {
         
         echo ($limit === null)
             ? sprintf(
-                MessageResources::START_MSG_NO_LIMIT, MessageResources::ORM_VENDOR_ELOQUENT, $table_name, implode(', ', $relation_names), 
+                MessageResources::START_MSG_NO_LIMIT, MessageResources::ORM_VENDOR_ELOQUENT, $table_name, implode(', ', array_keys($relation_names)), 
                 MessageResources::HAS_MANY_OR_HMT, $strategy, $table_column_name, $table_name
             )
             : sprintf(
-                MessageResources::START_MSG, MessageResources::ORM_VENDOR_ELOQUENT, $table_name, implode(', ', $relation_names), 
+                MessageResources::START_MSG, MessageResources::ORM_VENDOR_ELOQUENT, $table_name, implode(', ', array_keys($relation_names)), 
                 MessageResources::HAS_MANY_OR_HMT, ($limit), $strategy, $table_column_name, $table_name
             );
         
         $ubench->run(
-            function(
-                $offset, 
-                $limit, 
+            function() 
+            use (
+                &$num_records, 
                 $table_name, 
                 $relation_names, 
                 $table_column_name,
-                $strategy
-            ) use (&$num_records){
+                $offset,
+                $limit,
+                $strategy,
+                $fetch_only_first_set
+            ) {
                 do {
-                    $recordSet = EloquentDataFetcher::fetchAll($table_name, $relation_names, $offset, $limit, $strategy);
+                    $recordSet = EloquentDataFetcher::fetchAll($table_name, array_keys($relation_names), $offset, $limit, $strategy);
 
                     foreach ($recordSet as $record) {
 
@@ -97,15 +105,10 @@ class EloquentHasManyOrHasManyThroughRunner {
                     // chunk & lazy do not need do while, they fetch all the data in one call
                     && !in_array($strategy, [EloquentFetchStrategies::CHUNK, EloquentFetchStrategies::LAZY])
                     && $limit !== null
+                    && !$fetch_only_first_set
                 ); 
-            },
-            $offset,
-            $limit,
-            $table_name,
-            $relation_names,
-            $table_column_name,
-            $strategy
-        );
+            }
+        );  // $ubench->run(...)
         
         echo sprintf(
             MessageResources::END_MSG, $table_name, ($num_records), 
@@ -115,7 +118,7 @@ class EloquentHasManyOrHasManyThroughRunner {
         $test_result = [
             'orm_vendor' => MessageResources::ORM_VENDOR_ELOQUENT 
                             . ' - ' . \Composer\InstalledVersions::getVersion(MessageResources::PACKAGIST_NAME_ELOQUENT),
-            'short_desc' => sprintf(MessageResources::SHORT_DESC_HM_HMT, $table_name, $num_records, implode(', ', $relation_names)),
+            'short_desc' => sprintf(MessageResources::SHORT_DESC_HM_HMT, $table_name, $num_records, implode(', ', array_keys($relation_names) )),
             'strategy' => $strategy,
             'chunk_size' => $limit,
             'execution_duration' => $ubench->getTime(),
