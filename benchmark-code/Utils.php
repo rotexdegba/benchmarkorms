@@ -146,7 +146,7 @@ class Utils {
         $view_data['header'] = $header;
         
         $renderer = new \Rotexsoft\FileRenderer\Renderer(
-            'results-no-eager-template.php',
+            'results-template.php',
             $view_data,
             [ __DIR__ . DIRECTORY_SEPARATOR . '../benchmark-results' ]
         );

@@ -5,6 +5,8 @@ then
     exit
 fi
 
+# $1 should be the path to a folder / directory where the results will be saved
+
 date_now=$(date)
 
 php ./benchmark-scenarios/welcome.php "$date_now"

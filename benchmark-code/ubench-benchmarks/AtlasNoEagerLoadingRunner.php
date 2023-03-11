@@ -34,6 +34,10 @@ class AtlasNoEagerLoadingRunner {
      *                                   the desired data
      * 
      * @param string $shell_script_start_time Full date-time stamp when run-benchmarks.sh which invokes this object was executed
+     * 
+     * @param bool $fetch_only_first_set        True means only fetch the first $limit records starting after the $offset position, 
+     *                                          False means fetch all records in chunks of $limit. 
+     *                                          This only applies to fetch strategies that use $offset & $limit.
      */
     public function __invoke (
         \Ubench $ubench, 
@@ -43,7 +47,8 @@ class AtlasNoEagerLoadingRunner {
         int $offset = 0, 
         ?int $limit = 999,
         string $strategy = AtlasFetchStrategies::FETCH_RECORDS,
-        string $shell_script_start_time =''
+        string $shell_script_start_time ='',
+        bool $fetch_only_first_set = false
     ) {
         $num_records = 0;
         
@@ -64,14 +69,17 @@ class AtlasNoEagerLoadingRunner {
             );
         
         $ubench->run(
-            function(
-                \Atlas\Orm\Atlas $atlas, 
-                $offset, 
-                $limit, 
+            function() 
+            use (
+                &$num_records, 
+                $atlas, 
                 $table_name, 
                 $table_column_name,
-                $strategy
-            ) use (&$num_records){
+                $offset, 
+                $limit,
+                $strategy,
+                $fetch_only_first_set
+            ) {
                 do {
                     $recordSet = AtlasDataFetcher::fetchAll($table_name, [], $atlas, $offset, $limit, $strategy);
 
@@ -82,15 +90,9 @@ class AtlasNoEagerLoadingRunner {
                     }
                     $offset += ($limit ?? 0);
                     
-                }while(count($recordSet) > 0 && $limit !== null);
-            },
-            $atlas,
-            $offset,
-            $limit,
-            $table_name,
-            $table_column_name,
-            $strategy
-        );
+                }while(count($recordSet) > 0 && $limit !== null && !$fetch_only_first_set);
+            }
+        );  // $ubench->run(...)
         
         echo sprintf(
             MessageResources::END_MSG, $table_name, $num_records, 
