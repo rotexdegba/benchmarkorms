@@ -24,6 +24,10 @@ class LeanOrmNoEagerLoadingRunner {
      * @param null|int $limit       Number of records to fetch per iteration, null means no limit
      * 
      * @param string $shell_script_start_time Full date-time stamp when run-benchmarks.sh which invokes this object was executed
+     * 
+     * @param bool $fetch_only_first_set        True means only fetch the first $limit records starting after the $offset position, 
+     *                                          False means fetch all records in chunks of $limit. 
+     *                                          This only applies to fetch strategies that use $offset & $limit.
      */
     public function __invoke(
         \Ubench $ubench,
@@ -33,7 +37,8 @@ class LeanOrmNoEagerLoadingRunner {
         ?int $limit = 999,
         string $strategy= LeanOrmFetchStrategies::FETCH_ROWS_INTO_ARRAY,
         array $pdo_args =[],
-        string $shell_script_start_time =''
+        string $shell_script_start_time ='',
+        bool $fetch_only_first_set = false
     ) {
         $num_records = 0;
         
@@ -54,14 +59,17 @@ class LeanOrmNoEagerLoadingRunner {
             );
         
         $ubench->run(
-            function(
-                $offset, 
-                $limit,
+            function() 
+            use (
+                &$num_records,
                 $table_name,
                 $table_column_name,
+                $offset, 
+                $limit,
                 $strategy,
-                $pdo_args
-            ) use (&$num_records) {
+                $pdo_args,
+                $fetch_only_first_set
+            ) {
                 do {
                     $recordSet = LeanOrmDataFetcher::fetchAll($table_name, [], $offset, $limit, $strategy, $pdo_args);
 
@@ -73,15 +81,9 @@ class LeanOrmNoEagerLoadingRunner {
 
                     $offset += ($limit ?? 0);
                     
-                }while(count($recordSet) > 0 && $limit !== null);
-            },
-            $offset, 
-            $limit,
-            $table_name,
-            $table_column_name,
-            $strategy,
-            $pdo_args
-        );
+                }while(count($recordSet) > 0 && $limit !== null && !$fetch_only_first_set);
+            }
+        );  // $ubench->run(...)
         
         echo sprintf(
             MessageResources::END_MSG, $table_name, ($num_records), 

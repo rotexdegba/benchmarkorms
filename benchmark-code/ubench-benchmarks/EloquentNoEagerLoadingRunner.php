@@ -32,6 +32,10 @@ class EloquentNoEagerLoadingRunner {
      *                                      fetch the desired data
      * 
      * @param string $shell_script_start_time Full date-time stamp when run-benchmarks.sh which invokes this object was executed
+     * 
+     * @param bool $fetch_only_first_set        True means only fetch the first $limit records starting after the $offset position, 
+     *                                          False means fetch all records in chunks of $limit. 
+     *                                          This only applies to fetch strategies that use $offset & $limit.
      */
     public function __invoke(
         \Ubench $ubench,
@@ -40,7 +44,8 @@ class EloquentNoEagerLoadingRunner {
         int $offset = 0,
         ?int $limit = 999,
         string $strategy = EloquentFetchStrategies::CHUNK, // chunk, lazy, get
-        string $shell_script_start_time =''
+        string $shell_script_start_time ='',
+        bool $fetch_only_first_set = false
     ) {
         $num_records = 0;
         
@@ -61,14 +66,16 @@ class EloquentNoEagerLoadingRunner {
             );
         
         $ubench->run(
-            function(
-                $offset, 
-                $limit, 
+            function() 
+            use (
+                &$num_records, 
                 $table_name, 
-                $table_column_name,
-                $strategy
-            ) use (&$num_records){
-            
+                $table_column_name, 
+                $limit,
+                $offset,
+                $strategy,
+                $fetch_only_first_set
+            ) {
                 do {
                     $recordSet = EloquentDataFetcher::fetchAll($table_name, [], $offset, $limit, $strategy);
 
@@ -85,14 +92,10 @@ class EloquentNoEagerLoadingRunner {
                     // chunk & lazy do not need do while, they fetch all the data in one call
                     && !in_array($strategy, [EloquentFetchStrategies::CHUNK, EloquentFetchStrategies::LAZY])
                     && $limit !== null
+                    && !$fetch_only_first_set
                 ); 
-            },
-            $offset,
-            $limit,
-            $table_name,
-            $table_column_name,
-            $strategy
-        );
+            }
+        );  // $ubench->run(...)
         
         echo sprintf(
             MessageResources::END_MSG, $table_name, ($num_records), 
