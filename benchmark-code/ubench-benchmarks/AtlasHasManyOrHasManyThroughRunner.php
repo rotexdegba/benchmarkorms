@@ -67,10 +67,19 @@ class AtlasHasManyOrHasManyThroughRunner {
                 MessageResources::START_MSG_NO_LIMIT, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
                 MessageResources::HAS_MANY_OR_HMT, $strategy, $table_column_name, $table_name
             )
-            : sprintf(
-                MessageResources::START_MSG, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
-                MessageResources::HAS_MANY_OR_HMT, ($limit), $strategy, $table_column_name, $table_name
-            );
+            :
+            (
+                $fetch_only_first_set
+                ? sprintf(
+                    MessageResources::START_MSG_FIRST_N, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
+                    MessageResources::HAS_MANY_OR_HMT, ($limit), $strategy, $table_column_name, $table_name
+                )
+                : sprintf(
+                    MessageResources::START_MSG, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
+                    MessageResources::HAS_MANY_OR_HMT, ($limit), $strategy, $table_column_name, $table_name
+                )
+            )
+            ;
         
         $ubench->run(
             function() 

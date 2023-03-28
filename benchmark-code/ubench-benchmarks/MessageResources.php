@@ -15,6 +15,12 @@ final class MessageResources {
                             . " in chunks of %d using the `%s` strategy."
                             . " \n`%s` for each `%s` record will be accessed.\n";
     
+    public const START_MSG_FIRST_N 
+                            = "%s fetching data from `%s`"
+                            . " with relateds `(%s)` [%s]."
+                            . " Only loading first %d records using the `%s` strategy."
+                            . " \n`%s` for each `%s` record will be accessed.\n";
+    
     public const START_MSG_NO_LIMIT 
                            = "%s fetching data from `%s`"
                             . " with relateds `(%s)` [%s],"
@@ -25,6 +31,12 @@ final class MessageResources {
                            = "%s fetching data from `%s`"
                             . " without eager-fetching any related data,"
                             . " in chunks of %d using the `%s` strategy."
+                            . " \n`%s` for each `%s` record will be accessed.\n";
+    
+    public const START_MSG_NO_EAGER_FIRST_N 
+                           = "%s fetching data from `%s`"
+                            . " without eager-fetching any related data."
+                            . " Only loading first %d records using the `%s` strategy."
                             . " \n`%s` for each `%s` record will be accessed.\n";
     
     public const START_MSG_NO_EAGER_NO_LIMIT
@@ -56,6 +68,7 @@ final class MessageResources {
     public const SHORT_DESC_BT_HO = 'Fetching all (`%s`, %d records fetched) with (`%s`) Belongs to and / or Has one data';
     public const SHORT_DESC_HM_HMT = 'Fetching all (`%s`, %d records fetched) with (`%s`) Has Many and / or Has Many Through data';
     
+    public const BENCHMARK_RESULT_EAGER_DATA_HEADER = 'Latest Benchmark Results for Fetching Data from tables with Related Data';
     public const BENCHMARK_RESULT_NO_EAGER_DATA_HEADER = 'Latest Benchmark Results for Fetching Data from tables without Related Data';
     
     private final function __construct() { }

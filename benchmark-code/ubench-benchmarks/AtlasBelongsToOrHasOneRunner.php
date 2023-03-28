@@ -67,10 +67,19 @@ class AtlasBelongsToOrHasOneRunner {
                 MessageResources::START_MSG_NO_LIMIT, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
                 MessageResources::BELONGS_TO_HAS_ONE, $strategy, $table_column_name, $table_name
             )
-            : sprintf(
-                MessageResources::START_MSG, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
-                MessageResources::BELONGS_TO_HAS_ONE, ($limit), $strategy, $table_column_name, $table_name
-            );
+            :
+            (
+                $fetch_only_first_set
+                ? sprintf(
+                    MessageResources::START_MSG_FIRST_N, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
+                    MessageResources::BELONGS_TO_HAS_ONE, ($limit), $strategy, $table_column_name, $table_name
+                )
+                : sprintf(
+                    MessageResources::START_MSG, MessageResources::ORM_VENDOR_ATLAS, $table_name, implode(', ', array_keys($relation_names)), 
+                    MessageResources::BELONGS_TO_HAS_ONE, ($limit), $strategy, $table_column_name, $table_name
+                )
+            )
+            ;
         
         $ubench->run(
             function()

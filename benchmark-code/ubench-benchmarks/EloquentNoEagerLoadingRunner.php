@@ -60,10 +60,19 @@ class EloquentNoEagerLoadingRunner {
                 MessageResources::START_MSG_NO_EAGER_NO_LIMIT, MessageResources::ORM_VENDOR_ELOQUENT, 
                 $table_name, $strategy, $table_column_name, $table_name
             )
-            : sprintf(
-                MessageResources::START_MSG_NO_EAGER, MessageResources::ORM_VENDOR_ELOQUENT, 
-                $table_name, ($limit), $strategy, $table_column_name, $table_name
-            );
+            :  
+            (
+                $fetch_only_first_set
+                ? sprintf(
+                    MessageResources::START_MSG_NO_EAGER_FIRST_N, MessageResources::ORM_VENDOR_ELOQUENT, 
+                    $table_name, $limit, $strategy, $table_column_name, $table_name
+                )
+                : sprintf(
+                    MessageResources::START_MSG_NO_EAGER, MessageResources::ORM_VENDOR_ELOQUENT, 
+                    $table_name, $limit, $strategy, $table_column_name, $table_name
+                )
+            )
+            ;
         
         $ubench->run(
             function() 
