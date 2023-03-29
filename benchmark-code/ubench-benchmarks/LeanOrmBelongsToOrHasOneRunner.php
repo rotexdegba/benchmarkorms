@@ -26,7 +26,7 @@ class LeanOrmBelongsToOrHasOneRunner {
      * 
      * @param null|int $limit           Number of records to fetch per iteration, null means no limit
      * 
-     * @param string $shell_script_start_time Full date-time stamp when run-benchmarks.sh which invokes this object was executed
+     * @param string $shell_script_start_time Full date-time stamp when run-*.sh which invokes this object was executed
      * 
      * @param bool $fetch_only_first_set        True means only fetch the first $limit records starting after the $offset position, 
      *                                          False means fetch all records in chunks of $limit. 

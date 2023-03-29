@@ -31,7 +31,7 @@ class EloquentNoEagerLoadingRunner {
      *                                      This is the method that Eloquent will use to 
      *                                      fetch the desired data
      * 
-     * @param string $shell_script_start_time Full date-time stamp when run-benchmarks.sh which invokes this object was executed
+     * @param string $shell_script_start_time Full date-time stamp when run-*.sh which invokes this object was executed
      * 
      * @param bool $fetch_only_first_set        True means only fetch the first $limit records starting after the $offset position, 
      *                                          False means fetch all records in chunks of $limit. 
@@ -69,7 +69,7 @@ class EloquentNoEagerLoadingRunner {
                 )
                 : sprintf(
                     MessageResources::START_MSG_NO_EAGER, MessageResources::ORM_VENDOR_ELOQUENT, 
-                    $table_name, $limit, $strategy, $table_column_name, $table_name
+                    $table_name, number_format($limit), $strategy, $table_column_name, $table_name
                 )
             )
             ;
@@ -86,14 +86,24 @@ class EloquentNoEagerLoadingRunner {
                 $fetch_only_first_set
             ) {
                 do {
-                    $recordSet = EloquentDataFetcher::fetchAll($table_name, [], $offset, $limit, $strategy);
+                    $fetch_all_records = (!$fetch_only_first_set);
+                    $recordSet = EloquentDataFetcher::fetchAll($table_name, [], $offset, $limit, $strategy, $fetch_all_records);
 
                     foreach ($recordSet as $record) {
 
                         $val = $record->$table_column_name;
-                        $num_records++; //var_dump("{$num_records} {$val}");
+                        $num_records++;//var_dump("{$num_records} {$val}");
+                        
+                        if(
+                            $fetch_only_first_set 
+                            && $limit !== null 
+                            && $num_records === $limit
+                        ) {
+                            break 2; // lazy will always loop through all the records in chunks of $limit (internally)
+                                     // need to break here out of the foreach & do while loop once lazy has returned $limit records
+                        }
                     }
-
+                    
                     $offset += ($limit ?? 0);
                     
                 } while(
@@ -114,7 +124,11 @@ class EloquentNoEagerLoadingRunner {
         $test_result = [
             'orm_vendor' => MessageResources::ORM_VENDOR_ELOQUENT 
                             . ' - ' . \Composer\InstalledVersions::getVersion(MessageResources::PACKAGIST_NAME_ELOQUENT),
-            'short_desc' => sprintf(MessageResources::SHORT_DESC_NO_EAGER, $table_name, $num_records),
+            'short_desc' => (
+                                ($limit !== null && $fetch_only_first_set)
+                                ?sprintf(MessageResources::SHORT_DESC_NO_EAGER_FIRST_N, number_format($limit), $table_name, number_format($num_records))
+                                :sprintf(MessageResources::SHORT_DESC_NO_EAGER, $table_name, number_format($num_records))
+                            ),
             'strategy' => $strategy,
             'chunk_size' => $limit,
             'execution_duration' => $ubench->getTime(),

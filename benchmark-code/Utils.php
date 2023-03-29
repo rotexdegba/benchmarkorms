@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Rotexsoft\PhpOrmBenchmarks;
 
 use kbATeam\MarkdownTable\{Column, Table};
+use FormatPHP\{Config, FormatPHP, Intl};
 
 /**
  * Description of Utils
@@ -35,11 +36,12 @@ class Utils {
             'chunk_size', 'execution_duration', 'memory_used', 
             'execution_duration_in_seconds', 'memory_used_in_bytes',
         ]
-    ) {
+    ): array {
         include __DIR__ . DIRECTORY_SEPARATOR . '../load-lean.php'; // $leanArgs is declared in load-lean.php
         
         $benchmarkResultsModel = new \Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\BenchmarksResults\BenchmarksResultsModel(...$leanArgs);
         
+        $view_data = [];
         $view_data['test_results'] = $benchmarkResultsModel->fetchRowsIntoArray(
             $benchmarkResultsModel->getSelect()
                                   ->cols($cols_to_fetch)

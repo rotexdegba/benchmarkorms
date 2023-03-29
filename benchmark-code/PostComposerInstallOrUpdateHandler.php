@@ -60,8 +60,10 @@ class PostComposerInstallOrUpdateHandler {
         }
         
         $files_to_make_executable = [
-            "{$root_folder}run-benchmarks.sh",
+            "{$root_folder}run-no-eager-benchmarks.sh",
+            "{$root_folder}run-first-n-no-eager-benchmarks.sh",
             "{$root_folder}no-eager-loading-benchmarks.sh",
+            "{$root_folder}no-eager-loading-first-n-benchmarks.sh",
         ];
             
         foreach ($files_to_make_executable as $file_to_make_executable) {

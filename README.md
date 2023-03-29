@@ -45,7 +45,10 @@ corresponds with.
 
 Run the benchmarks
 
-> ./run-benchmarks.sh <path_to_folder_where_results_will_be_saved>
+> ./run-no-eager-benchmarks.sh <path_to_folder_where_results_will_be_saved>
+
+> ./run-first-n-no-eager-benchmarks.sh <path_to_folder_where_results_will_be_saved>
+
 
 **<path_to_folder_where_results_will_be_saved>** should be replaced with the actual path where you want the test results to be saved.
 

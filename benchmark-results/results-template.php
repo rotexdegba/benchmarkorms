@@ -36,7 +36,9 @@
                         <td><?= $test_result['orm_vendor']; ?></td>
                         <td><?= $test_result['short_desc']; ?></td>
                         <td><?= $test_result['strategy']; ?></td>
-                        <td><?= $test_result['chunk_size']; ?></td>
+                        <td data-order="<?= is_numeric($test_result['chunk_size']) ? $test_result['chunk_size'] : PHP_INT_MAX; ?>">
+                            <?= is_numeric($test_result['chunk_size']) ? number_format($test_result['chunk_size']) : $test_result['chunk_size']; ?>
+                        </td>
                         <td data-order="<?= $test_result['execution_duration_in_seconds']; ?>">
                             
                             <?= 
