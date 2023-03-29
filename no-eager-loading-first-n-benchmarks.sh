@@ -231,3 +231,171 @@ php ./benchmark-scenarios/first-n-rows-no-eager/eloquent-fetch-first-10000-posts
 php ./benchmark-scenarios/first-n-rows-no-eager/eloquent-fetch-first-10000-posts_tags-without-any-related-data-using-get.php "$1"
 php ./benchmark-scenarios/first-n-rows-no-eager/eloquent-fetch-first-10000-summaries-without-any-related-data-using-get.php "$1"
 php ./benchmark-scenarios/first-n-rows-no-eager/eloquent-fetch-first-10000-tags-without-any-related-data-using-get.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-authors-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-authors-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-authors-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-authors-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-authors-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-authors-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-authors-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-authors-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-authors-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-authors-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-authors-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-authors-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-authors-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-authors-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-authors-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-authors-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-authors-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-authors-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-authors-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-authors-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-authors-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-comments-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-comments-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-comments-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-comments-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-comments-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-comments-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-comments-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-comments-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-comments-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-comments-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-comments-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-comments-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-comments-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-comments-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-comments-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-comments-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-comments-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-comments-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-comments-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-comments-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-comments-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-posts-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-posts-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-posts-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-posts-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-posts-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-posts-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-posts-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-posts-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-posts-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-posts-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-posts-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-posts-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-posts-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-posts-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-posts-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-posts-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-posts-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-posts-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-posts-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-posts-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-posts-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-summaries-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-summaries-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-summaries-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-summaries-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-summaries-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-summaries-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-summaries-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-summaries-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-summaries-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-summaries-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-summaries-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-summaries-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-summaries-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-summaries-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-summaries-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-summaries-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-summaries-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-summaries-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-summaries-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-summaries-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-summaries-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-posts_tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-posts_tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10-posts_tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-posts_tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-posts_tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-50-posts_tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-posts_tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-posts_tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-100-posts_tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-posts_tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-posts_tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-250-posts_tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-posts_tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-posts_tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-500-posts_tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-posts_tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-posts_tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-1000-posts_tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
+
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-posts_tags-without-any-related-data-using-fetchRecordsIntoArray.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-posts_tags-without-any-related-data-using-fetchRecordsIntoCollection.php "$1"
+php ./benchmark-scenarios/first-n-rows-no-eager/leanorm-fetch-first-10000-posts_tags-without-any-related-data-using-fetchRowsIntoArray.php "$1"
