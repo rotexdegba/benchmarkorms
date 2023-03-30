@@ -91,7 +91,7 @@
                     
                     foreach($graph_data as $graph_record) {
                         
-                        $x_axis_data[] = $graph_record["orm_vendor"] . ' - ' . $graph_record["strategy"];
+                        $x_axis_data[] = $graph_record["orm_vendor"] . ' - ' . $graph_record["strategy"] . " (Limit: `{$graph_record['chunk_size']}`)";
                         $y_axis_data_exec_mem[] = $graph_record["memory_used_in_bytes"];
                         $y_axis_data_exec_time[] = $graph_record["execution_duration_in_seconds"];
                     }

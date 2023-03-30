@@ -166,6 +166,7 @@ class Utils {
                 'memory_used' => $test_result['memory_used'],
                 'execution_duration_in_seconds' => $test_result['execution_duration_in_seconds'],
                 'memory_used_in_bytes' => $test_result['memory_used_in_bytes'],
+                'chunk_size' => is_numeric($test_result['chunk_size']) ? number_format((float)$test_result['chunk_size']) : $test_result['chunk_size'],
             ];
         } // foreach ($view_data['test_results'] as $test_result)
         
