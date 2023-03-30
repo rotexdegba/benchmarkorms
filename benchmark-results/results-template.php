@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
         <!--<link rel="icon" href="./favicon.ico" type="image/x-icon">-->
     </head>
+    
     <body>
         <main>
             <h1><?= $header; ?></h1>
@@ -58,15 +59,74 @@
                 <?php endforeach; // foreach ($test_results as $test_result) ?>
                 </tbody>
             </table>
+            
+            <div id="charts" style="width: 90%;">
+                
+            </div>
+            
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
         <script>
             $(document).ready(function () {
                 $('#test-results').DataTable({
                     "lengthMenu": [ [50, 100, 500, -1], [50, 100, 500, "All"] ]
                 });
             });
+            
+            ////////////////////////////////////////////////////////////////////
+            // CHART STUFF STARTS HERE
+            ////////////////////////////////////////////////////////////////////
+            var chartsDiv = document.getElementById('charts');
+            
+            <?php $i = 1; ?>
+            <?php foreach($graphing_data as $label => $graph_data): ?>
+                
+                <?php
+                    $x_axis_data = [];
+                    $y_axis_data = [];
+                    
+                    foreach($graph_data as $graph_record) {
+                        
+                        $x_axis_data[] = $graph_record["orm_vendor"] . ' - ' . $graph_record["strategy"];
+                        $y_axis_data[] = $graph_record["execution_duration_in_seconds"];
+                    }
+                ?>
+                
+            
+                        var chartCanvas = document.createElement('canvas');
+                        chartCanvas.setAttribute("id", "myChart-<?= $i; ?>");
+
+                        chartsDiv.appendChild(chartCanvas);
+                        chartsDiv.appendChild(document.createElement('br'));
+                        chartsDiv.appendChild(document.createElement('br'));
+
+                        new Chart(
+                            document.getElementById('myChart-<?= $i; ?>'), 
+                            {
+                              type: 'bar',
+                              data: {
+                                labels: <?= json_encode($x_axis_data); ?>,
+                                datasets: [{
+                                  label: '<?= $label . ' - execution time in seconds (Lower is better)'; ?>',
+                                  data:  <?= json_encode($y_axis_data); ?>,
+                                  borderWidth: 1
+                                }]
+                              },
+                              options: {
+                                scales: {
+                                  y: {
+                                    beginAtZero: true
+                                  }
+                                }
+                              }
+                            }
+                        );
+                        
+                <?php $i++; ?>
+            <?php endforeach; // foreach($graphing_data as $label => $graph_data) ?>
         </script>
     </body>
 </html>

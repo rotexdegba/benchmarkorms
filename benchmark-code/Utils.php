@@ -146,6 +146,28 @@ class Utils {
         
         $view_data = static::fetchBenchmarkResults($shell_script_start_time);
         $view_data['header'] = $header;
+        $view_data['graphing_data'] = [];
+        
+        ///////////////////////
+        // Build graphing data
+        ///////////////////////
+
+        foreach ($view_data['test_results'] as $test_result) {
+            
+            if(!array_key_exists($test_result['short_desc'], $view_data['graphing_data'])) {
+                
+                $view_data['graphing_data'][$test_result['short_desc']] = [];
+            }
+            
+            $view_data['graphing_data'][$test_result['short_desc']][] = [
+                'orm_vendor' => $test_result['orm_vendor'],
+                'strategy' => $test_result['strategy'],
+                'execution_duration' => $test_result['execution_duration'],
+                'memory_used' => $test_result['memory_used'],
+                'execution_duration_in_seconds' => $test_result['execution_duration_in_seconds'],
+                'memory_used_in_bytes' => $test_result['memory_used_in_bytes'],
+            ];
+        } // foreach ($view_data['test_results'] as $test_result)
         
         $renderer = new \Rotexsoft\FileRenderer\Renderer(
             'results-template.php',
