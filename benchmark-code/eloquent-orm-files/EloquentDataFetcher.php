@@ -58,6 +58,7 @@ class EloquentDataFetcher {
                 }
                 
                 if(!$fetch_all_records) {
+                    // we are only fetching the first $limit records from the db table
                     return false;
                 }
             });
