@@ -91,7 +91,8 @@ class EloquentHasManyOrHasManyThroughRunner {
                 $fetch_only_first_set
             ) {
                 do {
-                    $recordSet = EloquentDataFetcher::fetchAll($table_name, array_keys($relation_names), $offset, $limit, $strategy);
+                    $fetch_all_records = (!$fetch_only_first_set);
+                    $recordSet = EloquentDataFetcher::fetchAll($table_name, array_keys($relation_names), $offset, $limit, $strategy, $fetch_all_records);
 
                     foreach ($recordSet as $record) {
 
@@ -105,6 +106,15 @@ class EloquentHasManyOrHasManyThroughRunner {
                                 $related_record->$relation_column_name;
                                 //var_dump("\t{$relation_name} {$relation_column_name} {$related_record->$relation_column_name}");
                             }
+                        }
+                        
+                        if(
+                            $fetch_only_first_set 
+                            && $limit !== null 
+                            && $num_records === $limit
+                        ) {
+                            break 2; // lazy will always loop through all the records in chunks of $limit (internally)
+                                     // need to break here out of the foreach & do while loop once lazy has returned $limit records
                         }
                     }
                     $offset += ($limit ?? 0);
