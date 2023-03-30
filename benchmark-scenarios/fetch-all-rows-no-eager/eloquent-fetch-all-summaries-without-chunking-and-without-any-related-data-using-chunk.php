@@ -1,5 +1,5 @@
 <?php
-include __DIR__ .DIRECTORY_SEPARATOR. '../load-eloquent.php';
+include __DIR__ .DIRECTORY_SEPARATOR. '../../load-eloquent.php';
 
 $scenario = ucfirst(str_replace( ['-','.php'], [' ', ''], basename(__FILE__) ));
 
