@@ -13,7 +13,9 @@
         <main>
             <h1><?= $header; ?></h1>
         </main>
+        
         <div style="padding-left: 1em; padding-right: 1em;">
+            
             <h2><strong>Benchmarks were run on PHP Version:</strong> <?= PHP_VERSION; ?></h2>
             <h2><strong>Operating System:</strong> <?= "{$operating_system} {$distro['name']} - {$distro['version']}"; ?></h2>
             <h2><strong>Database:</strong> <?= "{$db_version}"; ?></h2>
@@ -60,11 +62,9 @@
                 </tbody>
             </table>
             
-            <div id="charts" style="width: 90%;">
-                
-            </div>
-            
+            <div id="charts" style="width: 90%;"></div>
         </div>
+        
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -86,44 +86,76 @@
                 
                 <?php
                     $x_axis_data = [];
-                    $y_axis_data = [];
+                    $y_axis_data_exec_time = [];
+                    $y_axis_data_exec_mem = [];
                     
                     foreach($graph_data as $graph_record) {
                         
                         $x_axis_data[] = $graph_record["orm_vendor"] . ' - ' . $graph_record["strategy"];
-                        $y_axis_data[] = $graph_record["execution_duration_in_seconds"];
+                        $y_axis_data_exec_mem[] = $graph_record["memory_used_in_bytes"];
+                        $y_axis_data_exec_time[] = $graph_record["execution_duration_in_seconds"];
                     }
                 ?>
                 
-            
-                        var chartCanvas = document.createElement('canvas');
-                        chartCanvas.setAttribute("id", "myChart-<?= $i; ?>");
+                var chartCanvas = document.createElement('canvas');
+                chartCanvas.setAttribute("id", "executionTimeChart-<?= $i; ?>");
 
-                        chartsDiv.appendChild(chartCanvas);
-                        chartsDiv.appendChild(document.createElement('br'));
-                        chartsDiv.appendChild(document.createElement('br'));
+                chartsDiv.appendChild(chartCanvas);
+                chartsDiv.appendChild(document.createElement('br'));
+                chartsDiv.appendChild(document.createElement('br'));
 
-                        new Chart(
-                            document.getElementById('myChart-<?= $i; ?>'), 
-                            {
-                              type: 'bar',
-                              data: {
-                                labels: <?= json_encode($x_axis_data); ?>,
-                                datasets: [{
-                                  label: '<?= $label . ' - execution time in seconds (Lower is better)'; ?>',
-                                  data:  <?= json_encode($y_axis_data); ?>,
-                                  borderWidth: 1
-                                }]
-                              },
-                              options: {
-                                scales: {
-                                  y: {
-                                    beginAtZero: true
-                                  }
-                                }
-                              }
-                            }
-                        );
+                new Chart(
+                    document.getElementById('executionTimeChart-<?= $i; ?>'), 
+                    {
+                      type: 'bar',
+                      data: {
+                        labels: <?= json_encode($x_axis_data); ?>,
+                        datasets: [{
+                          label: '<?= $label . ' - execution time in seconds (Lower is better)'; ?>',
+                          data:  <?= json_encode($y_axis_data_exec_time); ?>,
+                          borderWidth: 1
+                        }]
+                      },
+                      options: {
+                        scales: {
+                          y: {
+                            beginAtZero: true
+                          }
+                        }
+                      }
+                    }
+                );
+                
+                
+                
+                var chartCanvas = document.createElement('canvas');
+                chartCanvas.setAttribute("id", "executionMemChart-<?= $i; ?>");
+
+                chartsDiv.appendChild(chartCanvas);
+                chartsDiv.appendChild(document.createElement('br'));
+                chartsDiv.appendChild(document.createElement('br'));
+
+                new Chart(
+                    document.getElementById('executionMemChart-<?= $i; ?>'), 
+                    {
+                      type: 'bar',
+                      data: {
+                        labels: <?= json_encode($x_axis_data); ?>,
+                        datasets: [{
+                          label: '<?= $label . ' - memory used in bytes (Lower is better)'; ?>',
+                          data:  <?= json_encode($y_axis_data_exec_mem); ?>,
+                          borderWidth: 1
+                        }]
+                      },
+                      options: {
+                        scales: {
+                          y: {
+                            beginAtZero: true
+                          }
+                        }
+                      }
+                    }
+                );
                         
                 <?php $i++; ?>
             <?php endforeach; // foreach($graphing_data as $label => $graph_data) ?>
