@@ -21,7 +21,8 @@
         "linfo/linfo": "^4.0",
         "kba-team/markdown-table": "^1.1",
         "nesbot/carbon": "^2.66",
-        "rotexsoft/file-renderer": "^5.0"
+        "rotexsoft/file-renderer": "^5.0",
+        "league/commonmark": "^2.4"
     },
     "require-dev": {
         "atlas/cli": "^2.2.2"
