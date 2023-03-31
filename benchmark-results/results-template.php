@@ -20,6 +20,8 @@
             <h2><strong>Operating System:</strong> <?= "{$operating_system} {$distro['name']} - {$distro['version']}"; ?></h2>
             <h2><strong>Database:</strong> <?= "{$db_version}"; ?></h2>
             <h2><strong>Date Generated:</strong> <?= $date_generated; ?></h2>
+            
+            <button onclick="history.back()">Go Back</button>
 
             <table id="test-results" class="display" style="width:100%">
                 <thead>
