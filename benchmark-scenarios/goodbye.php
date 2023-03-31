@@ -52,13 +52,13 @@ echo PHP_EOL . PHP_EOL;
 
 \Rotexsoft\PhpOrmBenchmarks\Utils::dumpLatestResultsToMarkdown(
     $_SERVER['argv'][1],
-    \Rotexsoft\PhpOrmBenchmarks\Ubench\MessageResources::BENCHMARK_RESULT_NO_EAGER_DATA_HEADER,
+    $_SERVER['argv'][5],
     $_SERVER['argv'][2],
     $_SERVER['argv'][3]
 );
 \Rotexsoft\PhpOrmBenchmarks\Utils::dumpLatestResultsToHtml(
     $_SERVER['argv'][1],
-    \Rotexsoft\PhpOrmBenchmarks\Ubench\MessageResources::BENCHMARK_RESULT_NO_EAGER_DATA_HEADER,
+    $_SERVER['argv'][5],
     $_SERVER['argv'][2],
     $_SERVER['argv'][4]
 );
