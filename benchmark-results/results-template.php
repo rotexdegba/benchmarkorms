@@ -22,6 +22,7 @@
             <h2><strong>Date Generated:</strong> <?= $date_generated; ?></h2>
             
             <button onclick="history.back()">Go Back</button>
+            <br><br>
 
             <table id="test-results" class="display" style="width:100%">
                 <thead>
