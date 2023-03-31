@@ -10862,7 +10862,7 @@
         </nav>
         <!-- Page content-->
         <div class="container">
-            <div>
+            <div class="mt-5">
                 <?= $content; ?>
             </div>
         </div>
