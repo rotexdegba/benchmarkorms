@@ -14,7 +14,7 @@ use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Posts\PostsModel;
  * @method CommentsCollection fetchRecordsIntoCollection(?object $select_obj=null, array $relations_to_include=[])
  * @method CommentsCollection fetchRecordsIntoCollectionKeyedOnPkVal(?\Aura\SqlQuery\Common\Select $select_obj=null, array $relations_to_include=[])
  */
-class CommentsModel extends \LeanOrm\Model {
+class CommentsModel extends \LeanOrm\CachingModel {
     
     protected ?string $collection_class_name = CommentsCollection::class;
     

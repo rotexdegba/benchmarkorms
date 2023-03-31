@@ -14,7 +14,7 @@ use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\Posts\PostsModel;
  * @method AuthorsCollection fetchRecordsIntoCollection(?object $select_obj=null, array $relations_to_include=[])
  * @method AuthorsCollection fetchRecordsIntoCollectionKeyedOnPkVal(?\Aura\SqlQuery\Common\Select $select_obj=null, array $relations_to_include=[])
  */
-class AuthorsModel extends \LeanOrm\Model {
+class AuthorsModel extends \LeanOrm\CachingModel {
     
     protected ?string $collection_class_name = AuthorsCollection::class;
     

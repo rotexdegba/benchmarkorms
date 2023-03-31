@@ -12,7 +12,7 @@ namespace Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\PostsTags;
  * @method PostsTagsCollection fetchRecordsIntoCollection(?object $select_obj=null, array $relations_to_include=[])
  * @method PostsTagsCollection fetchRecordsIntoCollectionKeyedOnPkVal(?\Aura\SqlQuery\Common\Select $select_obj=null, array $relations_to_include=[])
  */
-class PostsTagsModel extends \LeanOrm\Model {
+class PostsTagsModel extends \LeanOrm\CachingModel {
     
     protected ?string $collection_class_name = PostsTagsCollection::class;
     

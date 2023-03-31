@@ -18,7 +18,7 @@ use Rotexsoft\PhpOrmBenchmarks\LeanOrm\Blog\PostsTags\PostsTagsModel;
  * @method PostsCollection fetchRecordsIntoCollection(?object $select_obj=null, array $relations_to_include=[])
  * @method PostsCollection fetchRecordsIntoCollectionKeyedOnPkVal(?\Aura\SqlQuery\Common\Select $select_obj=null, array $relations_to_include=[])
  */
-class PostsModel extends \LeanOrm\Model {
+class PostsModel extends \LeanOrm\CachingModel {
     
     protected ?string $collection_class_name = PostsCollection::class;
     
