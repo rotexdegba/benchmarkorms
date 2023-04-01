@@ -61,9 +61,11 @@ class PostComposerInstallOrUpdateHandler {
         
         $files_to_make_executable = [
             "{$root_folder}run-eager-benchmarks.sh",
+            "{$root_folder}run-eager-first-n-benchmarks.sh",
             "{$root_folder}run-no-eager-benchmarks.sh",
-            "{$root_folder}run-first-n-no-eager-benchmarks.sh",
+            "{$root_folder}run-no-eager-first-n-benchmarks.sh",
             "{$root_folder}eager-loading-benchmarks.sh",
+            "{$root_folder}eager-loading-first-n-benchmarks.sh",
             "{$root_folder}no-eager-loading-benchmarks.sh",
             "{$root_folder}no-eager-loading-first-n-benchmarks.sh",
             "{$root_folder}build-gh-pages.sh",
