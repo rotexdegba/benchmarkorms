@@ -17,5 +17,13 @@ class PostsTagRelationships extends MapperRelationships
 
         // the tags side of the association mapping
         $this->manyToOne('tags', Tag::CLASS, [ 'tag_id' => 'tag_id']);
+        
+        // alias mapping for posts_tags belongs to post to ensure conformity with 
+        // leanorm & eloquent that rightfully define the relationship in singular
+        $this->manyToOne('post', Post::CLASS, [ 'post_id' => 'post_id']);
+
+        // alias mapping for posts_tags belongs to tag to ensure conformity with 
+        // leanorm & eloquent that rightfully define the relationship in singular
+        $this->manyToOne('tag', Tag::CLASS, [ 'tag_id' => 'tag_id']);
     }
 }
