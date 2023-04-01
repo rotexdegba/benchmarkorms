@@ -1,6 +1,6 @@
 #!/bin/bash
 #########################################################################################################
-# This script is invoked inside run-first-n-no-eager-benchmarks.sh, you should not be running it directly
+# This script is invoked inside run-no-eager-first-n-benchmarks.sh, you should not be running it directly
 #########################################################################################################
 php ./benchmark-scenarios/fetch-first-n-rows-no-eager/atlas-fetch-first-10-authors-without-any-related-data-using-fetchRecordSet.php "$1"
 php ./benchmark-scenarios/fetch-first-n-rows-no-eager/atlas-fetch-first-50-authors-without-any-related-data-using-fetchRecordSet.php "$1"
