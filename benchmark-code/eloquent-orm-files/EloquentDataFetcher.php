@@ -45,7 +45,9 @@ class EloquentDataFetcher {
             
         } elseif($strategy === EloquentFetchStrategies::LAZY) {
             
-            return $model_class::with($relation_names)->lazy($limit ?? static::DEFAULT_LIMIT);
+            return is_null($limit)
+                    ? $model_class::with($relation_names)->lazy() // will use lazy's default lazy($chunkSize = 1000) 
+                    : $model_class::with($relation_names)->lazy($limit);
             
         } else {
             
