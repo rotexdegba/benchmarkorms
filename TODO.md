@@ -25,10 +25,15 @@ from earlier operations might clobber or inflate memory usage values for later o
 Document PDO configuration instructions for each ORM vendor.
 
 
-Running all benchmarks
+Running all benchmarks & Update results for website
 
 reset \
 && ./run-no-eager-first-n-benchmarks.sh /home/rotimi/SoftwareProjects/benchmarkorms/benchmark-results/ \
 && ./run-no-eager-benchmarks.sh /home/rotimi/SoftwareProjects/benchmarkorms/benchmark-results/ \
 && ./run-eager-first-n-benchmarks.sh /home/rotimi/SoftwareProjects/benchmarkorms/benchmark-results/ \
-&& ./run-eager-benchmarks.sh /home/rotimi/SoftwareProjects/benchmarkorms/benchmark-results/
+&& ./run-eager-benchmarks.sh /home/rotimi/SoftwareProjects/benchmarkorms/benchmark-results/ \
+&& ./build-gh-pages.sh
+
+
+
+
