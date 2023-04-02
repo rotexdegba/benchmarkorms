@@ -22,20 +22,31 @@ class EloquentDataFetcher {
     
     public const DEFAULT_LIMIT = 999;
     
+    /**
+     * Note, chunk will always return an empty collection because you are expected
+     * to use the callback passed to chunk to manipulate the records returned in 
+     * each chunk
+     * 
+     * @param string $table_name
+     * @param array $relation_names
+     * @param int $offset
+     * @param int|null $limit
+     * @param string $strategy
+     * @param callable $callback_for_chunk
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public static function fetchAll(
         string $table_name, 
         array $relation_names,
         int $offset = 0,                       // only applicable to the get strategy, lazy & chunk don't need it
         ?int $limit = self::DEFAULT_LIMIT,   //only applicable to the get & chunk strategies, lazy  doesn't need it
         string $strategy = EloquentFetchStrategies::CHUNK, // chunk, get or lazy
-        bool $fetch_all_records = true // for chunk
+        callable $callback_for_chunk = null // for chunk
     ) {
         \Rotexsoft\PhpOrmBenchmarks\BootstrapEloquent::setup();
         
         /** @var \Illuminate\Database\Eloquent\Model $model_class */
         $model_class = static::TABLE_TO_MODEL_MAP[$table_name];
-        
-        $result = new \Illuminate\Database\Eloquent\Collection();
         
         if($strategy === EloquentFetchStrategies::GET) {
             
@@ -52,20 +63,11 @@ class EloquentDataFetcher {
         } else {
             
             // Default: EloquentFetchStrategies::CHUNK 
-            $model_class::with($relation_names)->chunk($limit ?? static::DEFAULT_LIMIT, function ($records)use($result, $fetch_all_records) {
-                
-                foreach ($records as $record) {
-
-                    $result[] = $record;
-                }
-                
-                if(!$fetch_all_records) {
-                    // we are only fetching the first $limit records from the db table
-                    return false;
-                }
-            });
+            $model_class::with($relation_names)->chunk($limit ?? static::DEFAULT_LIMIT, $callback_for_chunk);
             
-            return $result;
+            // all that needs to be done to the records fetched via chunk should have been
+            // done inside $callback_for_chunk, no need to return those records here
+            return new \Illuminate\Database\Eloquent\Collection();
         }
     }
     

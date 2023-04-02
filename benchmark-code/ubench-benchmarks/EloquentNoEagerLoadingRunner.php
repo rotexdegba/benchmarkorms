@@ -91,31 +91,63 @@ class EloquentNoEagerLoadingRunner {
                 );
             
                 do {
-                    $fetch_all_records = (!$fetch_only_first_set);
-                    $recordSet = EloquentDataFetcher::fetchAll($table_name, [], $offset, $limit, $strategy, $fetch_all_records);
+                    $callback_for_chunk = function ($records) use ($fetch_only_first_set, &$num_records, $progress_bar, $table_column_name, $table_name) {
+                
+                        foreach ($records as $record) {
 
-                    foreach ($recordSet as $record) {
+                            $progress_bar->current($num_records);
+                            $val = $record->$table_column_name;
+                            $num_records++; //var_dump("{$table_name} {$table_column_name} {$num_records} {$val}");
+                            
+                        } // foreach ($records as $record)
 
-                        $progress_bar->current($num_records);
-                        $val = $record->$table_column_name;
-                        $num_records++;//var_dump("{$num_records} {$val}");
-                        
-                        if(
-                            $fetch_only_first_set 
-                            && $limit !== null 
-                            && $num_records === $limit
-                        ) {
-                            break 2; // lazy will always loop through all the records in chunks of $limit (internally)
-                                     // need to break here out of the foreach & do while loop once lazy has returned $limit records
+                        if($fetch_only_first_set) {
+                            // we are only fetching the first $limit records from the db table
+                            return false;
                         }
-                    }
+                    }; // $callback_for_chunk = function ($records) use ....
                     
-                    $offset += ($limit ?? 0);
+                    // $recordSet will always be empty for chunk, because  
+                    // the iteration of records when using chunk is done
+                    // inside the callback passed to chunk
+                    $recordSet = EloquentDataFetcher::fetchAll($table_name, [], $offset, $limit, $strategy, $callback_for_chunk);
+
+                    if(EloquentFetchStrategies::CHUNK !== $strategy) {
+                        
+                        // we won't run code below when using the chunk strategy
+                        // the callback passed to EloquentDataFetcher::fetchAll
+                        // will be used by chunk to perform the exact function
+                        // the code below performs
+                        
+                        foreach ($recordSet as $record) {
+
+                            $progress_bar->current($num_records);
+                            $val = $record->$table_column_name;
+                            $num_records++;//var_dump("{$num_records} {$val}");
+
+                            if(
+                                $fetch_only_first_set 
+                                && $limit !== null 
+                                && $num_records === $limit
+                            ) {
+                                break 2; // lazy will always loop through all the records in chunks of $limit (internally)
+                                         // need to break here out of the foreach & do while loop once lazy has returned $limit records
+                            }
+                        }
+
+                        $offset += ($limit ?? 0);
+                        
+                    } // if(EloquentFetchStrategies::CHUNK !== $strategy)
                     
                 } while(
                     // chunk & lazy do not need do while, they fetch all the data in one call
                     !in_array($strategy, [EloquentFetchStrategies::CHUNK, EloquentFetchStrategies::LAZY])
-                    && count($recordSet) > 0
+                    && count($recordSet) > 0 // this check is placed below the in_array check above deliberately
+                                             // calling count on a $recordSet when lazy is the strategy will lead
+                                             // to the generator inside the lazy collection to loop through the
+                                             // entire collection, which is not what we want. The in_array check 
+                                             // will always evaluate to false if the strategy is lazy which will
+                                             // lead to php not even doing the 'count($recordSet) > 0' check
                     && $limit !== null
                     && !$fetch_only_first_set
                 ); 
