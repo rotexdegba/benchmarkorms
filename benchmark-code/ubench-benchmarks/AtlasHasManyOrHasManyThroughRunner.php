@@ -125,7 +125,11 @@ class AtlasHasManyOrHasManyThroughRunner {
         $test_result = [
             'orm_vendor' => MessageResources::ORM_VENDOR_ATLAS 
                             . ' - ' . \Composer\InstalledVersions::getVersion(MessageResources::PACKAGIST_NAME_ATLAS),
-            'short_desc' => sprintf(MessageResources::SHORT_DESC_HM_HMT, $table_name, $num_records, implode(', ', array_keys($relation_names) )),
+            'short_desc' => (
+                                ($limit !== null && $fetch_only_first_set)
+                                ? sprintf(MessageResources::SHORT_DESC_HM_HMT_FIRST_N, number_format($limit), $table_name, number_format($num_records), implode(', ', array_keys($relation_names) ))
+                                : sprintf(MessageResources::SHORT_DESC_HM_HMT, $table_name, number_format($num_records), implode(', ', array_keys($relation_names) ))
+                            ),
             'strategy' => $strategy,
             'chunk_size' => $limit,
             'execution_duration' => $ubench->getTime(),

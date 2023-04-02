@@ -2,7 +2,6 @@
 * use climate to format output as much as possible
 * write unit tests to test the data fetchers and benchmark runner objects
 * document properly
-* the shell scripts should accept an argument which is an absolute path to where results should be written
 * Make result dumping functions work for all scenarios not just the no eager scenario, rename methods and all associated files to reflect this
 
 
@@ -17,8 +16,6 @@ designed to run with the PHP version that ships with the latest ubntu LTS versio
 at any particular moment. This will allow for being able to run benchmarks for the 
 latest version of each ORM compatible with the PHP version the checked out branch 
 corresponds with.
-
-Use shell script to run the php commands to execute the various tests
 
 Each test should be in its own php file so that a fresh php process is created to 
 execute each test so a close to accurate memory usage value is reported. 
