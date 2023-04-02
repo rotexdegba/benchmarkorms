@@ -85,12 +85,18 @@ class EloquentNoEagerLoadingRunner {
                 $strategy,
                 $fetch_only_first_set
             ) {
+                $progress_bar = \Rotexsoft\PhpOrmBenchmarks\Utils::createClimateProgressBar(
+                    \Rotexsoft\PhpOrmBenchmarks\BootstrapEloquent::getPdo($table_name), 
+                    $table_name, $limit, $fetch_only_first_set
+                );
+            
                 do {
                     $fetch_all_records = (!$fetch_only_first_set);
                     $recordSet = EloquentDataFetcher::fetchAll($table_name, [], $offset, $limit, $strategy, $fetch_all_records);
 
                     foreach ($recordSet as $record) {
 
+                        $progress_bar->current($num_records);
                         $val = $record->$table_column_name;
                         $num_records++;//var_dump("{$num_records} {$val}");
                         

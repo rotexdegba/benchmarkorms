@@ -183,4 +183,29 @@ class Utils {
         
         echo "Results have been saved to `{$save_path}`" . PHP_EOL;
     }
+    
+    public static function getNumRowsInDbTable(\PDO $pdo, string $table_name) {
+
+        $statement = $pdo->prepare("select count(*) from {$table_name} ");
+        $statement->execute();
+
+        return $statement->fetchColumn(0);
+    }
+    
+    public static function createClimateProgressBar(
+        \PDO $pdo, string $table_name, 
+        ?int $limit, bool $fetch_only_first_set
+    ): \League\CLImate\TerminalObject\Dynamic\Progress {
+        
+        $climate = new \League\CLImate\CLImate();
+        
+        $expected_total_num_records = \Rotexsoft\PhpOrmBenchmarks\Utils::getNumRowsInDbTable($pdo, $table_name);
+        
+        if($limit !== null && $fetch_only_first_set) {
+            
+            $expected_total_num_records = $limit;
+        }
+        
+        return $climate->progress()->total($expected_total_num_records);
+    }
 }

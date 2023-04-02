@@ -47,12 +47,19 @@ Run the benchmarks
 
 > ./run-eager-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
+*  [Runtime: some hours]
+
 > ./run-eager-first-n-benchmarks.sh <path_to_folder_where_results_will_be_saved>
+
+*  [Runtime: some minutes to few hours]
 
 > ./run-no-eager-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
+*  [Runtime: some minutes to few hours]
+
 > ./run-no-eager-first-n-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
+*  [Runtime: some seconds to few minutes]
 
 **<path_to_folder_where_results_will_be_saved>** should be replaced with the actual path where you want the test results to be saved.
 

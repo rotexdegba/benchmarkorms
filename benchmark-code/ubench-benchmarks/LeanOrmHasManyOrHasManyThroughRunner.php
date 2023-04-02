@@ -84,11 +84,17 @@ class LeanOrmHasManyOrHasManyThroughRunner {
                 $pdo_args,
                 $fetch_only_first_set
             ) {
+                $progress_bar = \Rotexsoft\PhpOrmBenchmarks\Utils::createClimateProgressBar(
+                    LeanOrmDataFetcher::getModel($table_name, $pdo_args)->getPDO(), 
+                    $table_name, $limit, $fetch_only_first_set
+                );
+            
                 do {
                     $recordSet = LeanOrmDataFetcher::fetchAll($table_name, array_keys($relation_names), $offset, $limit, $strategy, $pdo_args);
 
                     foreach ($recordSet as $record) {
 
+                        $progress_bar->current($num_records);
                         $val = $record[$table_column_name];
                         $num_records++; //var_dump("{$table_name} {$table_column_name} {$num_records} {$val}");
                         

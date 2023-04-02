@@ -94,11 +94,16 @@ class AtlasBelongsToOrHasOneRunner {
                 $strategy,
                 $fetch_only_first_set
             ) {
+                $progress_bar = \Rotexsoft\PhpOrmBenchmarks\Utils::createClimateProgressBar(
+                    AtlasDataFetcher::getPdo($atlas, $table_name), $table_name, $limit, $fetch_only_first_set
+                );
+            
                 do {
                     $recordSet = AtlasDataFetcher::fetchAll($table_name, array_keys($relation_names), $atlas, $offset, $limit, $strategy);
 
                     foreach ($recordSet as $record) {
-
+                        
+                        $progress_bar->current($num_records);
                         $val = $record->$table_column_name;
                         $num_records++; //var_dump("{$table_name} {$table_column_name} {num_records} {$val}");
                         
