@@ -23,3 +23,12 @@ If you lump all the tests together in a single php script, the memory usage
 from earlier operations might clobber or inflate memory usage values for later operations.
 
 Document PDO configuration instructions for each ORM vendor.
+
+
+Running all benchmarks
+
+reset \
+&& ./run-no-eager-first-n-benchmarks.sh /home/rotimi/SoftwareProjects/benchmarkorms/benchmark-results/ \
+&& ./run-no-eager-benchmarks.sh /home/rotimi/SoftwareProjects/benchmarkorms/benchmark-results/ \
+&& ./run-eager-first-n-benchmarks.sh /home/rotimi/SoftwareProjects/benchmarkorms/benchmark-results/ \
+&& ./run-eager-benchmarks.sh /home/rotimi/SoftwareProjects/benchmarkorms/benchmark-results/
