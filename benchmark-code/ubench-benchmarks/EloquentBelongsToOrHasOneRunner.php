@@ -123,9 +123,9 @@ class EloquentBelongsToOrHasOneRunner {
                     $offset += ($limit ?? 0);
                     
                 } while(
-                    count($recordSet) > 0 
                     // chunk & lazy do not need do while, they fetch all the data in one call
-                    && !in_array($strategy, [EloquentFetchStrategies::CHUNK, EloquentFetchStrategies::LAZY])
+                    !in_array($strategy, [EloquentFetchStrategies::CHUNK, EloquentFetchStrategies::LAZY])
+                    && count($recordSet) > 0
                     && $limit !== null
                     && !$fetch_only_first_set
                 ); 
