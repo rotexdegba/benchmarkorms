@@ -67,7 +67,9 @@ final class MessageResources {
     public const SHORT_DESC_NO_EAGER = 'Fetching all (`%s`, %s records fetched) with no related data';
     public const SHORT_DESC_NO_EAGER_FIRST_N = 'Fetching first %s (`%s`, %s records fetched) with no related data';
     public const SHORT_DESC_BT_HO = 'Fetching all (`%s`, %s records fetched) with (`%s`) Belongs to and / or Has one data';
+    public const SHORT_DESC_BT_HO_FIRST_N = 'Fetching first %s (`%s`, %s records fetched) with (`%s`) Belongs to and / or Has one data';
     public const SHORT_DESC_HM_HMT = 'Fetching all (`%s`, %s records fetched) with (`%s`) Has Many and / or Has Many Through data';
+    public const SHORT_DESC_HM_HMT_FIRST_N = 'Fetching first %s (`%s`, %s records fetched) with (`%s`) Has Many and / or Has Many Through data';
     
     public const BENCHMARK_RESULT_EAGER_DATA_HEADER = 'Latest Benchmark Results for Fetching Data from tables with Related Data';
     public const BENCHMARK_RESULT_NO_EAGER_DATA_HEADER = 'Latest Benchmark Results for Fetching Data from tables without Related Data';
