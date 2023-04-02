@@ -4,8 +4,8 @@
     "require": {
         "atlas/orm": "^3.1.1",
         "doctrine/orm": "^2.14.1",
-        "illuminate/database": "^v8.83.27",
-        "illuminate/events": "^8.83",
+        "illuminate/database": "^v10.5.1",
+        "illuminate/events": "^10.5.1",
         "gabordemooij/redbean": "^v5.7.3",
         "rotexsoft/leanorm": "^2.2.2",
         "robmorgan/phinx": "^0.13.1",
