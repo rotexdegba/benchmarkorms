@@ -42,6 +42,8 @@ corresponds with.
 - Run migrations to setup the db (it will default to sqlite if you haven't modified **phinx.php**)
     - Please edit **phinx.php** and put in the credentials for a mysql, postgres or Microsoft SqlServer instance. Sqlite is discouraged because of the limitation below:
 
+    <br>
+
     > SQLite defines a maximum of 999 parameters to be passed as arguments to a 
     statement, controlled by SQLITE_MAX_VARIABLE_NUMBER. Because of this, when
     eager loading related data for a fetch (which would lead to queries like
@@ -53,6 +55,8 @@ corresponds with.
     in chunks. Mysql does not have this limitation & I am guessing postgres & sqlsvr do not
     have this limitation.
 
+    <br>
+    
 >./vendor/bin/phinx --verbose migrate
 
 **The migrations take about 1 to 2 minutes to run.**
