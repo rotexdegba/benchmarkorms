@@ -55,7 +55,7 @@ corresponds with.
 
 >./vendor/bin/phinx --verbose migrate
 
-> The migrations take about 1 to 2 minutes to run.
+**The migrations take about 1 to 2 minutes to run.**
 
 - Edit the following db connection config files for the following ORMs:
     - **Atlas.Orm & LeanORM:** `./pdo.php`
