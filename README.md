@@ -38,10 +38,28 @@ corresponds with.
 - Install composer dependencies
 >composer install
 
+
 - Run migrations to setup the db (it will default to sqlite if you haven't modified **phinx.php**)
+    - Please edit **phinx.php** and put in the credentials for a mysql, postgres or Microsoft SqlServer instance. Sqlite is discouraged because of the limitation below:
+
+    > SQLite defines a maximum of 999 parameters to be passed as arguments to a 
+    statement, controlled by SQLITE_MAX_VARIABLE_NUMBER. Because of this, when
+    eager loading related data for a fetch (which would lead to queries like
+    where foreign_key IN (?,?, .... , ?, ?) being passed to PDO under the hood),
+    the query must not have more than 999 ? placeholders, implying that we have 
+    to limit the chunk of recordsets to retrieve in each iteration to <= 999. 
+    Which also means we can't fetch all the records from a table with more than
+    999 records at once, we have to specify a limit value to fetch the records
+    in chunks. Mysql does not have this limitation & I am guessing postgres & sqlsvr do not
+    have this limitation.
+
 >./vendor/bin/phinx --verbose migrate
 
 > The migrations take about 1 to 2 minutes to run.
+
+- Edit the following db connection config files for the following ORMs:
+    - **Atlas.Orm & LeanORM:** `./pdo.php`
+    - **Laravel Eloquent:** `./eloquent-config.php`
 
 Run the benchmarks
 
@@ -131,17 +149,6 @@ and also eager-load related data.
     b. Fetch records in chunks with limit values of 10, 50, 100, 250, 500 & 1000 
     > NOTE: Some ORMs like Eloquent & LeanORM may have multiple methods for loading this data. Each method will be used to load the data and labeled in the benchmark results.
 
-
-SQLite defines a maximum of 999 parameters to be passed as arguments to a 
-statement, controlled by SQLITE_MAX_VARIABLE_NUMBER. Because of this, when
-eager loading related data for a fetch (which would lead to queries like
-where foreign_key IN (?,?, .... , ?, ?) being passed to PDO under the hood),
-the query must not have more than 999 ? placeholders, implying that we have 
-to limit the chunk of recordsets to retrieve in each iteration to <= 999. 
-Which also means we can't fetch all the records from a table with more than
-999 records at once, we have to specify a limit value to fetch the records
-in chunks. Mysql does not have this limitation & I am guessing postgres & sqlsvr do not
-have this limitation.
 
 ## Test Results
 You can run the benchmark scripts yourself on your own machine in your own environment. 
