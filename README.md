@@ -47,21 +47,25 @@ Run the benchmarks
 
 > ./run-eager-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
-*  [Runtime: some hours]
+*  [**Approximate Runtime:** some days, longest running]
 
 > ./run-eager-first-n-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
-*  [Runtime: some minutes to few hours]
+*  [**Approximate Runtime:** 3 hours or more]
 
 > ./run-no-eager-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
-*  [Runtime: some minutes to few hours]
+*  [**Approximate Runtime:** 1.5 hours or more]
 
 > ./run-no-eager-first-n-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
-*  [Runtime: some seconds to few minutes]
+*  [**Approximate Runtime:** 30 minutes or more]
 
 **<path_to_folder_where_results_will_be_saved>** should be replaced with the actual path where you want the test results to be saved.
+
+**All Runtimes are dependent on the hardware the benchmarks are been run on, more powerful machines will execute faster, but the memory usage will be consistent across all types of hardware**
+
+Already run benchmark results are available [here](https://rotexsoft.github.io/benchmarkorms)
 
 ## Test Methodology
 
@@ -140,7 +144,10 @@ in chunks. Mysql does not have this limitation & I am guessing postgres & sqlsvr
 have this limitation.
 
 ## Test Results
-You can run the benchmark script yourself on your own machine in your own environment. They take time though. The tests to fetch data from all the tables with various limit values and no limit value takes about 4 hours to run. Below is a link to benchmarks that have already been run:
+You can run the benchmark scripts yourself on your own machine in your own environment. 
+Some of the benchmarks take quite some time to run though. 
+
+Below is a link to benchmarks that have already been run:
 
 * [Benchmark Results](https://rotexsoft.github.io/benchmarkorms)
 
