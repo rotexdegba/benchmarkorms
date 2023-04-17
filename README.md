@@ -69,7 +69,7 @@ Run the benchmarks
 
 > ./run-eager-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
-*  [**Approximate Runtime:** some days, longest running]
+*  [**Approximate Runtime:** 2 days 16 hours 1 minute 53 seconds or more]
 
 > ./run-eager-first-n-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
