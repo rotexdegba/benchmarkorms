@@ -99,10 +99,10 @@ class EloquentHasManyOrHasManyThroughRunner {
                     $callback_for_chunk = function ($records) use ($fetch_only_first_set, &$num_records, $progress_bar, $table_column_name, $table_name, $relation_names) {
                 
                         foreach ($records as $record) {
-
-                            $progress_bar->current($num_records);
+                            
                             $val = $record->$table_column_name;
                             $num_records++; //var_dump("{$table_name} {$table_column_name} {$num_records} {$val}");
+                            $progress_bar->current($num_records);
                             
                             foreach($relation_names as $relation_name=>$relation_column_name) {
 
@@ -116,6 +116,7 @@ class EloquentHasManyOrHasManyThroughRunner {
                         } // foreach ($records as $record)
 
                         if($fetch_only_first_set) {
+                            
                             // we are only fetching the first $limit records from the db table
                             return false;
                         }
@@ -134,10 +135,10 @@ class EloquentHasManyOrHasManyThroughRunner {
                         // the code below performs
                         
                         foreach ($recordSet as $record) {
-
-                            $progress_bar->current($num_records);
+                            
                             $val = $record->$table_column_name;
                             $num_records++; //var_dump("{$table_name} {$table_column_name} {$num_records} {$val}");
+                            $progress_bar->current($num_records);
 
                             foreach($relation_names as $relation_name=>$relation_column_name) {
 

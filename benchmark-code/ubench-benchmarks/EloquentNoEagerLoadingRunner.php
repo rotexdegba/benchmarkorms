@@ -95,9 +95,9 @@ class EloquentNoEagerLoadingRunner {
                 
                         foreach ($records as $record) {
 
-                            $progress_bar->current($num_records);
                             $val = $record->$table_column_name;
                             $num_records++; //var_dump("{$table_name} {$table_column_name} {$num_records} {$val}");
+                            $progress_bar->current($num_records);
                             
                         } // foreach ($records as $record)
 
@@ -120,10 +120,10 @@ class EloquentNoEagerLoadingRunner {
                         // the code below performs
                         
                         foreach ($recordSet as $record) {
-
-                            $progress_bar->current($num_records);
+                            
                             $val = $record->$table_column_name;
                             $num_records++;//var_dump("{$num_records} {$val}");
+                            $progress_bar->current($num_records);
 
                             if(
                                 $fetch_only_first_set 
