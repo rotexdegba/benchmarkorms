@@ -41,7 +41,7 @@ genenrate benchmark results for those versions of php.
 
 
 - Run migrations to setup the db (it will default to sqlite if you haven't modified **phinx.php**)
-    - Please edit **phinx.php** and put in the credentials for a mysql, postgres or Microsoft SqlServer instance. Sqlite is discouraged because of the limitation below:
+    - Please edit **phinx.php** and put in the credentials for a mysql, postgres or Microsoft SqlServer instance. **Sqlite is discouraged because of the limitation below:**
 
     <br>
 
