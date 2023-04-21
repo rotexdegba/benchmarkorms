@@ -97,10 +97,10 @@ class AtlasNoEagerLoadingRunner {
                     $recordSet = AtlasDataFetcher::fetchAll($table_name, [], $atlas, $offset, $limit, $strategy);
 
                     foreach ($recordSet as $record) {
-
-                        $progress_bar->current($num_records);
+                        
                         $val = $record->$table_column_name;
                         $num_records++; //var_dump("{num_records} {$val}");
+                        $progress_bar->current($num_records);
                     }
                     $offset += ($limit ?? 0);
                     

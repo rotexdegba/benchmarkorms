@@ -2,6 +2,7 @@
     "name": "rotexsoft/benchmarkorms",
     "type": "project",
     "require": {
+        "php": ">=8.1",
         "atlas/orm": "^3.1.1",
         "doctrine/orm": "^2.14.1",
         "illuminate/database": "^v10.5.1",

@@ -88,10 +88,10 @@ class LeanOrmNoEagerLoadingRunner {
                     $recordSet = LeanOrmDataFetcher::fetchAll($table_name, [], $offset, $limit, $strategy, $pdo_args);
 
                     foreach ($recordSet as $record) {
-
-                        $progress_bar->current($num_records);
+                        
                         $val = $record[$table_column_name];
                         $num_records++; //var_dump("{$num_records} {$val}");
+                        $progress_bar->current($num_records);
                     }
 
                     $offset += ($limit ?? 0);

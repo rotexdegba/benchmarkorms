@@ -38,30 +38,56 @@ corresponds with.
 - Install composer dependencies
 >composer install
 
+
 - Run migrations to setup the db (it will default to sqlite if you haven't modified **phinx.php**)
+    - Please edit **phinx.php** and put in the credentials for a mysql, postgres or Microsoft SqlServer instance. Sqlite is discouraged because of the limitation below:
+
+    <br>
+
+    > SQLite defines a maximum of 999 parameters to be passed as arguments to a 
+    statement, controlled by SQLITE_MAX_VARIABLE_NUMBER. Because of this, when
+    eager loading related data for a fetch (which would lead to queries like
+    where foreign_key IN (?,?, .... , ?, ?) being passed to PDO under the hood),
+    the query must not have more than 999 ? placeholders, implying that we have 
+    to limit the chunk of recordsets to retrieve in each iteration to <= 999. 
+    Which also means we can't fetch all the records from a table with more than
+    999 records at once, we have to specify a limit value to fetch the records
+    in chunks. Mysql does not have this limitation & I am guessing postgres & sqlsvr do not
+    have this limitation.
+
+    <br>
+    
 >./vendor/bin/phinx --verbose migrate
 
-> The migrations take about 1 to 2 minutes to run.
+**The migrations take about 1 to 2 minutes to run.**
+
+- Edit the following db connection config files for the following ORMs:
+    - **Atlas.Orm & LeanORM:** `./pdo.php`
+    - **Laravel Eloquent:** `./eloquent-config.php`
 
 Run the benchmarks
 
 > ./run-eager-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
-*  [Runtime: some hours]
+*  [**Approximate Runtime:** 2 days 16 hours 1 minute 53 seconds or more]
 
 > ./run-eager-first-n-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
-*  [Runtime: some minutes to few hours]
+*  [**Approximate Runtime:** 3 hours or more]
 
 > ./run-no-eager-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
-*  [Runtime: some minutes to few hours]
+*  [**Approximate Runtime:** 1.5 hours or more]
 
 > ./run-no-eager-first-n-benchmarks.sh <path_to_folder_where_results_will_be_saved>
 
-*  [Runtime: some seconds to few minutes]
+*  [**Approximate Runtime:** 30 minutes or more]
 
 **<path_to_folder_where_results_will_be_saved>** should be replaced with the actual path where you want the test results to be saved.
+
+**All Runtimes are dependent on the hardware the benchmarks are been run on, more powerful machines will execute faster, but the memory usage will be consistent across all types of hardware**
+
+Already run benchmark results are available [here](https://rotexsoft.github.io/benchmarkorms)
 
 ## Test Methodology
 
@@ -128,19 +154,11 @@ and also eager-load related data.
     > NOTE: Some ORMs like Eloquent & LeanORM may have multiple methods for loading this data. Each method will be used to load the data and labeled in the benchmark results.
 
 
-SQLite defines a maximum of 999 parameters to be passed as arguments to a 
-statement, controlled by SQLITE_MAX_VARIABLE_NUMBER. Because of this, when
-eager loading related data for a fetch (which would lead to queries like
-where foreign_key IN (?,?, .... , ?, ?) being passed to PDO under the hood),
-the query must not have more than 999 ? placeholders, implying that we have 
-to limit the chunk of recordsets to retrieve in each iteration to <= 999. 
-Which also means we can't fetch all the records from a table with more than
-999 records at once, we have to specify a limit value to fetch the records
-in chunks. Mysql does not have this limitation & I am guessing postgres & sqlsvr do not
-have this limitation.
-
 ## Test Results
-You can run the benchmark script yourself on your own machine in your own environment. They take time though. The tests to fetch data from all the tables with various limit values and no limit value takes about 4 hours to run. Below is a link to benchmarks that have already been run:
+You can run the benchmark scripts yourself on your own machine in your own environment. 
+Some of the benchmarks take quite some time to run though. 
+
+Below is a link to benchmarks that have already been run:
 
 * [Benchmark Results](https://rotexsoft.github.io/benchmarkorms)
 

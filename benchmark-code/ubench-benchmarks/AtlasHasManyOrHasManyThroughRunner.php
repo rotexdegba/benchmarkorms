@@ -102,10 +102,10 @@ class AtlasHasManyOrHasManyThroughRunner {
                     $recordSet = AtlasDataFetcher::fetchAll($table_name, array_keys($relation_names), $atlas, $offset, $limit, $strategy);
 
                     foreach ($recordSet as $record) {
-
-                        $progress_bar->current($num_records);
+                        
                         $val = $record->$table_column_name;
                         $num_records++; //var_dump("{$table_name} {$table_column_name} {num_records} {$val}");
+                        $progress_bar->current($num_records);
                         
                         foreach($relation_names as $relation_name=>$relation_column_name) {
                             

@@ -1,350 +1,350 @@
 # Latest Benchmark Results for Fetching Data from tables without Related Data
 
-**Benchmarks were run on PHP Version:** 7.4.33
+**Benchmarks were run on PHP Version:** 8.1.17
 
 **Operating System:** Linux - CentOS - 7.9.2009 (Core) 
 
-**Database:** mysql - 8.0.29
+**Database:** mysql - 8.0.28
 
-2023-03-30 11:53:01
+2023-04-03 03:32:27
 
 
 
-orm_vendor           | short_desc                                                              | strategy                   | chunk_size      | execution_duration | memory_used
--------------------- | ----------------------------------------------------------------------- | -------------------------- | --------------- | ------------------ | -----------
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 10              | 2.772s             | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 10              | 2.831s             | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 10              | 3.910s             | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 10              | 3.769s             | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 10              | 7.997s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 10              | 11.747s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 10              | 11.088s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 10              | 12.342s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 50              | 786ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 50              | 805ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 50              | 1.192s             | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 50              | 1.421s             | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 50              | 2.041s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 50              | 2.301s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 50              | 2.344s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 50              | 2.026s             | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 100             | 545ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 100             | 545ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 100             | 716ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 100             | 775ms              | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 100             | 1.338s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 100             | 1.203s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 100             | 1.199s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 100             | 1.025s             | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 250             | 398ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 250             | 384ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 250             | 514ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 250             | 527ms              | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 250             | 881ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 250             | 616ms              | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 250             | 622ms              | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 250             | 483ms              | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 500             | 382ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 500             | 365ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 500             | 526ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 500             | 534ms              | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 500             | 813ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 500             | 422ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 500             | 412ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 500             | 269ms              | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 1000            | 315ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 1000            | 322ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 1000            | 454ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 1000            | 634ms              | 6.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 1000            | 773ms              | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 1000            | 351ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 1000            | 301ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 1000            | 194ms              | 4.00Mb     
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | No limit clause | 272ms              | 16.00Mb    
-Atlas - 3.1.1.0      | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | No limit clause | 282ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | No limit clause | 462ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | No limit clause | 436ms              | 20.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | No limit clause | 839ms              | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | No limit clause | 247ms              | 18.00Mb    
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | No limit clause | 210ms              | 18.00Mb    
-LeanOrm - 2.2.4.0    | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | No limit clause | 51ms               | 10.00Mb    
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 10              | 155.582s           | 103.00Mb   
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 10              | 164.075s           | 103.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 10              | 249.125s           | 118.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 10              | 199.217s           | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 10              | 418.306s           | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 10              | 227.942s           | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 10              | 219.096s           | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 10              | 231.798s           | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 50              | 34.334s            | 103.00Mb   
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 50              | 36.026s            | 103.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 50              | 35.941s            | 118.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 50              | 38.899s            | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 50              | 91.374s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 50              | 58.499s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 50              | 47.950s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 50              | 63.265s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 100             | 19.599s            | 105.00Mb   
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 100             | 21.466s            | 105.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 100             | 27.826s            | 116.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 100             | 25.101s            | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 100             | 39.450s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 100             | 25.803s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 100             | 22.805s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 100             | 22.347s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 250             | 8.872s             | 103.00Mb   
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 250             | 9.038s             | 103.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 250             | 9.781s             | 116.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 250             | 10.094s            | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 250             | 17.963s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 250             | 9.827s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 250             | 11.194s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 250             | 11.235s            | 4.00Mb     
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 500             | 5.574s             | 103.00Mb   
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 500             | 5.498s             | 103.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 500             | 6.034s             | 116.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 500             | 6.367s             | 6.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 500             | 11.798s            | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 500             | 6.171s             | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 500             | 5.867s             | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 500             | 4.878s             | 4.00Mb     
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 1000            | 3.928s             | 105.00Mb   
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 1000            | 3.671s             | 105.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 1000            | 4.084s             | 116.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 1000            | 4.180s             | 8.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 1000            | 7.588s             | 8.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 1000            | 3.799s             | 8.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 1000            | 3.703s             | 8.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 1000            | 2.633s             | 6.00Mb     
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | No limit clause | 2.326s             | 165.00Mb   
-Atlas - 3.1.1.0      | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | No limit clause | 2.410s             | 165.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | No limit clause | 4.045s             | 116.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | No limit clause | 2.529s             | 152.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | No limit clause | 7.580s             | 8.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | No limit clause | 1.669s             | 206.00Mb   
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | No limit clause | 1.774s             | 206.00Mb   
-LeanOrm - 2.2.4.0    | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | No limit clause | 757ms              | 146.00Mb   
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 10              | 107.546s           | 69.00Mb    
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 10              | 110.392s           | 69.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 10              | 115.049s           | 80.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 10              | 127.920s           | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 10              | 453.057s           | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 10              | 460.204s           | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 10              | 448.729s           | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 10              | 426.479s           | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 50              | 23.324s            | 69.00Mb    
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 50              | 22.542s            | 69.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 50              | 23.844s            | 80.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 50              | 24.191s            | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 50              | 45.649s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 50              | 70.427s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 50              | 71.240s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 50              | 69.038s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 100             | 11.822s            | 69.00Mb    
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 100             | 12.025s            | 69.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 100             | 12.531s            | 80.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 100             | 12.397s            | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 100             | 25.277s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 100             | 36.971s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 100             | 39.524s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 100             | 45.517s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 250             | 8.912s             | 69.00Mb    
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 250             | 7.409s             | 69.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 250             | 8.327s             | 80.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 250             | 7.815s             | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 250             | 17.160s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 250             | 15.128s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 250             | 17.774s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 250             | 17.158s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 500             | 4.852s             | 69.00Mb    
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 500             | 5.691s             | 69.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 500             | 6.301s             | 80.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 500             | 5.591s             | 6.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 500             | 9.321s             | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 500             | 9.614s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 500             | 9.497s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 500             | 7.788s             | 4.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 1000            | 2.682s             | 71.00Mb    
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 1000            | 2.793s             | 71.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 1000            | 3.029s             | 80.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 1000            | 2.947s             | 6.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 1000            | 5.449s             | 8.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 1000            | 5.475s             | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 1000            | 4.478s             | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 1000            | 4.455s             | 6.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | No limit clause | 2.179s             | 117.00Mb   
-Atlas - 3.1.1.0      | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | No limit clause | 2.034s             | 117.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | No limit clause | 3.213s             | 80.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | No limit clause | 1.994s             | 100.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | No limit clause | 6.359s             | 8.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | No limit clause | 1.935s             | 120.00Mb   
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | No limit clause | 1.329s             | 120.00Mb   
-LeanOrm - 2.2.4.0    | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | No limit clause | 471ms              | 102.00Mb   
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 10              | 1088.122s          | 230.40Mb   
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 10              | 1137.615s          | 230.40Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 10              | 1096.981s          | 276.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 10              | 1121.295s          | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 10              | 2067.890s          | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 10              | 1399.822s          | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 10              | 1376.693s          | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 10              | 1399.429s          | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 50              | 200.738s           | 230.36Mb   
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 50              | 202.643s           | 230.35Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 50              | 214.477s           | 274.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 50              | 209.527s           | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 50              | 411.268s           | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 50              | 284.891s           | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 50              | 276.097s           | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 50              | 270.736s           | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 100             | 101.368s           | 230.31Mb   
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 100             | 107.249s           | 230.31Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 100             | 115.165s           | 276.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 100             | 107.806s           | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 100             | 217.787s           | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 100             | 145.515s           | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 100             | 145.146s           | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 100             | 143.643s           | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 250             | 45.053s            | 230.15Mb   
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 250             | 44.451s            | 230.15Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 250             | 53.940s            | 276.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 250             | 48.250s            | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 250             | 94.894s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 250             | 57.829s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 250             | 59.868s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 250             | 56.700s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 500             | 25.486s            | 229.89Mb   
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 500             | 27.154s            | 229.89Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 500             | 28.562s            | 278.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 500             | 27.639s            | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 500             | 53.349s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 500             | 31.141s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 500             | 31.333s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 500             | 26.661s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 1000            | 16.128s            | 231.32Mb   
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 1000            | 16.661s            | 231.32Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 1000            | 18.797s            | 278.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 1000            | 19.132s            | 6.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 1000            | 33.425s            | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 1000            | 17.785s            | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 1000            | 17.817s            | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 1000            | 14.646s            | 4.00Mb     
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | No limit clause | 7.098s             | 317.62Mb   
-Atlas - 3.1.1.0      | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | No limit clause | 7.584s             | 317.62Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | No limit clause | 18.594s            | 278.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | No limit clause | 8.857s             | 362.00Mb   
-Eloquent - 8.83.27.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | No limit clause | 35.295s            | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | No limit clause | 4.718s             | 404.00Mb   
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | No limit clause | 4.937s             | 406.00Mb   
-LeanOrm - 2.2.4.0    | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | No limit clause | 681ms              | 200.00Mb   
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 10              | 48.044s            | 51.00Mb    
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 10              | 47.574s            | 51.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 10              | 55.015s            | 58.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 10              | 54.157s            | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 10              | 106.331s           | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 10              | 90.824s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 10              | 92.501s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 10              | 88.178s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 50              | 10.988s            | 51.00Mb    
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 50              | 10.798s            | 51.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 50              | 12.752s            | 58.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 50              | 12.425s            | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 50              | 23.463s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 50              | 18.787s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 50              | 19.339s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 50              | 17.301s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 100             | 6.252s             | 51.00Mb    
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 100             | 6.151s             | 51.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 100             | 7.147s             | 58.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 100             | 7.066s             | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 100             | 13.261s            | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 100             | 9.848s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 100             | 10.105s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 100             | 9.170s             | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 250             | 3.449s             | 51.00Mb    
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 250             | 3.333s             | 51.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 250             | 3.899s             | 58.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 250             | 3.876s             | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 250             | 7.307s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 250             | 4.599s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 250             | 4.626s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 250             | 3.553s             | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 500             | 2.945s             | 51.00Mb    
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 500             | 2.962s             | 51.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 500             | 3.525s             | 58.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 500             | 2.818s             | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 500             | 5.105s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 500             | 2.647s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 500             | 2.712s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 500             | 1.981s             | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 1000            | 1.941s             | 51.00Mb    
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 1000            | 1.903s             | 51.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 1000            | 2.437s             | 58.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 1000            | 2.189s             | 6.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 1000            | 3.932s             | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 1000            | 1.763s             | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 1000            | 1.818s             | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 1000            | 1.107s             | 4.00Mb     
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | No limit clause | 1.446s             | 71.00Mb    
-Atlas - 3.1.1.0      | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | No limit clause | 1.502s             | 71.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | No limit clause | 2.331s             | 58.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | No limit clause | 1.765s             | 78.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | No limit clause | 3.957s             | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | No limit clause | 927ms              | 86.00Mb    
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | No limit clause | 925ms              | 86.00Mb    
-LeanOrm - 2.2.4.0    | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | No limit clause | 188ms              | 46.00Mb    
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 10              | 2.899s             | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 10              | 3.258s             | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 10              | 3.871s             | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 10              | 4.168s             | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 10              | 7.624s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 10              | 23.329s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 10              | 23.576s            | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 10              | 26.135s            | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 50              | 823ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 50              | 796ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 50              | 1.144s             | 14.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 50              | 1.100s             | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 50              | 2.245s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 50              | 5.229s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 50              | 5.608s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 50              | 4.707s             | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 100             | 561ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 100             | 566ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 100             | 738ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 100             | 765ms              | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 100             | 1.371s             | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 100             | 2.709s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 100             | 2.694s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 100             | 2.375s             | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 250             | 377ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 250             | 398ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 250             | 549ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 250             | 584ms              | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 250             | 928ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 250             | 1.177s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 250             | 1.205s             | 2.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 250             | 1.138s             | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 500             | 330ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 500             | 338ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 500             | 461ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 500             | 464ms              | 4.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 500             | 828ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 500             | 728ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 500             | 701ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 500             | 532ms              | 2.00Mb     
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 1000            | 314ms              | 12.00Mb    
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 1000            | 316ms              | 12.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 1000            | 442ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 1000            | 438ms              | 6.00Mb     
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 1000            | 769ms              | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 1000            | 552ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 1000            | 593ms              | 4.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 1000            | 419ms              | 4.00Mb     
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | No limit clause | 280ms              | 16.00Mb    
-Atlas - 3.1.1.0      | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | No limit clause | 272ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | No limit clause | 471ms              | 16.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | No limit clause | 402ms              | 20.00Mb    
-Eloquent - 8.83.27.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | No limit clause | 716ms              | 6.00Mb     
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | No limit clause | 214ms              | 18.00Mb    
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | No limit clause | 220ms              | 18.00Mb    
-LeanOrm - 2.2.4.0    | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | No limit clause | 70ms               | 10.00Mb    
+orm_vendor          | short_desc                                                              | strategy                   | chunk_size      | execution_duration | memory_used
+------------------- | ----------------------------------------------------------------------- | -------------------------- | --------------- | ------------------ | -----------
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 10              | 2.974s             | 10.00Mb    
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 10              | 2.466s             | 10.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 10              | 2.911s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 10              | 2.986s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 10              | 2.938s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 10              | 2.130s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 10              | 2.492s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 10              | 1.509s             | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 50              | 859ms              | 10.00Mb    
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 50              | 785ms              | 10.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 50              | 1.141s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 50              | 816ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 50              | 959ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 50              | 686ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 50              | 534ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 50              | 398ms              | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 100             | 501ms              | 10.00Mb    
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 100             | 529ms              | 10.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 100             | 759ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 100             | 947ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 100             | 1.236s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 100             | 742ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 100             | 418ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 100             | 252ms              | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 250             | 385ms              | 12.00Mb    
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 250             | 457ms              | 12.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 250             | 716ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 250             | 976ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 250             | 726ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 250             | 502ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 250             | 746ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 250             | 460ms              | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 500             | 719ms              | 12.00Mb    
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 500             | 667ms              | 12.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 500             | 656ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 500             | 625ms              | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 500             | 784ms              | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 500             | 517ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 500             | 904ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 500             | 274ms              | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | 1000            | 975ms              | 12.00Mb    
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | 1000            | 716ms              | 12.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | 1000            | 1.097s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | 1000            | 906ms              | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | 1000            | 1.332s             | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | 1000            | 723ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | 1000            | 465ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | 1000            | 186ms              | 4.00Mb     
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecords               | No limit clause | 542ms              | 14.00Mb    
+Atlas - 3.1.1.0     | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordSet             | No limit clause | 409ms              | 14.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | chunk                      | No limit clause | 677ms              | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | get                        | No limit clause | 611ms              | 20.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (authors, 10,000 records fetched) with no related data     | lazy                       | No limit clause | 681ms              | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoArray      | No limit clause | 335ms              | 18.00Mb    
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRecordsIntoCollection | No limit clause | 233ms              | 18.00Mb    
+LeanOrm - 2.2.4.0   | Fetching all (authors, 10,000 records fetched) with no related data     | fetchRowsIntoArray         | No limit clause | 161ms              | 8.00Mb     
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 10              | 159.785s           | 99.00Mb    
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 10              | 113.151s           | 99.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 10              | 133.404s           | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 10              | 129.637s           | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 10              | 124.555s           | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 10              | 121.903s           | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 10              | 113.820s           | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 10              | 111.574s           | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 50              | 27.485s            | 99.00Mb    
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 50              | 23.937s            | 99.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 50              | 24.871s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 50              | 23.072s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 50              | 23.129s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 50              | 20.941s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 50              | 22.524s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 50              | 20.403s            | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 100             | 12.540s            | 99.00Mb    
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 100             | 12.467s            | 99.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 100             | 13.376s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 100             | 13.384s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 100             | 13.509s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 100             | 12.321s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 100             | 11.651s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 100             | 12.665s            | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 250             | 6.761s             | 99.00Mb    
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 250             | 6.700s             | 99.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 250             | 7.525s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 250             | 7.399s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 250             | 7.462s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 250             | 6.463s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 250             | 6.090s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 250             | 4.909s             | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 500             | 4.768s             | 99.00Mb    
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 500             | 4.725s             | 99.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 500             | 5.396s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 500             | 5.337s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 500             | 5.507s             | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 500             | 4.069s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 500             | 4.080s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 500             | 2.951s             | 4.00Mb     
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | 1000            | 3.547s             | 99.00Mb    
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | 1000            | 3.554s             | 99.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | 1000            | 4.095s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | 1000            | 4.050s             | 8.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | 1000            | 4.157s             | 8.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | 1000            | 2.889s             | 8.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | 1000            | 3.029s             | 8.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | 1000            | 1.818s             | 6.00Mb     
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecords               | No limit clause | 2.269s             | 109.00Mb   
+Atlas - 3.1.1.0     | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordSet             | No limit clause | 2.338s             | 109.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | chunk                      | No limit clause | 4.122s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | get                        | No limit clause | 2.982s             | 154.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (comments, 59,700 records fetched) with no related data    | lazy                       | No limit clause | 4.130s             | 8.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoArray      | No limit clause | 1.621s             | 166.00Mb   
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRecordsIntoCollection | No limit clause | 1.678s             | 166.00Mb   
+LeanOrm - 2.2.4.0   | Fetching all (comments, 59,700 records fetched) with no related data    | fetchRowsIntoArray         | No limit clause | 517ms              | 80.00Mb    
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 10              | 62.145s            | 65.00Mb    
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 10              | 66.866s            | 65.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 10              | 67.723s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 10              | 68.947s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 10              | 68.180s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 10              | 64.289s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 10              | 66.193s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 10              | 63.256s            | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 50              | 13.976s            | 65.00Mb    
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 50              | 14.452s            | 65.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 50              | 14.863s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 50              | 14.999s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 50              | 15.042s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 50              | 15.796s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 50              | 14.550s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 50              | 12.743s            | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 100             | 8.303s             | 65.00Mb    
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 100             | 8.116s             | 65.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 100             | 8.687s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 100             | 8.918s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 100             | 8.820s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 100             | 7.695s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 100             | 7.732s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 100             | 6.733s             | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 250             | 4.265s             | 65.00Mb    
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 250             | 4.334s             | 65.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 250             | 5.368s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 250             | 4.992s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 250             | 4.961s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 250             | 3.790s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 250             | 3.991s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 250             | 3.019s             | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 500             | 3.043s             | 65.00Mb    
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 500             | 3.007s             | 65.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 500             | 3.649s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 500             | 3.718s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 500             | 3.724s             | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 500             | 2.537s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 500             | 2.539s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 500             | 1.703s             | 4.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | 1000            | 2.335s             | 65.00Mb    
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | 1000            | 2.407s             | 65.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | 1000            | 3.072s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | 1000            | 2.944s             | 8.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | 1000            | 2.992s             | 8.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | 1000            | 1.854s             | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | 1000            | 1.785s             | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | 1000            | 1.007s             | 4.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecords               | No limit clause | 1.683s             | 85.00Mb    
+Atlas - 3.1.1.0     | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordSet             | No limit clause | 1.883s             | 85.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | chunk                      | No limit clause | 2.898s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | get                        | No limit clause | 2.166s             | 112.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (posts, 49,950 records fetched) with no related data       | lazy                       | No limit clause | 2.958s             | 8.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoArray      | No limit clause | 1.113s             | 92.00Mb    
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRecordsIntoCollection | No limit clause | 1.145s             | 92.00Mb    
+LeanOrm - 2.2.4.0   | Fetching all (posts, 49,950 records fetched) with no related data       | fetchRowsIntoArray         | No limit clause | 357ms              | 68.00Mb    
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 10              | 610.554s           | 200.00Mb   
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 10              | 642.289s           | 200.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 10              | 643.203s           | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 10              | 640.787s           | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 10              | 639.209s           | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 10              | 613.137s           | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 10              | 622.033s           | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 10              | 611.656s           | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 50              | 127.838s           | 200.00Mb   
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 50              | 136.333s           | 200.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 50              | 137.944s           | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 50              | 135.768s           | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 50              | 136.561s           | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 50              | 129.483s           | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 50              | 127.678s           | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 50              | 126.626s           | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 100             | 69.501s            | 200.00Mb   
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 100             | 70.081s            | 200.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 100             | 74.593s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 100             | 74.775s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 100             | 73.144s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 100             | 69.331s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 100             | 69.604s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 100             | 65.441s            | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 250             | 30.737s            | 200.00Mb   
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 250             | 33.996s            | 200.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 250             | 38.796s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 250             | 39.821s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 250             | 35.046s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 250             | 31.139s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 250             | 28.192s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 250             | 27.537s            | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 500             | 19.731s            | 200.00Mb   
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 500             | 19.474s            | 200.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 500             | 23.726s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 500             | 22.309s            | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 500             | 27.205s            | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 500             | 17.877s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 500             | 16.800s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 500             | 13.568s            | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | 1000            | 13.504s            | 200.00Mb   
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | 1000            | 14.338s            | 200.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | 1000            | 17.290s            | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | 1000            | 16.565s            | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | 1000            | 16.889s            | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | 1000            | 10.828s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | 1000            | 10.854s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | 1000            | 7.619s             | 4.00Mb     
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecords               | No limit clause | 7.672s             | 246.00Mb   
+Atlas - 3.1.1.0     | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordSet             | No limit clause | 8.267s             | 246.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | chunk                      | No limit clause | 16.485s            | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | get                        | No limit clause | 11.286s            | 382.00Mb   
+Eloquent - 10.5.1.0 | Fetching all (posts_tags, 249,500 records fetched) with no related data | lazy                       | No limit clause | 17.023s            | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoArray      | No limit clause | 4.645s             | 336.00Mb   
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRecordsIntoCollection | No limit clause | 5.133s             | 336.00Mb   
+LeanOrm - 2.2.4.0   | Fetching all (posts_tags, 249,500 records fetched) with no related data | fetchRowsIntoArray         | No limit clause | 1.232s             | 116.00Mb   
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 10              | 29.392s            | 43.00Mb    
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 10              | 30.395s            | 43.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 10              | 30.582s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 10              | 31.630s            | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 10              | 32.812s            | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 10              | 28.591s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 10              | 31.875s            | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 10              | 26.715s            | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 50              | 8.104s             | 43.00Mb    
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 50              | 7.672s             | 43.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 50              | 8.468s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 50              | 8.456s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 50              | 8.588s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 50              | 7.077s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 50              | 6.867s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 50              | 6.205s             | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 100             | 4.921s             | 43.00Mb    
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 100             | 4.968s             | 43.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 100             | 5.752s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 100             | 5.855s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 100             | 5.854s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 100             | 4.384s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 100             | 4.330s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 100             | 3.556s             | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 250             | 3.278s             | 43.00Mb    
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 250             | 3.312s             | 43.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 250             | 4.080s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 250             | 4.121s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 250             | 4.158s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 250             | 2.706s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 250             | 2.695s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 250             | 1.737s             | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 500             | 2.735s             | 43.00Mb    
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 500             | 2.698s             | 43.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 500             | 3.435s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 500             | 4.006s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 500             | 4.049s             | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 500             | 2.397s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 500             | 2.000s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 500             | 1.019s             | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | 1000            | 2.172s             | 43.00Mb    
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | 1000            | 2.184s             | 43.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | 1000            | 2.792s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | 1000            | 2.877s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | 1000            | 3.035s             | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | 1000            | 1.566s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | 1000            | 1.653s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | 1000            | 645ms              | 4.00Mb     
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecords               | No limit clause | 1.598s             | 53.00Mb    
+Atlas - 3.1.1.0     | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordSet             | No limit clause | 1.656s             | 53.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | chunk                      | No limit clause | 2.865s             | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | get                        | No limit clause | 2.285s             | 80.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (summaries, 49,950 records fetched) with no related data   | lazy                       | No limit clause | 2.907s             | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoArray      | No limit clause | 1.044s             | 70.00Mb    
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRecordsIntoCollection | No limit clause | 1.058s             | 70.00Mb    
+LeanOrm - 2.2.4.0   | Fetching all (summaries, 49,950 records fetched) with no related data   | fetchRowsIntoArray         | No limit clause | 281ms              | 30.00Mb    
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 10              | 2.299s             | 10.00Mb    
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 10              | 2.410s             | 10.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 10              | 3.059s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 10              | 3.125s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 10              | 3.117s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 10              | 2.710s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 10              | 2.233s             | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 10              | 2.107s             | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 50              | 842ms              | 10.00Mb    
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 50              | 816ms              | 10.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 50              | 1.175s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 50              | 1.181s             | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 50              | 1.487s             | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 50              | 696ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 50              | 970ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 50              | 521ms              | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 100             | 649ms              | 10.00Mb    
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 100             | 622ms              | 10.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 100             | 953ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 100             | 936ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 100             | 932ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 100             | 525ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 100             | 540ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 100             | 301ms              | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 250             | 509ms              | 10.00Mb    
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 250             | 481ms              | 10.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 250             | 735ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 250             | 765ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 250             | 746ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 250             | 358ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 250             | 351ms              | 2.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 250             | 176ms              | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 500             | 445ms              | 12.00Mb    
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 500             | 451ms              | 12.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 500             | 683ms              | 4.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 500             | 697ms              | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 500             | 762ms              | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 500             | 302ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 500             | 319ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 500             | 131ms              | 2.00Mb     
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | 1000            | 427ms              | 12.00Mb    
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | 1000            | 416ms              | 12.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | 1000            | 610ms              | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | 1000            | 575ms              | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | 1000            | 630ms              | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | 1000            | 297ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | 1000            | 301ms              | 4.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | 1000            | 119ms              | 4.00Mb     
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecords               | No limit clause | 317ms              | 14.00Mb    
+Atlas - 3.1.1.0     | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordSet             | No limit clause | 314ms              | 14.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | chunk                      | No limit clause | 586ms              | 6.00Mb     
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | get                        | No limit clause | 562ms              | 20.00Mb    
+Eloquent - 10.5.1.0 | Fetching all (tags, 10,000 records fetched) with no related data        | lazy                       | No limit clause | 618ms              | 6.00Mb     
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoArray      | No limit clause | 238ms              | 16.00Mb    
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRecordsIntoCollection | No limit clause | 221ms              | 16.00Mb    
+LeanOrm - 2.2.4.0   | Fetching all (tags, 10,000 records fetched) with no related data        | fetchRowsIntoArray         | No limit clause | 103ms              | 8.00Mb     
